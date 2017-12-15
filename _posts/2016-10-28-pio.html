@@ -1,0 +1,22 @@
+---
+layout: post
+title: Перемикання між режимами PIO та DMA у Windows.
+category: blog
+---
+<img class="head" src="/media/hdd.png" alt="">
+<p>Стикнувся на днях з помилкою яку не бачив уже років 5+, після "синього екрану" контролер переключився в режим PIO. Так що от... <!--more-->
+Буває що при великій кількості помилок в роботі жорсткого диску Windows змінює режим роботи контролера з <b class="term">Ultra DMA</b> на <b class="term">PIO</b>, відповідно швидкість падає до <b class="term">3.3Мб/с(PIO Mode 0)</b>. Для того щоб повернутися до режиму <b class="term">Ultra DMA</b> потрібно виконати деякі маніпуляції з реєстром:
+<ol>
+<li>Відключити контроль помилок.
+В розділі <b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96A-E325-11CE-BFC1-08002BE10318}</b> у підрозділах <b>0001</b> та <b>0002</b> створити <b class="term">dword-параметр</b> <b class="path">ResetErrorCountersOnSuccess</b> та присвоїти йому значення <b>1</b>.
+У цих же розділах перевірити значення параметрів <b class="path">MasterIdDataCheckSum=dword:0, SlaveIdDataCheckSum=dword:0, MasterDeviceTimingModeAllowed=dword:ffffffff, SlaveDeviceTimingModeAllowed=dword:ffffffff</b></li>
+<li>Потрібному параметру, <b class="term">MasterDeviceTimingMode</b> чи <b class="term">SlaveDeviceTimingMode</b>, присвоїти бажане значення:
+<ul>
+<li>0x10010 - UDMA Mode 5 (ATA100)</li>
+<li>0x8010 - UDMA Mode 4 (ATA66)</li>
+<li>0x2010 - UDMA Mode 2 (ATA33)</li>
+<li>0x0410 - Multi-Word DMA Mode 2</li></ul></li>
+<li>Перезавантажитися.</li>
+</ol>
+<p>Також можна в Диспетчері пристроїв видалити IDE-контролер і перезавантажитися, але бувало не піднімалася система після такого.</p>
+

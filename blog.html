@@ -1,0 +1,36 @@
+---
+layout: default
+title: Блог-архів навколокомп'ютерних штук
+
+---
+<div class="container">  
+  <div class="post-list">
+    {% for post in site.posts %}
+      <div class="post-date">            
+<b class="term">{% assign m = post.date | date: "%-m" %}
+{{ post.date | date: "%-d" }}
+{% case m %}
+  {% when '1' %}Січня
+  {% when '2' %}Лютого
+  {% when '3' %}Березня
+  {% when '4' %}Квітня
+  {% when '5' %}Травня
+  {% when '6' %}Червня
+  {% when '7' %}Липня
+  {% when '8' %}Серпня
+  {% when '9' %}Вересня
+  {% when '10' %}Жовтня
+  {% when '11' %}Листопада
+  {% when '12' %}Грудня
+{% endcase %}
+{{ post.date | date: "%Y" }}</b>
+      </div>
+      <div>
+        <h1 class="left"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        {{ post.excerpt }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+

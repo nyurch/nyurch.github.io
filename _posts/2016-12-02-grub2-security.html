@@ -1,0 +1,25 @@
+---
+layout: post
+title: Grub2 та безпека.
+category: blog
+---
+<img class="head" src="/media/grub.png"  alt="">
+<p>Давно відомо що опції відомого завантажувача <b class="term">grub2</b> можна змінювати в самому процесі завантаження. Це може як дуже допомагати в цілому, так і нести певну небезпеку для unix-подібних операційних систем зокрема. Тому досить розумним виглядає вимагати аутентифікації користувача який намагається вносити зміни в конфігурацію <b class="term">grub2</b> в процесі завантаження.<!--more-->
+Для цього потрібно виконати кілька елементарних рухів.</p>
+<ol>
+<li>командою <b class="term">grub-mkpasswd-pbkdf2</b> генеруємо пароль який використовуватиметься для зміни конфігурації <b class="term">grub2</b> в процесі завантаження;</li>
+<li>створюємо файл <b class="path">/etc/grub.d/01_passwd</b> наступного змісту
+<pre><code>#!/bin/bash
+set -e
+cat << EOF
+set superusers="root"
+password_pbkdf2 root наш_пароль
+EOF
+</code></pre>
+</li>
+<li>дозволяємо виконання файлу як програми та змінюємо права доступу
+<pre><code>sudo chmod u+x,go-rw /etc/grub.d/01_passwd</code></pre></li>
+<li>оновлюємо <b class="term">grub2</b>
+<pre><code>sudo update-grub</code></pre></li>
+</ol>
+

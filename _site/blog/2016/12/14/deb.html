@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Створення інсталяторів для Ubuntu.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Створення інсталяторів для Ubuntu.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/deb.png"  alt="">
+<p>Виникла необхідність витягти одну штуку з дистрибутива Voyager 12.04 так як здалося що міг би використати це у своїй збірці Ubuntu(помилково як виявилося здалося та все ж). В результаті дослідив деякі варіанти отримання deb-пакету з різних вихідних джерел.<!--more--></p>
+<ol>
+<li>Збираємо deb з вихідних кодів:
+<ul><li>cпочатку встановлюємо бібліотеки та матеріали необхідні для роботи:
+<pre><code>sudo apt-get install build-essential checkinstall linux-headers-$(uname -r)</code></pre>
+</li>
+<li>розпаковуємо архів з вихідними кодами і збираємо пакет:
+<pre><code>cd /шлях/до/розпакованого
+./configure
+sudo make
+sudo checkinstall</code></pre>
+</li></ul>
+</li>
+<li>Отримуємо deb конвертацією інших бінарних пакетів програмою alien. Наприклад з rpm-пакету:
+<pre><code>alien --to-deb package.rpm</code></pre>
+</li>
+<li>Створюємо deb з файлів уже встановлених в системі програмою dpkg-repack:
+<pre><code>dpkg-repack firefox</code></pre>
+</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

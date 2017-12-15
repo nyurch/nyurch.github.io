@@ -1,0 +1,15 @@
+---
+layout: post
+title: Налаштування Cisco VPN Client у Windows 10.
+category: blog
+---
+<img class="head" src="/media/vpn.png"  alt="">
+<p>Частково актуально для вирішення проблем з іншими vpn клієнтами у Windows 8+.<!--more--> З виходом <b class="term">Windows 8</b> почалися певні косяки з роботою <b class="term">Shrew Soft VPN Client</b>(не обновлявся з 2013 року) <b class="term">Cisco VPN Client</b>(не обновлявся ще довше). Косяки вирішуються якось так:</p>
+<ol>
+<li>Закачуємо і ставимо 2 костиля із сайту Cisco - <b class="term"><a href="ftp://ftpsupport.citrix.com/winfix.exe" target=_blank>WinFix</a></b>, <b class="term"><a href="ftp://files.citrix.com/dneupdate.msi" target=_blank>DNE Update</a></b> або <b class="term"><a href="ftp://files.citrix.com/dneupdate64.msi" target=_blank>DNE Update x64</a></b>, перезавантажуємося</li>
+<li>Ставимо останню версію <b class="term"><a href="http://help.mysonicwall.com/Applications/vpnclient/" target=_blank>Sonicwall VPN</a></b>, чесно - хз для чого :)</li>
+<li><b class="term"><a href="http://helpdesk.ugent.be/vpn/en/akkoord.php" target=_blank>Cisco VPN Client</a></b> ставимо запускаючи msi, а не exe.</li>
+<li>Йдем у реєстр і приводимо у гілці <b class="path">HKLM\SYSTEM\CurrentControlSet\Services\CVirtA</b> ключі <b class="term">@oem8.ifn,%CVirtA_Desc%;Cisco Systems VPN Adapter</b> чи <b class="term">@oem8.ifn,%CVirtA_Desc%;Cisco Systems VPN Adapter for 64-bit Windows</b> до виду <b class="term">Cisco Systems VPN Adapter</b> чи <b class="term">Cisco Systems VPN Adapter for 64-bit Windows</b>
+</li>
+</ol>
+<p>Перший пунтк також допомагаю коли починає постійно дисконектитися <b class="term">Shrew Soft VPN Client</b>.</p>

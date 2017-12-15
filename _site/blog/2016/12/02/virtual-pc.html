@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Деякі моменти з віртуалізацією.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Деякі моменти з віртуалізацією.</h1>
+  <div class="blog-post spacing">
+    <a rel="colorbox" href="/media/guest-os.jpg" >
+     <img class="head" src="/media/guest-os.jpg"  alt="">
+</a>
+<p>Костилі для деяких диких глюків та просто деякі моменти при роботі з вітруальними ОС.<!--more--></p>
+<h4>Лаги</h4>
+<p>Якщо використовую віртуальну <b class="term">Ubuntu</b> запущену у <b class="term">VMWare Workstation</b> під <b class="term">Ubuntu</b> то отримую з часом дикі тормоза. Лікується, як виявляється, додаванням рядка <b class="term">clocksource=acpi_pm</b> у файл <b class="path">назва_віртуалки.vmx</b></p>
+<h4>VirtualBox Guest Additions в Ubuntu</h4>
+<p>Для початку оновлюємо ядро, доставляємо необхідні пакети і переконфігуровуємся:</p>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential module-assistant
+sudo m-a prepare</code></pre>
+<p>Тепер можна встановлювати <b class="term">Guest Additions</b></p>
+<h4>Встановлення VirtualBox Extension Pack в терміналі</h4><br>
+<pre><code>VBoxManage extpack install <ім'я пакету> </code></pre>
+<h4>VMWare Workstation BIOS</h4>
+<p>Буває нереально встигнути заактивити вікно й натиснути необхідну кнопку. Лікується додаванням рядка <b class="term">bios.bootdelay = Т</b> у файл <b class="path">назва_віртуалки.vmx</b>. Де <b>T</b> - бажаний час затримки у мілісекундах.</p>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

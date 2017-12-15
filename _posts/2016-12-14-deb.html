@@ -1,0 +1,26 @@
+---
+layout: post
+title: Створення інсталяторів для Ubuntu.
+category: blog
+---
+<img class="head" src="/media/deb.png"  alt="">
+<p>Виникла необхідність витягти одну штуку з дистрибутива Voyager 12.04 так як здалося що міг би використати це у своїй збірці Ubuntu(помилково як виявилося здалося та все ж). В результаті дослідив деякі варіанти отримання deb-пакету з різних вихідних джерел.<!--more--></p>
+<ol>
+<li>Збираємо deb з вихідних кодів:
+<ul><li>cпочатку встановлюємо бібліотеки та матеріали необхідні для роботи:
+<pre><code>sudo apt-get install build-essential checkinstall linux-headers-$(uname -r)</code></pre>
+</li>
+<li>розпаковуємо архів з вихідними кодами і збираємо пакет:
+<pre><code>cd /шлях/до/розпакованого
+./configure
+sudo make
+sudo checkinstall</code></pre>
+</li></ul>
+</li>
+<li>Отримуємо deb конвертацією інших бінарних пакетів програмою alien. Наприклад з rpm-пакету:
+<pre><code>alien --to-deb package.rpm</code></pre>
+</li>
+<li>Створюємо deb з файлів уже встановлених в системі програмою dpkg-repack:
+<pre><code>dpkg-repack firefox</code></pre>
+</li>
+</ol>

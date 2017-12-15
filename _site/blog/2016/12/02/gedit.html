@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Налаштування кирилиці у gedit-2 та gedit-3.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Налаштування кирилиці у gedit-2 та gedit-3.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/gedit-logo.png"  alt="">
+<p>Костилі для кирилиці у <b class="term">gedit-2</b> та <b class="term">gedit-3</b>. Швидше за все примінимо й до різних форків при виникненні аналогічних проблем.<!--more--> Причина некоректного відображення кирилиці в тому, що файл має кодування <b class="term">windows-1251</b> яке, за замовчуванням, не включене до списку тих які редактор намагається застосувати до документу котрий відкривається. Виправляється це більш ніж просто.</p>
+<ol>
+<li><b class="term">gedit-2</b>: запускаємо <b class="term">gconf-editor</b>(у випадку відсутності встановлюємо пакет <b class="term">gconf-tools</b>), далі переходимо до <b class="path">/apps/gedit-2/preferences/encodings</b> й редагуємо ключ <b class="path">auto_detected</b> вставляючи <b class="term">WINDOWS-1251</b> після <b class="term">CURRENT</b>, також додаємо <b class="term">WINDOWS-1251</b> до ключа <b class="path">shown_in_menu</b>.</li>
+<li><b class="term">gedit-3</b>: запускаємо <b class="term">dconf-editor</b>(у випадку відсутності встановлюємо), переходимо до <b class="path">/org/gnome/gedit/preferences/encodings</b> й аналогічно редагуємо.</li>
+</ol>
+
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

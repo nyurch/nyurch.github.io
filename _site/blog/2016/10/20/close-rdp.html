@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Боротьба з незакритими RDP-сеансами.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Боротьба з незакритими RDP-сеансами.</h1>
+  <div class="blog-post spacing">
+    		<img class="head" src="/media/Remote-Desktop-Connection-Manager.png" alt="">
+		<p>Як правило людці просто закривають вікно rdp-сеансу, замість того щоб розлогінитися. Сам такий. В результаті при	неналаштованих групових політиках 
+		рано чи пізно хтось не зможе зайти поки не будуть примусово відключені інші сеанси. Автоматично вирішити	проблему можна налаштувавши GPO, або запускаючи 
+		відключення за розкладом.<!--more--></p><p>Перший варіант очевидно більш пристойний, але не прийнятний для несерверних ОС бо там навіть при встановленому adminpack 
+		немає консолі <b class="term">Terminal Services Configuration</b>.<br>
+		Отже варіант GPO та варіант відключення за розкладом:<br>
+		1) Відкриваємо консоль <b class="term">Terminal Services Configuration</b>, переходимо в розділ <b class="path">Connections</b> і 
+		дивимося властивості <b class="path">RDP-Tcp</b>, конкретно закладку <b class="path">Sessions</b> і виставляємо бажаний час для параметрів <b class="path">End a disconnected session</b>, <b class="path">Active session limit</b> та 
+		<b class="path">Idle session limit</b>.	Налаштування не будуть застосовані до активних на даний момент сесій.<br>
+		2) Створюємо cmd-файл з наступним змістом:</p>
+		<pre><code>FOR /L %%i IN (0,1,9) DO echo Y | rwinsta %%i /Server:назва_сервера</code></pre>
+		<p>Тут використано те що id кожній сесії присвоюються за порядком від 0 і далі, тому такий варіант просто відключає сесії з id від 0 до 9. Можна ускладнити
+		визначаючи id лише для певних	юзерів записаних у текстовий файл, а потім відключаючи лише їх. Далі	додаємо файл в планувальник завдань і виконуємо 
+		наприклад кожного дня після закінчення робочого часу.</p>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

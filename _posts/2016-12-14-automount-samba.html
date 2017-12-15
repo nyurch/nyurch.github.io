@@ -1,0 +1,24 @@
+---
+layout: post
+title: Автоматичне монтування мережевих ресурсів в Linux(Ubuntu).
+category: blog
+---
+<img class="head" src="/media/samba.jpg"  alt="">
+<p>Трохи про автоматичне монтування мережевих ресурсів в Linux(Ubuntu).<!--more--> Спочатку ставимо необхідні пакети:</p>
+<pre><code>sudo apt-get install samba smbfs</code></pre>
+
+<p>Створюємо директорії в які буде відбуватися підключення:</p>
+<pre><code>mkdir /media/share</code></pre>
+
+<p>У файлі /etc/fstab прописуємо що і куди мотуємо:</p>
+<pre><code>//host/share /media/share cifs  iocharset=utf8,codepage=cp866,uid=500,gid=500,rw,credentials=/root/pass.txt 0 0</code></pre>
+
+<p>Створюємо файл /root/pass.txt з даними для авторизації:</p>
+<pre><code>username=user
+password=password</code></pre>
+
+<p>Змінюємо права доступу до нього:</p>
+<pre><code>sudo chmod 600 /root/pass.txt</code></pre>
+
+<p>Перезавантажуємося, або виконуємо</p>
+<pre><code>sudo mount -a</code></pre>

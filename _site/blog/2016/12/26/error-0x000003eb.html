@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error 0x000003eb.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Error 0x000003eb.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/0x000003eb.png"  alt="">
+<p>Помилка при установці драйверів принтера, виявляється досить відома.<!--more--> Існує, якщо вірити інтернетам, мінімум 2 недебільних(типу перезавантажитися, запустити від імені адміністратора чи перезапустити прінтспулер) варіанти лікування. Перший перевірений на практиці, інший поки чисто теоретичний з т.з. особистого підтвердження.</p>
+<ol>
+<li>Запускаємо <b class="term">printmanagement.msc</b>, прибиваємо всі драйвера, перезавантажуємося</li>
+<li>Вимикаємо сервіс <b class="term">print spooler</b>, переіменовуємо директорію <b class="path">C:\Windows\System32\spool\drivers\w32x86\3</b>, з реєстру видаляємо <b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Environments\Windows NT x86\Drivers\Version-3</b> чи <b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Environments\Windows x64\Drivers\Version-3</b>, в залежності від розрядності, запускаємо <b class="term">print spooler</b>.</li>
+</ol>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Костилі для Mozilla Firefox.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Костилі для Mozilla Firefox.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/firefox-logo.png" alt="">
+<p>Набір костилів для <b class="path">Mozilla Firefox</b>.<!--more--></p>
+<h4>Підключення "несумісних" додатків</h4>
+<p>Остання версія <b class="path">Firefox ESR</b> взяла і без оголошення війни відключила додаток <b class="path">Multifox</b>, заявивши що він з нею несумісний. Виявилося що древні варіанти вирішення проблеми через <b class="path">about:config</b> уже не працюють. Для того щоб подружити "несумісні" додатки з браузером тепер треба поставити ще один додаток - <b class="path">Nightly Tester Tools</b> і тицьнути там галочку у <b class="path">Force Addon Compatibility</b></p>
+<a rel="colorbox" href="/media/firefox.jpg" >
+     <img class="blog" src="/media/firefox.jpg"  alt="">
+</a> 
+<h4>Асоціації невідомих Firefox-у протоколів з невідомими Firefox-у програмами</h4>
+<p>Постав перед необхідністю запускати отримані поштою, яка відкривається у <b class="term">Firefox</b>, посилання на бази в <b class="term">IBM Notes</b>. При стандартних параметрах <b class="term">Firefox</b> кричить що не знає протоколу для відкриття лінків типу <b class="path">notes://сервер/база</b>.
+Щоб вказати програму яка буде Firefox-ом асоціюватися з протоколом notes треба в <b class="path">about:config</b> створити логічний параметр з назвою <b class="path">network.protocol-handler.expose.notes</b> і значенням <b class="path">false</b>.
+Тепер при першому кліку по посиланню на базу з'явиться вікно із запитом якою програмою відкривати посилання даного типу.</p>
+<h4>Баги Adobe Flash Player</h4>
+<p> Як говорить теорія - після включення нового <b class="term">protected mode</b> у <b class="term">Adobe Flash Player 11.3.300.257</b> він може приводити до збоїв <b class="term">Firefox 4+</b> в ОС <b class="term">Windows Vista/7</b>.
+На практиці  у мене ці збої проявлялися у диких зависаннях браузера та системи при відкиті будь-якого сайту на яких є флеш-відео і т.п.
+Побороти цю "оптимізацію" можна  додавши рядок</p>
+<pre><code>ProtectedMode=0</code></pre>
+<p>у файл <b class="path">MMS.CFG(%windir%\system32\macromed\flash</b> - для 32-розрядних систем і <b class="path">%windir%\syswow64\macromed\flash</b> - для 64-розрядних систем).</p>
+<h4>Установка ESR версії в Linux</h4>
+<p>На даний момент репозиторіїв з <b class="term">Firefox ESR</b>, як мінімум для <b class="term">Ubuntu</b>, немає. Тому ставимо так:
+<ol>
+<li>беремо архів з програмою <a href="https://www.mozilla.org/en-US/firefox/organizations/all/#en-US">тут</a>;</li>
+<li>розпаковуємо в <b class="path">/opt</b>, чи куди треба;</li>
+<li>бекапимо лінк на просту версію, якщо треба, та робимо лінк на нову
+<pre><code>sudo mv /usr/bin/firefox /usr/bin/firefox-old
+sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre>
+</li>
+</ol></p>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

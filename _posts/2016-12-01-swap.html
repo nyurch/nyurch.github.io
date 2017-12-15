@@ -1,0 +1,18 @@
+---
+layout: post
+title: Керування swap-областями у Linux.
+category: blog
+---
+<img class="head" src="/media/swap-partitions.png" alt="">
+<p>Всього пара каманд, все просто і очевидно...<!--more--></p>
+<ol>
+<li>створюємо файл підкачки, розмір 500МБ
+<pre><code>sudo dd if=/dev/zero of=/swapfile bs=1M count=500</code></pre></li>
+<li>вказуємо системі що це таки файл підкачки
+<pre><code>sudo mkswap /swapfile</code></pre></li>
+<li>підключаємо чи відключаємо
+<pre><code>sudo swapon /swapfile
+sudo swapoff /swapfile</code></pre></li>
+<li>прописуємо в /etc/fstab для автоматичного використання
+<pre><code>/swapfile none swap sw 0 0</code></pre></li>
+</ol>

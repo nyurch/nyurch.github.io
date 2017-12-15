@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зміна місця розміщення браузерного кешу у Windows.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Зміна місця розміщення браузерного кешу у Windows.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/browsers.gif"  alt="">
+<p>Варіанти переносу браузерного кешу в нестандартні директорії для розвантаження <b class="term">ssd</b> чи просто для зменшення фрагментації системного диску.<!--more--></p>
+<h4>Internet Explorer</h4>
+<p>Мабуть також дійсте і для <b class="term">Edge</b>. Потрібно змінити значення 2 параметрів у реєстрі:</p>
+<pre><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Cache
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\Cache</code></pre>
+<p>Як досить очевидно витікає з розділу реєстру - налаштування персональне для кожного користувача.
+</p>
+<h4>Mozilla Firefox</h4>
+<p>В <b class="term">about:config</b> створити рядковій параметр <b class="path">browser.cache.disk.parent_directory</b> зі шляхом до кешу. Наприклад <b class="path">c:\\Temp\\Cache</b>.
+Перевірити поточний стан кешу можна на сторінці <b class="term">about:cache</b>.
+</p>
+<h4>Браузери на базі Chromium(Google Chrome, Opera 15+, Vivaldi, etc)</h4>
+<p>Розміщення кешу задається явним указанням параметру ярлика запуску <b class="term">--disk-cache-dir="шлях до кешу"</b>.</p>
+
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

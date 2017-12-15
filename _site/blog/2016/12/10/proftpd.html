@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proFTPd. Встановлення та налаштування ftp-сервера.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>proFTPd. Встановлення та налаштування ftp-сервера.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/proftpd.png"  alt="">
+<p><b class="term">proFTPd</b> потужний і в той же час досить простий в налаштуванні <b>ftp</b>-сервер для <b>unix</b>-систем. Крок за кроком розглянемо його встановлення та початкове налаштування в операційній системі <b>Ubuntu</b>.<!--more--></p>
+<p>При збиранні образ котрий збирається повинен за розрядністю співпадати з системою на якій проводиться збирання. Отже за порядком:
+</p>
+<ol>
+<li>Встановлюємо сам сервер:
+<pre><code>sudo apt-get install proftpd</code></pre>
+</li>
+<li>Додаємо у файл <b class="path">/etc/shells</b> запис <b class="path">/bin/false</b>
+</li>
+<li>Створюємо домашню теку та теки для завантаження та вивантаження файлів та корегуємо права доступу до них:
+<pre><code>sudo mkdir -p /home/ftp/download /home/ftp/upload
+sudo chmod 755 /home/ftp
+sudo chmod 755 /home/ftp/download
+sudo chmod 777 /home/ftp/upload</code></pre></li>
+<li>Створюємо нового користувача  з іменем <b>ftp_user</b> та домашньою текою <b class="path">/home/ftp</b>. Для більшої безпеки вкажемо що даний користувач не матиме жодної командної оболонки, для цього використаємо значення додане до файлу <b class="path">/etc/shells</b> в пункті 2 та задаємо пароль для користувача <b>ftp_user</b>:
+<pre><code>sudo useradd ftp_user -p your_password -d /home/ftp -s /bin/false
+sudo passwd ftp_user</code></pre>
+</li>
+<li>Відкриваємо в текстовому редакторі файл конфігурації самого сервера:
+<pre><code>sudo nano /etc/proftpd/proftpd.conf</code></pre>
+<p>Надалі поле для творчості досить широке. Розглянемо у найпростішому вигляді два можливих варіанти - анонімний доступ та доступ з авторизацією через введення пароля.</p>
+<ul><li>Варіант анонімного доступу:
+<xmp>ServerName          "proFTPd Server"
+ServerType          standalone
+DefaultServer       on
+Port                21
+Umask               022	022
+MaxInstances        30
+TimeoutLogin        120
+TimeoutIdle         600
+TimeoutNoTransfer   900
+TimeoutStalled      3600
+User                ftp
+Group               nogroup
+UseReverseDNS       off
+TransferLog         /var/log/proftpd/xferlog.legacy
+LogFormat           default "%h %l %u %t \"%r\" %s %b"
+LogFormat           auth    "%v [%P] %h %t \"%r\" %s"
+LogFormat           write   "%h %l %u %t \"%r\" %s %b"
+
+ServerIdent on "You're at proFTPd server"
+
+            <Limit LOGIN>
+                Order allow,deny
+                Allow from all
+                Deny from all
+            </Limit>
+
+            <Global>
+                AllowOverwrite              yes
+                IdentLookups                off
+                ExtendedLog                 /var/log/proftpd/access.log WRITE,READ write
+                ExtendedLog                 /var/log/proftpd/auth.log AUTH auth
+            </Global>
+
+            <Anonymous /home/ftp>
+                User                        ftp
+                Group                       nogroup
+                UserAlias                   anonymous ftp
+                RequireValidShell           no
+                MaxClients                  5
+
+                <Limit CWD DIRS READ LIST>
+                    AllowAll
+                </Limit>
+
+                <Limit WRITE>
+                    DenyAll
+                </Limit>
+
+                <Directory /home/ftp/upload/*>
+                    <Limit READ RETR GET WRITE STOR CWD MKD RMD DELE>
+                        AllowAll
+                    </Limit>
+                    <Limit READ>
+                        DenyAll
+                    </Limit>
+                </Directory>
+
+                <Directory /home/ftp/download/*>
+                    <Limit READ CWD RETR CWD>
+                        AllowAll
+                    </Limit>
+                    <Limit WRITE>
+                        DenyAll
+                    </Limit>
+                </Directory>
+
+            </Anonymous></xmp></li>
+<li>Варіант авторизованого доступу:
+<xmp>ServerName          "proFTPd Server"
+ServerType          standalone
+DefaultServer       on
+Port                21
+Umask               022	022
+MaxInstances        30
+TimeoutLogin        120
+TimeoutIdle         600
+TimeoutNoTransfer   900
+TimeoutStalled      3600
+User		    nobody
+Group               nogroup
+#UseReverseDNS                   off
+TransferLog         /var/log/proftpd/xferlog.legacy
+LogFormat           default "%h %l %u %t \"%r\" %s %b"
+LogFormat           auth    "%v [%P] %h %t \"%r\" %s"
+LogFormat           write   "%h %l %u %t \"%r\" %s %b"
+
+AllowOverwrite		on
+AuthAliasOnly		on
+MaxLoginAttempts	5
+DefaultRoot		~
+ServerIdent on "You're at proFTPd server"
+AllowStoreRestart	on
+PersistentPasswd        off
+MaxClients		8
+MaxClientsPerHost	8
+MaxClientsPerUser	8
+MaxHostsPerUser		8
+UseFtpUsers		off
+ExtendedLog		/var/log/ftp.log
+RequireValidShell	off
+RootLogin		off
+ShowSymlinks            off
+DeferWelcome            on
+MultilineRFC2228	on
+DisplayLogin		welcome.msg
+DisplayChdir		.message
+ListOptions		"-l"
+
+
+UserAlias ftp ftp_user
+
+<Limit LOGIN>
+AllowUser ftp_user
+DenyALL
+</Limit>
+
+<Directory /home/ftp>
+Umask 022 022
+AllowOverwrite off
+    <Limit MKD STOR DELE XMKD RNRF RNTO RMD XRMD>
+    DenyAll
+    </Limit>
+</Directory>
+
+<Directory /home/ftp/download/*>
+Umask 022 022
+AllowOverwrite off
+    <Limit MKD STOR DELE XMKD RNEF RNTO RMD XRMD>
+    DenyAll
+    </Limit>
+</Directory>
+
+<Directory /home/ftp/upload/*>
+Umask 022 022
+AllowOverwrite on
+    <Limit READ RMD>
+          DenyAll
+        </Limit>
+
+        <Limit STOR CWD MKD DELE>
+          AllowAll
+        </Limit>
+</Directory></xmp></li></ul>
+</li>
+</ol>
+<p>Перевірити правильність файлу конфігурації після внесення до нього змін можна скориставшись командою</p>
+<pre><code>sudo proftpd -td5</code></pre>
+<p>Після цього необхідно перезапустити сервер скориставшись командою</p>
+<pre><code>sudo /etc/init.d/proftpd restart</code></pre>
+<p>Якщо виникає необхідність змонтувати в директорію доступу інші теки, потрібно скористатися командою</p>
+<pre><code>sudo mount --bind /яку/теку/змонтувати /home/download/куди/змонтувати</code></pre>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

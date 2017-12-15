@@ -1,0 +1,12 @@
+---
+layout: post
+title: Налаштування кирилиці у gedit-2 та gedit-3.
+category: blog
+---
+<img class="head" src="/media/gedit-logo.png"  alt="">
+<p>Костилі для кирилиці у <b class="term">gedit-2</b> та <b class="term">gedit-3</b>. Швидше за все примінимо й до різних форків при виникненні аналогічних проблем.<!--more--> Причина некоректного відображення кирилиці в тому, що файл має кодування <b class="term">windows-1251</b> яке, за замовчуванням, не включене до списку тих які редактор намагається застосувати до документу котрий відкривається. Виправляється це більш ніж просто.</p>
+<ol>
+<li><b class="term">gedit-2</b>: запускаємо <b class="term">gconf-editor</b>(у випадку відсутності встановлюємо пакет <b class="term">gconf-tools</b>), далі переходимо до <b class="path">/apps/gedit-2/preferences/encodings</b> й редагуємо ключ <b class="path">auto_detected</b> вставляючи <b class="term">WINDOWS-1251</b> після <b class="term">CURRENT</b>, також додаємо <b class="term">WINDOWS-1251</b> до ключа <b class="path">shown_in_menu</b>.</li>
+<li><b class="term">gedit-3</b>: запускаємо <b class="term">dconf-editor</b>(у випадку відсутності встановлюємо), переходимо до <b class="path">/org/gnome/gedit/preferences/encodings</b> й аналогічно редагуємо.</li>
+</ol>
+
