@@ -31,6 +31,21 @@ category: blog
 		</ol>
 		<p>Після перезавантаження продовжуємо встановлення системи.<br>Теоретично повинно працювати і на живій системі при виконанні пунктів <b>2-4</b>. Правда я після цього отримав зациклений перезапуск в режимі аудиту, можливо тому що система була вже не чиста.</p>
 		<h4>Your user profile was not loaded correctly! You have been logged on with a temporary profile.</h4>
-		<p>У <b class="term">Win Vista+</b>якщо перейменувати/перенести профіль доменного користувача(локального теоретично також) то після перезавантеження він не створиться з нуля, як у <b class="term">Win XP</b>, а завантажиться тимчасовий профіль. Ідіотизм рішення очевидний. Лікується видаленням бекапу гілки реєстру <b class="path">HKEY_LOCAL_MACHINE\ SOFTWARE\ Microsoft\ Windows NT\ CurrentVersion\ ProfileList\ S-1-5-...bak</b> у якій параметр <b class="term">ProfileImagePath</b> вказує на директорію де знаходився видаоений/переіменований профіль.</p>
-
+		<p>У <b class="term">Win Vista+</b> якщо перейменувати/перенести профіль доменного користувача(локального теоретично також) то після перезавантеження він не створиться з нуля, як у <b class="term">Win XP</b>, а завантажиться тимчасовий профіль. Ідіотизм рішення очевидний. Лікується видаленням бекапу гілки реєстру <b class="path">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\S-1-5-...bak</b> у якій параметр <b class="term">ProfileImagePath</b> вказує на директорію де знаходився видалений/переіменований профіль.</p>
+		<h4>Відновлення завантажувача Windows 10.</h4>
+		<ol>
+	    <li>Завантажуємося з установочного диску Windows 10;</li>
+		<li>Доходимо до етапу з кнопкою <b class="term">Install Now</b> та натискаємо <b class="term">Repair your computer</b>;
+<a rel="colorbox" href="/media/repair-10.jpg" >
+     <img class="blog" src="/media/repair-10.jpg"  alt="">
+</a><br></li>
+		<li>Далі йдемо за пунктами <b class="term">Troubleshoot/Advanced options/Command Prompt</b>;
+<a rel="colorbox" href="/media/repair-10-1.jpg" >
+     <img class="blog" src="/media/repair-10-1.jpg"  alt="">
+</a> </li>
+		<li>виконуємо 
+		<ul><li>впевнюємося що вимкнена служба <b class="term">WMPNetworkSvc</b>
+		<pre><code>Bootrec /fixMbr</code></pre>
+		<pre><code>Bootrec /fixBoot</code></pre></li></ul></li>
+		</ol>
 
