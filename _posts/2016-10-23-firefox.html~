@@ -30,5 +30,3 @@ category: blog
 sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre>
 </li>
 </ol></p>
-<h4>Firefox та html5 в Linux</h4>
-<p>На даний момент чомусь не працює <b class="term">html5-відео</b> наприклад на <b class="term">yuotube</b>. Лікується досить просто, треба створити новий <b class="term">boolean</b> ключ <b class="term">media.mediasource.ignore_codecs</b> і задати йому значення <b class="term">true</b>. Також при необхідності задати значення <b class="term">true</b> всім ключам що містять <b class="term">mediasource</b>.</p>

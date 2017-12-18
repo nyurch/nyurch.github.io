@@ -1,0 +1,9 @@
+---
+layout: post
+title: Firefox та html5 в Linux.
+category: blog
+---
+<img class="head" src="/media/firefox-logo.png" alt="">
+<p>Набір костилів для <b class="path">Mozilla Firefox</b>.<!--more--></p>
+<h4>Firefox та html5 в Linux</h4>
+<p>На даний момент чомусь не працює <b class="term">html5-відео</b> наприклад на <b class="term">yuotube</b>. Лікується досить просто, треба створити новий <b class="term">boolean</b> ключ <b class="term">media.mediasource.ignore_codecs</b> і задати йому значення <b class="term">true</b>. Також при необхідності задати значення <b class="term">true</b> всім ключам що містять <b class="term">mediasource</b>.</p>
