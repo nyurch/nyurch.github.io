@@ -30,4 +30,7 @@ category: blog
 		<pre><code>%windir%\system32\sysprep\sysprep.exe /oobe /reboot /unattend:d:\relocate.xml</code></pre></li></ul></li>
 		</ol>
 		<p>Після перезавантаження продовжуємо встановлення системи.<br>Теоретично повинно працювати і на живій системі при виконанні пунктів <b>2-4</b>. Правда я після цього отримав зациклений перезапуск в режимі аудиту, можливо тому що система була вже не чиста.</p>
+		<h4>Your user profile was not loaded correctly! You have been logged on with a temporary profile.</h4>
+		<p>У <b class="term">Win Vista+</b>якщо перейменувати/перенести профіль доменного користувача(локального теоретично також) то після перезавантеження він не створиться з нуля, як у <b class="term">Win XP</b>, а завантажиться тимчасовий профіль. Ідіотизм рішення очевидний. Лікується видаленням бекапу гілки реєстру <b class="path">HKEY_LOCAL_MACHINE\ SOFTWARE\ Microsoft\ Windows NT\ CurrentVersion\ ProfileList\ S-1-5-...bak</b> у якій параметр <b class="term">ProfileImagePath</b> вказує на директорію де знаходився видаоений/переіменований профіль.</p>
+
 
