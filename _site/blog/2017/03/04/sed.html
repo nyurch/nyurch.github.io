@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приклади використання Stream EDitor.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Приклади використання Stream EDitor.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/sed-stream-editor.png" alt="">
+<p>Список деяких команд для sed:
+Знайти в директорії та у всіх вкладених директоріях файли txt й замінити в них один текст на інший:</p>
+<pre><code>find -name '*.txt' -exec sed -i -e 's/що замінити/на що замінити/i' "{}" \;</code></pre>
+<p>У файлі test вставити слово ТЕКСТ на початку кожного рядка:</p>
+<pre><code>sed 's/^/текст/' test</code></pre><!--more--> 
+<p>У файлі test з'єднати рядки попарно(як варіант видалення порожніх рядків). Класичний приклад, зараз чомусь ще й видаляє перший символ кожного рядка:</p>
+<pre><code>sed '$!N;s/\n/ /' test</code></pre>
+<p>У файлі test витерти порожні рядки. Класичний приклад, без \s* перед $, що гуляє всіма інтернетами, зараз чомусь не спрацьовує.</p>
+<pre><code>sed '/^\s*$/d' test</code></pre>
+<p>У файлі test в кінці рядка дописати КІНЕЦЬ РЯДКА. Класичний приклад, без \s* перед $, що гуляє всіма інтернетами, зараз чомусь не спрацьовує.</a></p>
+<pre><code>sed 's/\s*$/ кінець рядка/g' test</code></pre>
+<p>У файлі test через кожні 2 символи написати ВСТАВКА:</p>
+<pre><code> sed 's/\(..\)/\1ВСТАВКА/g' test</code></pre>
+<p>У файлі test замінити 2+ пробілів одним, \( \)\+ можна заміняти на  пробілпробіл*:</p>
+<pre><code>sed 's/\( \)\+/ /g' test
+sed 's/  */ /g' test</code></pre>
+<p>У файлі test вставити пробіл після кожного символу:</p>
+<pre><code>sed 's/\(\)\+/ /g' test</code></pre>
+<p>У файлі test витерти пробіли в кінці рядків:</p>
+<pre><code>sed 's/ *$//' test</code></pre>
+<p>У файлі test витерти пробіл перед крапками чи витерти всі пробіли перед крапками:</p>
+<pre><code>sed 's/ \./\./g' test
+sed 's/\( \)\+\./\./g' test</code></pre>
+<p>або \( \)\+ можна заміняти на  пробіл* :</p>
+<pre><code>sed 's/ *\./\./g' test</code></pre>
+<p>У файлі test витерти пробіл перед комами чи витерти всі пробіли перед комами:</p>
+<pre><code>sed 's/ ,/,/g' test
+sed 's/\( \)\+,/,/g' test
+sed 's/ *,/,/g' test</code></pre>
+<p>У файлі test додати в кінці рядків крапку якщо її немає.</p>
+<pre><code>sed 's/[^\.]$/./' test</code></pre>
+<p>Хитрий набір команд бере файл file_list що є файлом який містить список файлів та тек створеним у Total Commander і робить з нього список в один рядок:</p>
+<pre><code>sed -i 's/.$//' file_list
+cat file_list | tr '\n' ' ' > test
+cat test | tr '[:upper:]' '[:lower:]' > file_list
+sed -i 's/\\/,/g;s/\( \)\+/ /g;s/, $//' file_list
+rm test</code></pre>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

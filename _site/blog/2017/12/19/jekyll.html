@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jekyll. Сайт для локальної мережі та на GitHub.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Jekyll. Сайт для локальної мережі та на GitHub.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/jekyll.png" alt="">
+<p>Отже, як говорить нам <b class="term">Wikipedia</b> - <b class="term">Jekyll</b> - це простий генератор статичного сайту, який використовує блог, для персональних, проектних або організаційних сайтів та поширюється за ліцензією з відкритим кодом.<!--more--> Дуже непогана штука для лінивих, тому перейшов на неї з причин важкуватості Blogspot.<br>
+Установка в нових дистрибутивах максимально проста(практично використовується на Elementary OS Loky), в старих також досить просто, але треба доставляти деякі речі руками і контролюючи версію(практично використовується на Ubuntu 12.04).<br> Процес встановлення для Elementary абсолютно такий як описано на офіційному сайті <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.</p>
+<pre><code>sudo gem install jekyll bundler
+jekyll new my-awesome-site
+cd my-awesome-site
+bundle exec jekyll serve</code></pre>
+<p>Результатом є готова створена файлова структура у директорії <b class="path">my-awesome-site</b> і запущений веб-сервер доступ до якого можемо отримати за адресою <b class="path">localhost:4000</b>. За замовчуванням використовується тема minima наступного вигляду<br></p>
+<a rel="colorbox" href="/media/jekyll-site.png" >
+     <img class="blog" src="/media/jekyll-site.png"  alt="">
+</a> 
+<p>Тепер деякі моменти з тоншим налаштуванням(файл <b class="path">_config.yml</b>):</p>
+<ol>
+<li>Для доступу зі всієї внутрішньої мережі, а не лише з локального ПК, додаємо у файл рядок <b class="term">host: 0.0.0.0</b></li>
+<li>Для приховування на стартовій сторінці блогу основної частини тексту і показу лише перших рядків додаємо рядок <b class="term">excerpt_separator: &lt;!--more--&gt;</b></pre></li>
+<li>Нові статті створюємо у директорії <b class="path">_post</b> іменуючи їх за тим же шаблоном що стартова стаття Jekyll. Якщо запущений сервер то вони з'являються на сайті автоматично.</pre></li>
+</ol>
+
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

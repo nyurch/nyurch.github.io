@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перемикання між режимами PIO та DMA у Windows.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Перемикання між режимами PIO та DMA у Windows.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/hdd.png" alt="">
+<p>Стикнувся на днях з помилкою яку не бачив уже років 5+, після "синього екрану" контролер переключився в режим PIO. Так що от... <!--more-->
+Буває що при великій кількості помилок в роботі жорсткого диску Windows змінює режим роботи контролера з <b class="term">Ultra DMA</b> на <b class="term">PIO</b>, відповідно швидкість падає до <b class="term">3.3Мб/с(PIO Mode 0)</b>. Для того щоб повернутися до режиму <b class="term">Ultra DMA</b> потрібно виконати деякі маніпуляції з реєстром:
+<ol>
+<li>Відключити контроль помилок.
+В розділі <b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96A-E325-11CE-BFC1-08002BE10318}</b> у підрозділах <b>0001</b> та <b>0002</b> створити <b class="term">dword-параметр</b> <b class="path">ResetErrorCountersOnSuccess</b> та присвоїти йому значення <b>1</b>.
+У цих же розділах перевірити значення параметрів <b class="path">MasterIdDataCheckSum=dword:0, SlaveIdDataCheckSum=dword:0, MasterDeviceTimingModeAllowed=dword:ffffffff, SlaveDeviceTimingModeAllowed=dword:ffffffff</b></li>
+<li>Потрібному параметру, <b class="term">MasterDeviceTimingMode</b> чи <b class="term">SlaveDeviceTimingMode</b>, присвоїти бажане значення:
+<ul>
+<li>0x10010 - UDMA Mode 5 (ATA100)</li>
+<li>0x8010 - UDMA Mode 4 (ATA66)</li>
+<li>0x2010 - UDMA Mode 2 (ATA33)</li>
+<li>0x0410 - Multi-Word DMA Mode 2</li></ul></li>
+<li>Перезавантажитися.</li>
+</ol>
+<p>Також можна в Диспетчері пристроїв видалити IDE-контролер і перезавантажитися, але бувало не піднімалася система після такого.</p>
+
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>

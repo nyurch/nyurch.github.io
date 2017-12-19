@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firefox та html5 в Linux.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Firefox та html5 в Linux.</h1>
+  <div class="blog-post spacing">
+    <img class="head" src="/media/firefox-logo.png" alt="">
+<p>На даний момент чомусь не працює <b class="term">html5-відео</b> наприклад на <b class="term">yuotube</b>.<!--more--> Лікується досить просто, треба створити новий <b class="term">boolean</b> ключ <b class="term">media.mediasource.ignore_codecs</b> і задати йому значення <b class="term">true</b>. Також при необхідності задати значення <b class="term">true</b> всім ключам що містять <b class="term">mediasource</b>.</p>
+<p>В результаті маємо те що маємо: </p>
+<a rel="colorbox" href="/media/html5.png" >
+     <img class="blog" src="/media/html5.png"  alt="">
+</a>
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>
