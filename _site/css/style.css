@@ -31,13 +31,11 @@ body {
 }
 
 .path {
-	font-weight: bold;
 	color: #0084b5;
 	text-align: left;
 }
 
 .term {
-	font-weight: bold;
 	color: #4CAF50;
 	text-align: left;
 }
@@ -51,7 +49,7 @@ body {
 
 .warning {
 	color: red;
-	font-weight: bold;
+	font-size: 2em;
 }
 
 p {
@@ -60,6 +58,11 @@ p {
 	text-align: justify;
 	line-height: 1.4em;
 	color: #333;
+ }
+
+p.warning {
+	color: red;
+	font-size: .9em;
  }
 
 code p{
@@ -73,8 +76,8 @@ code p{
 pre {
 	margin: 10px 20px;
 	text-align: left;
-	font-size: 1.2em;
-	line-height: 1.3em;
+	font-size: 0.9em;
+	line-height: 1.1em;
 	overflow: auto;
 	background-color: #f9f2f4;
 }

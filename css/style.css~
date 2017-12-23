@@ -62,7 +62,7 @@ p {
 
 p.warning {
 	color: red;
-	font-size: .9em;
+	font-size: .7em;
  }
 
 code p{
