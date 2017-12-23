@@ -3,3 +3,5 @@ host: 192.168.7.13
 name: ITJunta
 description: Мікроблог для всякої єрунди.
 url: https://nyurch.github.io
+plugins: 
+  - jekyll-feed
