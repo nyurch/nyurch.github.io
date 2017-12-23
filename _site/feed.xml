@@ -3,7 +3,7 @@
   <channel>
     <title>ITJunta - Articles</title>
     <description>Мікромануали про всяку єрунду</description>
-    <link>http://0.0.0.0:4000</link>
+    <link>http://192.168.7.13:4000</link>
     
       
         <item>
@@ -36,8 +36,8 @@ sudo ifdown eth0 &amp;&amp; sudo ifup eth0&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-12-23T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/23/ubuntu-network.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/23/ubuntu-network.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/23/ubuntu-network.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/23/ubuntu-network.html</guid>
         </item>
       
     
@@ -55,8 +55,8 @@ davmail&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-12-23T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/23/davmail.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/23/davmail.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/23/davmail.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/23/davmail.html</guid>
         </item>
       
     
@@ -208,8 +208,8 @@ sleep 10 &amp;&amp; ./case.sh
 
 </description>
           <pubDate>2017-12-22T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/22/elementary-postinstall.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/22/elementary-postinstall.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/22/elementary-postinstall.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/22/elementary-postinstall.html</guid>
         </item>
       
     
@@ -230,8 +230,8 @@ sleep 10 &amp;&amp; ./case.sh
 gsettings set org.gnome.desktop.remote-access require-encryption false&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2017-12-19T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/19/linux-bug.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/19/linux-bug.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/19/linux-bug.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/19/linux-bug.html</guid>
         </item>
       
     
@@ -266,8 +266,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-12-19T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/19/jekyll.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/19/jekyll.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/19/jekyll.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/19/jekyll.html</guid>
         </item>
       
     
@@ -294,8 +294,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/uk/firefox/collections/nyurch/favorites/?sort=name&quot; target=&quot;_blank&quot;&gt;Лінк на сторінку зі збіркою&lt;/a&gt;.&lt;/p&gt;
 </description>
           <pubDate>2017-12-19T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/19/firefox-addons.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/19/firefox-addons.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/19/firefox-addons.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/19/firefox-addons.html</guid>
         </item>
       
     
@@ -350,8 +350,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-12-18T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/18/windows-10-bugs.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/18/windows-10-bugs.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/18/windows-10-bugs.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/18/windows-10-bugs.html</guid>
         </item>
       
     
@@ -366,8 +366,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 &lt;/a&gt;
 </description>
           <pubDate>2017-12-18T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/12/18/html5-firefox.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/12/18/html5-firefox.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/12/18/html5-firefox.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/12/18/html5-firefox.html</guid>
         </item>
       
     
@@ -379,8 +379,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-09-24T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/09/24/hide-file.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/09/24/hide-file.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/09/24/hide-file.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/09/24/hide-file.html</guid>
         </item>
       
     
@@ -396,8 +396,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-08-18T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/08/18/text-to-qr.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/08/18/text-to-qr.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/08/18/text-to-qr.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/08/18/text-to-qr.html</guid>
         </item>
       
     
@@ -413,8 +413,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-03-26T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/03/26/firefox-private.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/03/26/firefox-private.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/03/26/firefox-private.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/03/26/firefox-private.html</guid>
         </item>
       
     
@@ -428,8 +428,8 @@ bundle exec jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
 </description>
           <pubDate>2017-03-20T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/03/20/office365.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/03/20/office365.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/03/20/office365.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/03/20/office365.html</guid>
         </item>
       
     
@@ -476,8 +476,8 @@ sed -i 's/\\/,/g;s/\( \)\+/ /g;s/, $//' file_list
 rm test&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2017-03-04T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/03/04/sed.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/03/04/sed.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/03/04/sed.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/03/04/sed.html</guid>
         </item>
       
     
@@ -490,8 +490,8 @@ rm test&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Далі на Windows 7+ доведется 1 раз запустити rdp-сесію від імені адміністратора щоб знову створити параметри в даній гілці.&lt;/p&gt;
 </description>
           <pubDate>2017-03-04T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/03/04/fix-rdp.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/03/04/fix-rdp.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/03/04/fix-rdp.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/03/04/fix-rdp.html</guid>
         </item>
       
     
@@ -508,8 +508,8 @@ rm test&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;де параметр &lt;b class=&quot;term&quot;&gt;timestamp_timeout&lt;/b&gt; задає термін дії паролю у хвилинах.&lt;/p&gt;
 </description>
           <pubDate>2017-01-31T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/01/31/sudo-password.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/01/31/sudo-password.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/01/31/sudo-password.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/01/31/sudo-password.html</guid>
         </item>
       
     
@@ -528,8 +528,8 @@ rm test&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Перший пунтк також допомагаю коли починає постійно дисконектитися &lt;b class=&quot;term&quot;&gt;Shrew Soft VPN Client&lt;/b&gt;.&lt;/p&gt;
 </description>
           <pubDate>2017-01-11T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2017/01/11/cisco-vpn.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2017/01/11/cisco-vpn.html</guid>
+          <link>http://192.168.7.13:4000/blog/2017/01/11/cisco-vpn.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2017/01/11/cisco-vpn.html</guid>
         </item>
       
     
@@ -544,8 +544,8 @@ rm test&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 </description>
           <pubDate>2016-12-26T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/26/error-0x000003eb.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/26/error-0x000003eb.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/26/error-0x000003eb.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/26/error-0x000003eb.html</guid>
         </item>
       
     
@@ -575,8 +575,8 @@ sudo checkinstall&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 </description>
           <pubDate>2016-12-14T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/14/deb.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/14/deb.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/14/deb.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/14/deb.html</guid>
         </item>
       
     
@@ -604,8 +604,8 @@ password=password&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;sudo mount -a&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-12-14T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/14/automount-samba.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/14/automount-samba.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/14/automount-samba.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/14/automount-samba.html</guid>
         </item>
       
     
@@ -681,8 +681,8 @@ find -type f -print0 | sudo xargs -0 md5sum | grep -v isolinux/boot.cat | sudo t
 &lt;p class=&quot;warning&quot;&gt;Практично було перевірено на дистрибутивах &lt;b class=&quot;term&quot;&gt;10.04&lt;/b&gt; та &lt;b class=&quot;term&quot;&gt;12.04&lt;/b&gt;.&lt;/p&gt;
 </description>
           <pubDate>2016-12-10T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/10/ubuntu-personalization.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/10/ubuntu-personalization.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/10/ubuntu-personalization.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/10/ubuntu-personalization.html</guid>
         </item>
       
     
@@ -741,8 +741,8 @@ unix extensions = no
 ;   guest only = Yes&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-12-10T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/10/samba.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/10/samba.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/10/samba.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/10/samba.html</guid>
         </item>
       
     
@@ -925,8 +925,8 @@ AllowOverwrite on
 &lt;pre&gt;&lt;code&gt;sudo mount --bind /яку/теку/змонтувати /home/download/куди/змонтувати&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-12-10T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/10/proftpd.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/10/proftpd.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/10/proftpd.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/10/proftpd.html</guid>
         </item>
       
     
@@ -950,8 +950,8 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folde
 
 </description>
           <pubDate>2016-12-10T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/10/browsers-cache.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/10/browsers-cache.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/10/browsers-cache.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/10/browsers-cache.html</guid>
         </item>
       
     
@@ -965,8 +965,8 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folde
 
 </description>
           <pubDate>2016-12-07T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/07/cron.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/07/cron.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/07/cron.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/07/cron.html</guid>
         </item>
       
     
@@ -1183,8 +1183,8 @@ find --set-root /menu.lst
 configfile /menu.lst&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-12-06T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/06/grub4dos.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/06/grub4dos.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/06/grub4dos.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/06/grub4dos.html</guid>
         </item>
       
     
@@ -1210,8 +1210,8 @@ sudo m-a prepare&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Буває нереально встигнути заактивити вікно й натиснути необхідну кнопку. Лікується додаванням рядка &lt;b class=&quot;term&quot;&gt;bios.bootdelay = Т&lt;/b&gt; у файл &lt;b class=&quot;path&quot;&gt;назва_віртуалки.vmx&lt;/b&gt;. Де &lt;b&gt;T&lt;/b&gt; - бажаний час затримки у мілісекундах.&lt;/p&gt;
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/virtual-pc.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/virtual-pc.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/virtual-pc.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/virtual-pc.html</guid>
         </item>
       
     
@@ -1226,8 +1226,8 @@ sudo m-a prepare&lt;/code&gt;&lt;/pre&gt;
 &lt;img class=&quot;blog&quot; src=&quot;/media/libre-new.jpg&quot;  alt=&quot;&quot;&gt;
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/sifr-libre.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/sifr-libre.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/sifr-libre.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/sifr-libre.html</guid>
         </item>
       
     
@@ -1256,8 +1256,8 @@ EOF
 
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/grub2-security.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/grub2-security.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/grub2-security.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/grub2-security.html</guid>
         </item>
       
     
@@ -1273,8 +1273,8 @@ EOF
 де &lt;b&gt;ХХ&lt;/b&gt; - час в секундах.&lt;/p&gt;
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/gnome-autostartup.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/gnome-autostartup.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/gnome-autostartup.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/gnome-autostartup.html</guid>
         </item>
       
     
@@ -1290,8 +1290,8 @@ EOF
 
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/gedit.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/gedit.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/gedit.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/gedit.html</guid>
         </item>
       
     
@@ -1308,8 +1308,8 @@ sudo apt-get install gimp&lt;/code&gt;&lt;/pre&gt;
 &lt;img class=&quot;blog&quot; src=&quot;/media/gimp-modern.png&quot;  alt=&quot;&quot;&gt;
 </description>
           <pubDate>2016-12-02T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/02/flat-gimp.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/02/flat-gimp.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/02/flat-gimp.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/02/flat-gimp.html</guid>
         </item>
       
     
@@ -1331,8 +1331,8 @@ sudo swapoff /swapfile&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
           <pubDate>2016-12-01T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/01/swap.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/01/swap.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/01/swap.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/01/swap.html</guid>
         </item>
       
     
@@ -1397,8 +1397,8 @@ for /R %temp% /d %%i in (*) do echo %%i&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 </description>
           <pubDate>2016-12-01T00:00:00+02:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/12/01/cmd-command.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/12/01/cmd-command.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/12/01/cmd-command.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/12/01/cmd-command.html</guid>
         </item>
       
     
@@ -1418,8 +1418,8 @@ netsh interface ip add dns [name=]InterfaceName [addr=] DNSAddress [[index=]DNSI
 netsh interface ip set wins [name=]InterfaceName [source=]{dhcp | static [addr=]{WINSAddress | none }}&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-10-29T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/29/windows-lan.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/29/windows-lan.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/29/windows-lan.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/29/windows-lan.html</guid>
         </item>
       
     
@@ -1464,8 +1464,8 @@ netsh interface ip set wins [name=]InterfaceName [source=]{dhcp | static [addr=]
 
 </description>
           <pubDate>2016-10-29T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/29/download-links.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/29/download-links.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/29/download-links.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/29/download-links.html</guid>
         </item>
       
     
@@ -1501,8 +1501,8 @@ git config --global http.proxy http://proxyuser:proxypass@proxyaddress:8080&lt;/
 &lt;pre&gt;&lt;code&gt;ALLOW_EXTERNAL_CLIENTS:1&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-10-28T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/28/proxy.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/28/proxy.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/28/proxy.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/28/proxy.html</guid>
         </item>
       
     
@@ -1528,8 +1528,8 @@ git config --global http.proxy http://proxyuser:proxypass@proxyaddress:8080&lt;/
 
 </description>
           <pubDate>2016-10-28T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/28/pio.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/28/pio.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/28/pio.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/28/pio.html</guid>
         </item>
       
     
@@ -1563,8 +1563,8 @@ reboot&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;code&gt;&lt;pre&gt;sudo grub-install --root-directory=/tmp /dev/sdх&lt;/pre&gt;&lt;/code&gt;
 </description>
           <pubDate>2016-10-28T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/28/grub2.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/28/grub2.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/28/grub2.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/28/grub2.html</guid>
         </item>
       
     
@@ -1596,8 +1596,8 @@ reboot&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 </description>
           <pubDate>2016-10-24T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/24/total-commander.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/24/total-commander.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/24/total-commander.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/24/total-commander.html</guid>
         </item>
       
     
@@ -1636,8 +1636,8 @@ sudo ln -s /opt/firefox/firefox /usr/bin/firefox&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;На даний момент чомусь не працює &lt;b class=&quot;term&quot;&gt;html5-відео&lt;/b&gt; наприклад на &lt;b class=&quot;term&quot;&gt;yuotube&lt;/b&gt;. Лікується досить просто, треба створити новий &lt;b class=&quot;term&quot;&gt;boolean&lt;/b&gt; ключ &lt;b class=&quot;term&quot;&gt;media.mediasource.ignore_codecs&lt;/b&gt; і задати йому значення &lt;b class=&quot;term&quot;&gt;true&lt;/b&gt;. Також при необхідності задати значення &lt;b class=&quot;term&quot;&gt;true&lt;/b&gt; всім ключам що містять &lt;b class=&quot;term&quot;&gt;mediasource&lt;/b&gt;.&lt;/p&gt;
 </description>
           <pubDate>2016-10-23T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/23/firefox.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/23/firefox.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/23/firefox.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/23/firefox.html</guid>
         </item>
       
     
@@ -1685,8 +1685,8 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;
 		&lt;pre&gt;&lt;code&gt;for i in *.html; do sed -i '/src=\&quot;logo/ s/[[:lower:]]/\U&amp;amp;/g' $i $i; done&lt;/code&gt;&lt;/pre&gt;
 </description>
           <pubDate>2016-10-20T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/20/site-build.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/20/site-build.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/20/site-build.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/20/site-build.html</guid>
         </item>
       
     
@@ -1711,8 +1711,8 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;
 		&lt;p&gt;Тепер при установці погоджуємося з установкою непідписаних драйверів і маємо робочий костиль.&lt;/p&gt;
 </description>
           <pubDate>2016-10-20T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/20/hp3050_win7x64.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/20/hp3050_win7x64.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/20/hp3050_win7x64.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/20/hp3050_win7x64.html</guid>
         </item>
       
     
@@ -1735,8 +1735,8 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;
 		наприклад кожного дня після закінчення робочого часу.&lt;/p&gt;
 </description>
           <pubDate>2016-10-20T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/20/close-rdp.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/20/close-rdp.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/20/close-rdp.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/20/close-rdp.html</guid>
         </item>
       
     
@@ -1813,8 +1813,8 @@ rm test&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Або використовуючи програму &lt;b class=&quot;term&quot;&gt;meld&lt;/b&gt; при наявності графічного оточення.&lt;/p&gt;
 </description>
           <pubDate>2016-10-20T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/20/bash-command.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/20/bash-command.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/20/bash-command.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/20/bash-command.html</guid>
         </item>
       
     
@@ -1872,8 +1872,8 @@ alias uexfat='sudo umount /media/exfat'&lt;/xmp&gt;
 цьому потрібно набирати руками.&lt;/p&gt;
 </description>
           <pubDate>2016-10-19T00:00:00+03:00</pubDate>
-          <link>http://0.0.0.0:4000/blog/2016/10/19/bash-optimization.html</link>
-          <guid isPermaLink="true">http://0.0.0.0:4000/blog/2016/10/19/bash-optimization.html</guid>
+          <link>http://192.168.7.13:4000/blog/2016/10/19/bash-optimization.html</link>
+          <guid isPermaLink="true">http://192.168.7.13:4000/blog/2016/10/19/bash-optimization.html</guid>
         </item>
       
     
