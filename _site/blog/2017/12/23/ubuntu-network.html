@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+  <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Налаштування параметрів мережі Ubuntu в терміналі.</title>
+  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="keywords" content="треба щось написати потім">
+  <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
+  <meta name="robots" content="all">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.lazyload.mini.js"></script>
+  <script src="/js/jquery.colorbox-min.js"></script>
+  <script src="/js/largimg.js"></script>
+</head>
+
+
+</head>
+
+<body>
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a class="active" href="/blog.html">Блог</a></li>
+		</ul>
+  </div>
+
+<div class="container">
+      <div class="container">
+  <h1>Налаштування параметрів мережі Ubuntu в терміналі.</h1>
+  <div class="blog-post spacing">
+    <p>Виявляється є момент, плюс чомусь <b class="term">address</b> завжди намагаюся писати з однією d.<!--more-->
+Всі налаштування мережевого адаптера знаходяться тепер у файлі <b class="path">/etc/network/interfaces</b>. Для його налаштування необхідно дописати у кінець файлу наступні параметри для статичної ip-адреси</p>
+<pre><code># Моя мережа.
+iface eth0 inet static 
+address 192.168.0.1 
+netmask 255.255.255.0 
+gateway 192.168.0.254 
+dns-nameservers 192.168.0.254 8.8.8.8
+auto eth0 </code></pre>
+<p>та наступні для динамічної</p>
+<pre><code># Моя мережа.
+iface eth0 inet dhcp
+auto eth0</code></pre>
+<p>Є 2 моменти:</p>
+<ol>
+<li>Звично необхідно знати ім'я інтерфейсу, у даному випадку <b class="term">eth0</b>. Подивитися його, як завжди, можна або скориставшись командою <pre><code>ifconfig</code></pre> або <pre><code>sudo lshw -C network | grep "logical name"</code></pre></li>
+<li>Налаштування dns-серверу, починаючи з <b class="term">Ubuntu 12.04</b>, задається параметром <b class="term">dns-nameservers</b>. <p class="warning">!!! файл /etc/resolv.conf тепер генерується автоматично і всі руками внесені в нього зміни видаляються.</p></li>
+</ol>
+<p>Тимчасові налаштування адаптеру які обнуляться після перезавантаження системи можна задати наступною командою:</p>
+<pre><code>sudo ip addr add 192.168.0.1/24 dev eth0</code></pre>
+<p>Після внесення всіх змін перезапускаємо мережу командою на вибір:</p>
+<pre><code>sudo /etc/init.d/networking restart
+sudo services networking restart
+sudo ifconfig eth0 down && sudo ifconfig eth0 up
+sudo ifdown eth0 && sudo ifup eth0</code></pre>
+
+
+</div>
+</div>
+
+</div>
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:ITJunta@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+</div>
+</body>
+</html>
