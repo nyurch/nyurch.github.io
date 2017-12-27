@@ -1,5 +1,5 @@
 excerpt_separator: <!--more-->
-host: 192.168.7.13
+host: 0.0.0.0
 name: ITJunta
 description: Мікроблог для всякої єрунди.
 url: https://nyurch.github.io

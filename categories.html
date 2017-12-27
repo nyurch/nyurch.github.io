@@ -1,0 +1,44 @@
+---
+layout: default_cat
+permalink: /categories/
+title: Список категорій
+
+---
+
+<div class="list">
+  <div class="nav">
+		<ul class="topnav">
+			<li><a href="/#"><b>IT Junta</b></a></li>
+			<li><a href="/index.html">Основна</a></li>
+			<li><a href="/blog.html">За датою</a></li>
+			<li><a class="active" href="/categories/index.html">За категоріями</a></li>
+			<li class="right"><a class="active" href="/feed.xml" target="_blank">RSS</a></li>
+		</ul>
+  </div>
+
+
+
+{% for category in site.categories %}
+
+  {% capture category_name %}{{ category | first }}{% endcapture %}
+  <div class="post-date"><h1 class="left">{{ category_name }}</h1></div>
+<div class="cat-list">
+<ol>
+    {% for post in site.categories[category_name] %}
+    <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></br></li>
+    {% endfor %}
+</ol>
+</div>
+{% endfor %}
+
+
+  <div class="nav">
+		<ul class="topnav">
+			<li><p></p></li>
+			<li class="right"><a href="mailto:nicolas.yurchuk@gmail.com" target="_blank">© 2016 ITJunta</a></li>
+		</ul>
+  </div>
+
+
+
+
