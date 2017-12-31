@@ -65,6 +65,12 @@ p.warning {
 	font-size: .9em;
  }
 
+p.tag {
+	color: #c7254e;
+	font-size: .9em;
+	background-color: yellow;
+ }
+
 code p{
 	margin: 0;
 	font-size: 1em;
@@ -225,14 +231,21 @@ div.cat-list {
 div.about-site img {
     border-radius: 50%;
 }
-
 img.head {
 	max-width: 50em;
 	max-height: 10em;
 }
-
 img.blog {
 	max-width: 50em;
 	max-height: 20em;
 }
 /*</Картинки основної та блогу*/
+
+/*Кнопка "Категорія"*/
+div.tag {
+    width: 150px; /* Ширина слоя */
+    margin: 2px; /* Значение отступов */
+    padding: 5px; /* Поля вокруг текста */
+    background: #fc0; /* Цвет фона */
+   }
+/*</Кнопка "Категорія"*/
