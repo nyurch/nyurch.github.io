@@ -15,7 +15,8 @@ category: [ЗАВАНТАЖЕННЯ]
 <p>В результаті матимо файлову структуру типу такої. Тут grldr - сам завантажувач, *.lst конфігураційні файли з вибором що завантажувати</p>
 <img class="blog" src="/media/grub4dos-files.png"  alt="">
 <p>Зразок файлів конфігурації:</p>
-<pre><code><p>menu.lst</p>timeout 30
+<p>menu.lst</p>
+<xmp>timeout 30
 gfxmenu /gfx/Reanimator
 default 0
 
@@ -61,8 +62,9 @@ title Shutdown
 halt
 
 title Reboot
-reboot</code></pre><br>
-<pre><code><p>submenu_1.lst</p>timeout 30
+reboot</xmp><br>
+<p>submenu_1.lst</p>
+<xmp>timeout 30
 gfxmenu /gfx/LIVE
 default 0
 
@@ -116,8 +118,9 @@ initrd /puppy/initrd.gz
 title Return to main menu
 lock
 find --set-root /menu.lst
-configfile /menu.lst</code></pre><br>
-<pre><code><p>submenu_2.lst</p>timeout 30
+configfile /menu.lst</xmp><br>
+<p>submenu_2.lst</p>
+<xmp>timeout 30
 gfxmenu /gfx/Hardware
 default 0
 
@@ -136,9 +139,10 @@ boot
 title Return to main menu
 lock
 find --set-root /menu.lst
-configfile /menu.lst</code></pre>
+configfile /menu.lst</xmp>
 <br>
-<pre><code><p>submenu_3.lst</p>timeout 30
+<p>submenu_3.lst<br>Додав варіант для 16.04 EFI, там трохи є різниця.</p>
+<xmp>timeout 30
 gfxmenu /gfx/OS
 default 0
 
@@ -156,6 +160,14 @@ map /iso/ubuntu-12.04-amd64-zf.iso (0xff)
 map --hook
 root (0xff)
 kernel /casper/vmlinuz file=/cdrom/preseed/ubuntu.seed boot=casper persistent iso-scan/filename=/iso/ubuntu-12.04-amd64-zf.iso splash
+initrd /casper/initrd.lz
+
+title Install Ubuntu 16.04 efi
+find --set-root /iso/ubuntu.iso
+map --mem /iso/ubuntu.iso (0xff) || map --heads=0 --sectors-per-track=0 /iso/ubuntu.iso (0xff)
+map --hook
+root (0xff)
+kernel /casper/vmlinuz.efi file=/cdrom/preseed/ubuntu.seed boot=casper persistent iso-scan/filename=/iso/ubuntu.iso splash
 initrd /casper/initrd.lz
 
 title Start Install Windows XP
@@ -185,9 +197,10 @@ boot
 title Return to main menu
 lock
 find --set-root /menu.lst
-configfile /menu.lst</code></pre>
+configfile /menu.lst</xmp>
 <br>
-<pre><code><p>submenu_4.lst</p>timeout 30
+<p>submenu_4.lst</p>
+<xmp>timeout 30
 gfxmenu /gfx/HDD
 default 0
 
@@ -210,4 +223,4 @@ initrd /iso/ati/ati2015.fs
 title Return to main menu
 lock
 find --set-root /menu.lst
-configfile /menu.lst</code></pre>
+configfile /menu.lst</xmp>

@@ -1,0 +1,59 @@
+---
+layout: post
+title: Nagios - індустріальний стандарт моніторингу.
+category: [ПРИКЛАДНІ ПРОГРАМИ]
+---
+<img class="head" src="/media/nagios.png" alt="">
+<p>Nagios - програма що служить для моніторингу програмного та апаратного
+стану обладнання в локальних мережах і сповіщення адміністратора про
+зміни їх статусу. Працює фактично на всіх unix-системах. Розглянемо
+установку та початкове налаштування даної програми на прикладі
+операційної системи Ubuntu.<!--more-->
+Першим кроком встановлюємо необхідні пакети. У випадку базової
+конфігурації це <b class="term">apache</b>, <b class="term">build-essential</b>, <b class="term">libgd2-xpm-dev</b> та сам <b class="term">nagios</b>.</p>
+<pre><code>sudo apt-get install apache2 build-essential libgd2-xpm-dev nagios3</code></pre>
+<p>Далі створюємо віртуальний хост в <b class="term">apache</b>. Для цього можна скористатися
+шаблоном <b>default</b>, скопіюємо його під іменем <b class="path">nagios</b> в ту ж теку та
+змінимо його як нам потрібно:</p>
+<pre><code>sudo cp /etc/apache2/sites-available/default /etc/apache2/sites-available/nagios</code></pre>
+<p>Готовий файл <b>nagios</b> можна забрати <a href="https://" target="_blank">тут</a>.
+В даному файлі ми вказали що для доступу до сайту моніторингу ми будемо
+використовувати порт <b>9000</b>, тому потрібно вказати на це нашому
+веб-серверу додавши у файл <b class="path">/etc/apache2/ports.conf</b> рядки</p>
+<pre><code>NameVirtualHost 192.168.7.234:9000
+Listen 9000</code></pre>
+<p>Файли конфігурації nagios лежать у директорії <b class="path">/etc/nagios3/</b>. У файлі
+<b class="path">nagios.cfg</b> підключаються інші конфіги й задаються налаштування. У файлі
+<b class="path">cgi.cfg</b> задаються налаштування cgi-скриптів і права доступу до сайту в
+графічному інтерфейсі. Припустимо ім'я користувача системи моніторингу
+буде nagios, тоді у файл <b class="path">cgi.cfg</b> потрібно внести наступні зміни:</p>
+<pre><code>default_user_name=nagios
+authorized_for_system_information=nagiosadmin,nagios
+authorized_for_configuration_information=nagiosadmin,nagios
+authorized_for_system_commands=nagiosadmin,nagios
+authorized_for_all_services=nagiosadmin,nagios
+authorized_for_all_hosts=nagiosadmin,nagios
+authorized_for_all_services=nagiosadmin,nagios
+authorized_for_all_hosts=nagiosadmin,nagios
+authorized_for_all_service_commands=nagiosadmin,nagios
+authorized_for_all_host_commands=nagiosadmin,nagios</code></pre>
+<p>Як бачимо при наявності двоч чи більше користувачів їх імена перераховуються через кому і без пробілів.
+Тепер створюємо самого користувача <b>nagios</b> та задаємо для нього пароль:</p>
+<pre><code>cd  /etc/nagios3/
+sudo htpasswd -c htpasswd.users nagios</code></pre>
+<p>Нарешті перезапускаємо <b>nagios</b> та <b>apache</b></p>
+<pre><code>sudo service nagios3 restart
+sudo service apache2 restart</code></pre>
+<p>На даному етапі ми отримали готовий сервер моніторингу доступ до якого
+можна отримати з веб-браузера за адресою <b class="path">http://localhost:9000</b> або 
+<b class="path">http://наш_ір:9000</b>
+Кількість роботи яку потрібно провести надалі залежить виключно від кількості серверів та сервісів що ми збираємося моніторити.
+<b>&lt;command&gt; --usage</b> - виклик опису параметрів команди, детальніше тут.
+Зауважу ще дві речі котрі можуть в певній мірі допомогти пришвидшити процес конфігурації:</p>
+<ol>
+<li> Перевірити правильність змін зроблених нами в конфігурації nagios
+можна виконавши команду
+<pre><code>sudo  nagios3 -v  /etc/nagios3/nagios.cfg</code></pre></li>
+<li> Можна спробувати автоматизувати сканування хостів та сервісів у мережі програмою ScanToNag за шаблоном подібним до наступного
+<xmp>java -jar ScanToNag.jar --range 192.168.64.0/24 --range 192.168.62.0/24 --emit-templates --timeout 50 --contacts unix-admins --hosts-file hosts.conf --services-file services.conf --skip-reserved</xmp></li>
+</ol>
