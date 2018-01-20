@@ -1,0 +1,72 @@
+---
+layout: post
+title: Linux & proxy.
+category: [LINUX]
+---
+<img class="head" src="/media/proxy.png" alt="">
+<p>Так вже чомусь склалося, що здається в кожному більш-менш розповсюдженому на сьогодні дистрибутиві користувач обов'язково зіткнеться може зіткнутися з різними нюансами у випадку якщо для виходу в інтернет потрібно використовувати проксі-сервер.
+Думаю не зайвим буде нагадати певні очевидні речі котрі стосуються мережевих налаштувань, та вказати на деякі не настільки очевидні. <!--more--></p>
+<h4>Базові налаштування</h4>
+<ol>
+<li>Налаштування проксі для конкретного користувача зберігаються у <b class="path">~/.bashrc</b> у наступному вигляді
+<xmp>export http_proxy="http://yourusername:yourpassword@yourproxy:yourport"
+export https_proxy="http://yourusername:yourpassword@yourproxy:yourport"
+export ftp_proxy="http://yourusername:yourpassword@yourproxy:yourport"</xmp></li>
+<li>Налаштування проксі для роботи <b class="term">wget</b> знаходяться у <b class="path">/etc/wgetrc</b> у вигляді
+<xmp>https_proxy = http_proxy="http://yourusername:yourpassword@yourproxy:yourport/"
+http_proxy = http_proxy="http://yourusername:yourpassword@yourproxy:yourport/"
+ftp_proxy = http_proxy="http://yourusername:yourpassword@yourproxy:yourport/"
+use_proxy = on</xmp></li>
+<li>Щоб проксі підхватувалося при виконанні команди через <b>sudo</b> треба поправити файл <b class="path">/etc/sudoers</b> додавши
+<xmp>Defaults env_keep += "http_proxy https_proxy ftp_proxy all_proxy no_proxy"</xmp></li>
+<li>Буває для apt ще потрібно створити файл <b class="path">/etc/apt/apt.conf.d/02proxy</b> з указанням проксі
+<xmp>Acquire::http::Proxy "http://yourusername:yourpassword@yourproxy:yourport";</xmp></li>
+<li>Деякі програми з <b>GUI</b> не реагують на проксі заданий в текстових конфігах, а беруть його з налаштувань <b>dconf</b>. Задати їх можна так:
+<xmp>gsettings set org.gnome.system.proxy.https host 'yourproxy'
+gsettings set org.gnome.system.proxy.https port yourport
+gsettings set org.gnome.system.proxy.ftp host 'yourproxy'
+gsettings set org.gnome.system.proxy.ftp port yourport
+gsettings set org.gnome.system.proxy.http host 'yourproxy'
+gsettings set org.gnome.system.proxy.http port yourport
+gsettings set org.gnome.system.proxy.socks host 'yourproxy'
+gsettings set org.gnome.system.proxy.socks port yourport 
+gsettings set org.gnome.system.proxy mode 'manual'</xmp>
+це задасть проксі для користувача який виконав команди, можна задати для всієї системи якщо запустити через <b>sudo</b>. У нових дистрибутивах на gnome запускаємо так:
+<xmp>sudo dbus-launch gsettings set org.gnome.system.proxy.https host 'yourproxy'
+sudo dbus-launch gsettings set org.gnome.system.proxy.https port yourport
+sudo dbus-launch gsettings set org.gnome.system.proxy.ftp host 'yourproxy'
+sudo dbus-launch gsettings set org.gnome.system.proxy.ftp port yourport
+sudo dbus-launch gsettings set org.gnome.system.proxy.http host 'yourproxy'
+sudo dbus-launch gsettings set org.gnome.system.proxy.http port yourport
+sudo dbus-launch gsettings set org.gnome.system.proxy.socks host 'yourproxy'
+sudo dbus-launch gsettings set org.gnome.system.proxy.socks port yourport 
+sudo dbus-launch gsettings set org.gnome.system.proxy mode 'manual'</xmp>
+Дані налаштування приміняються після перезавантаження.</li>
+</ol>
+<h4>git</h4>
+<p>Для того щоб git використовував проксі необхідно створити файл конфігурації та прописати цей проксі там</p>
+<xmp>cd ~
+touch .gitconfig
+git config --global http.proxy http://proxyuser:proxypass@proxyaddress:8080</xmp>
+<h4>Firefox</h4>
+<p>Якщо є необхідність задати відмінний від системного проксі для <b class="term">Firefox</b> то робиться це у файлі <b class="term">../профіль_користувача/prefs.js</b>. Зробити можна якось так:</p>
+<xmp>echo -n "Ввести проксі у форматі http://проксі : "; read PURL
+echo -n "Ввести порт проксі : "; read PPRT
+cd `find ~/.mozilla/firefox/ -name *.default`
+cp prefs.js prefs.js.old
+echo -e "Налаштування проксі-сервера прописані у Firefox\n"
+echo -e '\nuser_pref(\"network.proxy.ftp\", \"$PURL\");' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.ftp_port\", $PPRT);' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.http\", \"$PURL\");' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.http_port\", $PPRT);' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.socks\", \"$PURL\");' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.socks_port\", $PPRT);' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.ssl\", \"$PURL\");' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.ssl_port\", $PPRT);' >> prefs.js
+echo -e '\nuser_pref(\"network.proxy.type\", 1);' >> prefs.js
+echo -e '\nuser_pref("network.proxy.share_proxy_settings", true);' >> prefs.js
+cd -</xmp>
+<p>Профіль створюється при першому запуску програми, так що при виконанні на чистій системі треба додати рядок що запустить програму, дочекається створення профілю і закриє її.</p>
+<h4>ntlm-авторизація</h4>
+<p>якщо у вас використовується проксі-сервер з авторизацією можуть виникнути певні проблеми з програмами що системні налаштування ігнорують, а самі авторизуватися не вміють. Обійти це можна використовуючи програми на зразок <b class="term">ntlmaps</b>. Він сам авторизуватиметься на сервері і виступатиме далі в ролі проксі-сервера для "внутрішнього" використання. В такому разі проксі в нас буде<b class="path"> http://127.0.0.1:5865</b>. Також даний спосіб має цікаву й корисну можливість використовувати ваш ПК у якості проксі-сервера і для інших комп'ютерів якщо вказати у файлі конфігурації <b class="path">/etc/ntlmaps/server.cfg</b></p>
+<xmp>ALLOW_EXTERNAL_CLIENTS:1</xmp>
