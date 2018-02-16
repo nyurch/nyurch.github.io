@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Костилі для Linux-систем.
+title: Костилі для Linux-систем. Оновлюється.
 category: [LINUX]
 ---
 <img class="head" src="/media/linux.jpg" alt="">
@@ -15,3 +15,9 @@ category: [LINUX]
 Встановлюємо <b class="term">dconf Editor</b> та вимикаємо вимогу шифрування з'єднання.</p>
 <pre><code>sudo apt install dconf-editor
 gsettings set org.gnome.desktop.remote-access require-encryption false</code></pre>
+
+<h4>Ubuntu 16.04 і ядро 4.13.х.х</h4>
+<p>Якогось чорта система перестає завантажуватися після оновлення ядра до будь-якої версії 4.13.х.х. Теоретично пишуть повинно допомогти підключення репозиторію <b class="term">ppa:canonical-kernel-team/ppa</b> і оновлення ядра з нього, але мені не допомогло. Тому</p>
+<pre><code>sudo apt remove --purge linux-image-4.13*
+sudo update-grub2
+sudo reboot</code></pre>
