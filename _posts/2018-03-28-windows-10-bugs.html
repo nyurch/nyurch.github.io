@@ -48,4 +48,6 @@ category: [WINDOWS]
 		<pre><code>Bootrec /fixMbr</code></pre>
 		<pre><code>Bootrec /fixBoot</code></pre></li></ul></li>
 		</ol>
-
+		<h4>NumLock у Windows 10.</h4>
+<p>Якщо система не вмикає при старті NumLock незважаючи ні на налаштування bios, ні на свої можна ще спробувати руками у гілці реєстру <b class="path">HKEY_USERS\.Default\Control Panel\Keyboard</b> задати параметру <b class="path">InitialKeyboardIndicators</b> значення <b>2</b>, значення за замовчуванням <b>0</b>. Це має увімкнути NumLock ще на етапі <b>logonscreen</b>.</p>
+		</ol>
