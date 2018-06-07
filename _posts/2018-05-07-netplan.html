@@ -1,0 +1,40 @@
+---
+layout: post
+title: Налаштування мережі за допомогою Netplan.
+category: [LINUX]
+---
+<img class="blog" src="/media/netplan.png"  alt="">
+<p>Починаючи з версії <b class="term">Ubuntu 17.10</b> <b class="term">Canonical</b> переходить на використання <b>netplan</b> для конфігурації та зберігання налаштувань мережевих інтерфейсів замість застарілого <b>ifupdown</b>, котрий тепер не входить до складу дистрибутиву. Не вдаючись до опису принципових відмінностей покроково налаштування тепер виглядатиме так: <!--more--></p>
+<ol>
+<li>Взнаємо ім'я необхідного мережевого інтерфейсу командою <b>ifconfig</b><br>
+<img class="blog" src="/media/ifconfig.png"  alt="">
+</li>
+<li>Генеруємо базовий конфіг за допомогою <b>netplan</b>
+<xmp>sudo netplan generate</xmp>
+отримаємо файл <b class="path">/etc/netplan/*.yaml</b><br>
+<img class="blog" src="/media/netplan_generate.png"  alt="">
+</li>
+<li>Дописуємо, в залежності від того що хочемо, мати конфігурацію.<br>
+Для статичної ip-aдреси <b>192.168.7.13</b> з шлюзом <b>192.168.7.254</b>, маскою <b>255.255.255.0</b> та dns-серверами <b>8.8.8.8, 8.8.4.4</b>
+<xmp>enp0s3:
+dhcp4: no
+dhcp6: no
+addresses: [192.168.7.13/24, ]
+gateway4:  192.168.7.254
+nameservers:
+search: [mydomain]
+addresses: [8.8.8.8, 8.8.4.4]</xmp>
+А для автоматичного отримання налаштувань від dhcp-сервера так
+<xmp>enp0s3:
+dhcp4: true</xmp>
+</li>
+<li>Залишається застосувати налаштування.
+<xmp>sudo netplan apply
+ifconfig -a</xmp></li>
+</ol>
+<p>Більш детально про налаштування читати в мануалі чи на <a href="https://netplan.io/" target="_blank">netplan.io</a>.</p>
+
+
+
+
+
