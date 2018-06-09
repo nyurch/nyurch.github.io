@@ -4,7 +4,7 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ITJunta - Articles</title>
+    <title>ITPub - Articles</title>
     <description>Мікромануали про всяку єрунду</description>
     <link>{{ site.url }}</link>
     {% for post in site.posts %}
