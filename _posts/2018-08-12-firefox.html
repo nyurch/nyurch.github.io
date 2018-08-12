@@ -33,3 +33,5 @@ sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre>
 </ol></p>
 <h4>Firefox та html5 в Linux</h4>
 <p>На даний момент чомусь не працює <b class="term">html5-відео</b> наприклад на <b class="term">yuotube</b>. Лікується досить просто, треба створити новий <b class="term">boolean</b> ключ <b class="term">media.mediasource.ignore_codecs</b> і задати йому значення <b class="term">true</b>. Також при необхідності задати значення <b class="term">true</b> всім ключам що містять <b class="term">mediasource</b>.</p>
+<h4>"libavcodev may be vulnerable or is not supported" в Linux</h4>
+<p>Як правило зустрічаю в древніх версіях <b class="term">Linux</b> наприклад на <b class="term">Ubuntu 12.04</b>. Лікується досить просто, треба виправити ключ <b class="term">media.libavcodec.allow-obsolete</b> і задати йому значення <b class="term">true</b>.</p>
