@@ -1,0 +1,16 @@
+---
+layout: post
+title: Взнаємо uptime віддаленого ПК з Windows.
+category: [WINDOWS]
+---
+<img class="head" src="/media/windows-logo.png" alt="">
+<p>Є 3 способи взнати час роботи віддаленого ПК від керуванням <b class="term">Windows</b>: <!--more--></p>
+<ol>
+<li><b>systeminfo</b> - стандартна вбудована утиліта
+<xmp>SystemInfo /s Remote_Computer | find "Boot Time:"</xmp></li>
+<li><b>PSInfo</b> від <b class="term">Sysinternals</b>
+<xmp>PSInfo Uptime \\Remote_Computer</xmp></li>
+<li><b>PowerShell</b> - якщо версія системи дозволяє
+<xmp>(Get-Date) - (Get-CimInstance Win32_OperatingSystem -ComputerName Remote_Computer).LastBootupTime</xmp></li>
+</ol>
+
