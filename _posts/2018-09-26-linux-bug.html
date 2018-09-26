@@ -9,7 +9,18 @@ category: [LINUX]
 <p><b class="path">Elementary OS Loky</b> відмовляється приймати адміністративний пароль при установці пакету <b class="path">HP Linux Imaging and Printing</b>.<br>
 Лікується перезаданням пароля для рута використовуючи термінал.</p>
 <pre><code>sudo passwd $ваш_пароль_для_root</code></pre>
-
+<p>В <b class="path">Elementary OS Juno</b> за замовчуванням не відображаються значки сторонніх програм в аплеті індикатора.<br>
+Лікується установкою та налаштуванням пакетів <b>indicator-application</b> та <b>wingpanel-indicator-ayatana</b>.</p>
+<ol>
+<li>Установка:<pre><code>sudo add-apt-repository ppa:yunnxx/elementary
+sudo apt update
+sudo apt install indicator-application wingpanel-indicator-ayatana</code></pre></li>
+<li>У файлі <b class="path">/etc/xdg/autostart/indicator-application.desktop</b> в рядок <b class="path">OnlyShowIn=Unity;GNOME;</b> дописуємо <b class="path">Pantheon</b>;</li>
+<li>Даємо можливість запуску простим користувачам:
+<pre><code>sudo cp /usr/lib/systemd/user/indicator-application.service /etc/systemd/user</code></pre></li>
+<li>Додаємо команду <b class="term">systemctl --user start indicator-application.service</b> до автозапуску;</li>
+<li>Перелогінюємося.</li>
+</ol>
 <h4>VNC доступ до робочого столу Ubuntu 16.04</h4>
 <p>Не достатньо видати права на підключення використовуючи <b class="term">Desktop Sharing</b>. При спробі приєднатися, як мінімум з <b class="term">Windows</b> будемо отримувати <b class="path">Server did not offer supported security type!</b>.<br>
 Встановлюємо <b class="term">dconf Editor</b> та вимикаємо вимогу шифрування з'єднання.</p>
