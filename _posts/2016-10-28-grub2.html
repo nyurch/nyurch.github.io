@@ -8,23 +8,23 @@ category: [ЗАВАНТАЖЕННЯ]
 <ol>
 <li>Завантажуємося з якогось live-диску і запускаємо термінал</li>
 <li>Оттимуємо права <b class="term">root</b>
-<pre><code>sudo su</code></pre></li>
+<xmp class="bsh">sudo su</xmp></li>
 <li>Дивимося на якому розділі цей наш лінукс стояв
-<pre><code>fdisk -l</code></pre></li>
+<xmp class="bsh">fdisk -l</xmp></li>
 <li>Монтуємо цей розділ в нашу live-систему
-<pre><code>mount /dev/sdx# /mnt
+<xmp class="bsh">mount /dev/sdx# /mnt
 mount --bind /dev /mnt/dev
 mount --bind /proc /mnt/proc
-chroot /mnt</code></pre></li>
+chroot /mnt</xmp></li>
 <li> Встановлюємо <b class="term">grub2</b>
-<pre><code>grub-install --recheck /dev/sdx</code></pre></li>
-<li>Виходимо з chroot-оточення, розмонтовуємося та перезавантажуємося 
-<pre><code>exit
+<xmp class="bsh">grub-install --recheck /dev/sdx</xmp></li>
+<li>Виходимо з chroot-оточення, розмонтовуємося та перезавантажуємося
+<xmp class="bsh">exit
 sudo umount /mnt/dev
 sudo umount /mnt/proc
 sudo umount /mnt
-reboot</code></pre></li>
+reboot</xmp></li>
 </ol>
 <p>У випадку якщо потрібно просто відновити <b>MBR</b> після встановлення гамновіндовса:
 просто завантажуємся з live, дивимося куди там у нас все встановлено і виконуємо </p>
-<code><pre>sudo grub-install --root-directory=/tmp /dev/sdх</pre></code>
+<xmp class="bsh">sudo grub-install --root-directory=/tmp /dev/sdх</xmp>

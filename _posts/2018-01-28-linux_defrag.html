@@ -4,9 +4,9 @@ title: Дефрагментація жорстких дисків в Linux.
 category: [LINUX]
 ---
 <img class="head" src="/media/defragmentation.jpg" alt="">
-<p>Незважаючи на те що фрагментація файлових систем в <b class="term">Linux</b> фактично відсутня є кілька випадків коли вона може бути досить значною і впливати на швидкодію. Як правило це при інтенсивнму використанні торрентів та віртуальних машин з динамічним розміром дисків. <!--more-->Перевірити необхідність дефрагментації можна командою <b>e4defrag</b>, що є частиною пакету <b>e2fsprogs</b>.</p>
-<xmp>$ sudo e4defrag -c /dev/sda1
-[sudo] password for admin: 
+<p>Незважаючи на те що фрагментація файлових систем в <term>Linux</term> фактично відсутня є кілька випадків коли вона може бути досить значною і впливати на швидкодію. Як правило це при інтенсивнму використанні торрентів та віртуальних машин з динамічним розміром дисків. <!--more-->Перевірити необхідність дефрагментації можна командою <b>e4defrag</b>, що є частиною пакету <b>e2fsprogs</b>.</p>
+<xmp class="bsh">$ sudo e4defrag -c /dev/sda1
+[sudo] password for admin:
 <Fragmented files>                             now/best       size/ext
 1. /var/log/wtmp.1                              23/1              4 KB
 2. /var/log/wtmp                                20/1              4 KB
@@ -22,4 +22,4 @@ category: [LINUX]
  Done.
 </xmp>
 <p>В даному випадку бачимо що в кінці звіту чітко написано - <b>This device (/dev/sda1) does not need defragmentation</b>. А при необхідності дефрагментація запускається командою</p>
-<xmp>sudo e4defrag /dev/sda1</xmp>
+<xmp class="bsh">sudo e4defrag /dev/sda1</xmp>

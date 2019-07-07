@@ -4,9 +4,9 @@ title: Створення QR-коду з тексту у консолі Linux.
 category: [LINUX]
 ---
 <img class="head" src="/media/qr.png" alt="">
-<p>Перекинути текст з ПК на телефон у принципі завжди можна через <b class="term">Google Keep</b>, але можна і через створення <b class="term">QR-коду</b>.<!--more--> Створити QR-код можна або з використанням веб-сервісів, наприклад <b class="term">qrenco.de</b>, або встановивши програму <b class="term">qrencode</b>.</p>
+<p>Перекинути текст з ПК на телефон у принципі завжди можна через <term>Google Keep</term>, але можна і через створення <b>QR-коду</b>.<!--more--> Створити QR-код можна або з використанням веб-сервісів, наприклад <term>qrenco.de</term>, або встановивши програму <b>qrencode</b>.</p>
 <p>Через <b>веб-сервіс</b>:</p>
-<pre><code>curl qrenco.de/"Текст який необхідно передати"</code></pre>
-<p>За допомогою <b class="term">qrencode</b>:</p>
-<pre><code>qrencode -oo "Текст який необхідно передати" | display o</code></pre>
+<xmp class="bsh">curl qrenco.de/"Текст який необхідно передати"</xmp>
+<p>За допомогою <b>qrencode</b>:</p>
+<xmp class="bsh">qrencode -oo "Текст який необхідно передати" | display o</xmp>
 

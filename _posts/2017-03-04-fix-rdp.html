@@ -4,6 +4,6 @@ title: Костилі RDP-клієнта.
 category: [ПРИКЛАДНІ ПРОГРАМИ]
 ---
 <img class="head" src="/media/rdp.png"  alt="">
-<p>Коли не запускається rdp-сеанс маючи претензії до кешу ліцензій чи чогось типу того виявляється кеш цей чистити треба не з диску, а з реєстру.<!--more--> Знаходиться ця єрунда у гілці <b class="path">HKEY_LOCAL_MACHINE\Software\Microsoft\MSLicensing</b>, яку і треба видалити.</p>
-<pre><code>reg delete HKLM\SOFTWARE\Microsoft\MSLicensing\ /f</code></pre>
-<p>Далі на Windows 7+ доведется 1 раз запустити rdp-сесію від імені адміністратора щоб знову створити параметри в даній гілці.</p>
+<p>Коли не запускається <term>rdp-сеанс</term> маючи претензії до кешу ліцензій чи чогось типу того виявляється кеш цей чистити треба не з диску, а з реєстру.<!--more--> Знаходиться ця єрунда у гілці <path>HKEY_LOCAL_MACHINE\Software\Microsoft\MSLicensing</path>, яку і треба видалити.</p>
+<xmp class="bsh">reg delete HKLM\SOFTWARE\Microsoft\MSLicensing\ /f</xmp>
+<p>Далі на <term>Windows 7+</term> доведется 1 раз запустити <term>rdp-сесію</term> від імені адміністратора щоб знову створити параметри в даній гілці.</p>

@@ -4,23 +4,23 @@ title: Створення інсталяторів для Ubuntu.
 category: [LINUX]
 ---
 <img class="head" src="/media/deb.png"  alt="">
-<p>Виникла необхідність витягти одну штуку з дистрибутива Voyager 12.04 так як здалося що міг би використати це у своїй збірці Ubuntu(помилково як виявилося здалося та все ж). В результаті дослідив деякі варіанти отримання deb-пакету з різних вихідних джерел.<!--more--></p>
+<p>Виникла необхідність витягти одну штуку з дистрибутива <term>Voyager 12.04</term> так як здалося що міг би використати це у своїй збірці <term>Ubuntu</term>(помилково як виявилося здалося та все ж). В результаті дослідив деякі варіанти отримання deb-пакету з різних вихідних джерел.<!--more--></p>
 <ol>
 <li>Збираємо deb з вихідних кодів:
 <ul><li>cпочатку встановлюємо бібліотеки та матеріали необхідні для роботи:
-<pre><code>sudo apt-get install build-essential checkinstall linux-headers-$(uname -r)</code></pre>
+<xmp class="bsh">sudo apt-get install build-essential checkinstall linux-headers-$(uname -r)</xmp>
 </li>
 <li>розпаковуємо архів з вихідними кодами і збираємо пакет:
-<pre><code>cd /шлях/до/розпакованого
+<xmp class="bsh">cd /шлях/до/розпакованого
 ./configure
 sudo make
-sudo checkinstall</code></pre>
+sudo checkinstall</xmp>
 </li></ul>
 </li>
 <li>Отримуємо deb конвертацією інших бінарних пакетів програмою alien. Наприклад з rpm-пакету:
-<pre><code>alien --to-deb package.rpm</code></pre>
+<xmp class="bsh">alien --to-deb package.rpm</xmp>
 </li>
 <li>Створюємо deb з файлів уже встановлених в системі програмою dpkg-repack:
-<pre><code>dpkg-repack firefox</code></pre>
+<xmp class="bsh">dpkg-repack firefox</xmp>
 </li>
 </ol>

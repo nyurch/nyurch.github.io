@@ -5,17 +5,17 @@ category: [ЗАЛІЗО]
 ---
 		<img class="head" src="/media/hp.png" alt="">
 		<p>Ситуація абсолютно дебільна, є Win7 x64 і є HP 3050 підключений чи до іншої локальної машини чи до принт-сервера з x86 системою й установленими PCL драйверами
-		для даної моделі. В результаті 64-розрядна нікчемність абсолютно ніяким способом не хоче підключати принтер. В результаті приходиться робити те що було 
+		для даної моделі. В результаті 64-розрядна нікчемність абсолютно ніяким способом не хоче підключати принтер. В результаті приходиться робити те що було
 		досить поширено робити років 10+ тому - руками редагувати inf-файли з пакету драйверів щоб заставити тупу залізяку працювати.<!--more--><br>
 		Алгоритм наступний:<br>
-		1) качаємо <b class="term">HP Universal Printing PCL 6</b> для Win7 x64<br>
-		2) у файлі <b class="path">hpcu140u.inf</b> міняємо входження <b class="term">HP Universal Printing PCL 6</b> на <b class="term">HP LaserJet 3050 Series PCL 6</b>. В результаті маємо отримати щось таке:</p>
-		<pre><code>"HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,usbprint\Hewlett-PackardHP_Co79B4 
+		1) качаємо <term>HP Universal Printing PCL 6</term> для Win7 x64<br>
+		2) у файлі <path>hpcu140u.inf</path> міняємо входження <term>HP Universal Printing PCL 6</term> на <term>HP LaserJet 3050 Series PCL 6</term>. В результаті маємо отримати щось таке:</p>
+		<xmp class="lst">"HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,usbprint\Hewlett-PackardHP_Co79B4
 ....
 "HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,LPTENUM\HPUPD_PCL6,DOT4PRT\Hewlett-PackardHP_La023A,DOT4PRT\Hewlett-PackardHP_La023A&PRINT_HPZ,DOT4PRT\Hewlett-PackardHP_La023A&DOT4&PRINT_HPZ
 "HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&PRINT_HPZ
 "HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&DOT4&PRINT_HPZ
 "HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&Rev_0100&PRINT_HPZ
 "HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&Rev_0100&DOT4&PRINT_HPZ
-"HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&Rev_0100</code></pre>
+"HP LaserJet 3050 Series PCL 6" = hpcu1406.gpd.NTAMD64,DOT4PRT\vid_03f0&pid_7317&Rev_0100</xmp>
 		<p>Тепер при установці погоджуємося з установкою непідписаних драйверів і маємо робочий костиль.</p>

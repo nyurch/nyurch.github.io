@@ -9,45 +9,45 @@ category: [WINDOWS]
 		<h4>wushowhide</h4>
 		<p>Як виявилося дебілізм свого рішення із забороною приховувати оновлення які можуть призводити до краху системи розуміють навіть індуси із MS. А тому існує абсолютно офіційна утиліта що таки дозволяє це робити. Зветься <a href="https://support.microsoft.com/uk-ua/kb/3073930" target="_blank">wushowhide</a>. Костиль різний, для різних версій і збірок, так що навіть тут треба обережно.</p>
 		<h4><b class="warning">!!!</b> Administrative share</h4>
-		<p>Виявляється починаючи із <b class="term">Win8</b>(?) за замовчуванням закрито доступ до шар типу <b class="path">c$</b>. Ідіотизм рішення також більш ніж очевидний тому офіційна інструкція як його повернути присутня. Треба в гілці реєстру <b class="path">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</b> створити новий <b class="term">DWORD-параметр</b> з іменем <b class="path">LocalAccountTokenFilterPolicy</b> і присвоїти йому значення <b>1</b>.</p>
+		<p>Виявляється починаючи із <term>Win8</term>(?) за замовчуванням закрито доступ до шар типу <path>c$</path>. Ідіотизм рішення також більш ніж очевидний тому офіційна інструкція як його повернути присутня. Треба в гілці реєстру <path>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</path> створити новий <term>DWORD-параметр</term> з іменем <path>LocalAccountTokenFilterPolicy</path> і присвоїти йому значення <b>1</b>.</p>
 <p class="warning">!!! Для Windows 10 втратило актуальність після літніх апдейтів 2017 року.</p>
 		<h4>F8</h4>
 		<p>Я може чогось недорозумію, але за весь час існування Windows 8 і новіших я все ніяк не можу зрозуміти якому наркоману після лоботомії прийшла в голову ідея заблокувати функцію клавіші F8 в процесі завантаження системи. На щастя повертається на місце все досить просто.</p>
 		<ol>
-	    <li>У розділі <b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Configuration Manager</b> створюємо <b class="term">DWORD-параметр BackupCount</b> і присвоюємо йому значення рівне бажаній кількості бекапів гілки <b class="path">CurrentControlSet</b>. Рекомендують <b>2</b>, не буду сперечатися.</li>
-		<li>У цьому ж розділі створюємо підрозділ <b class="path">LastKnownGood</b>, а в ньому <b class="term">DWORD-параметр Enabled</b> зі значенням <b>1</b>.</li>
-		<li>На останок розблоковуємо спрацювання клавіші <b class="term">F8</b><pre><code>bcdedit /set "{current}" bootmenupolicy legacy</code></pre></li>
+	    <li>У розділі <path>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Configuration Manager</path> створюємо <term>DWORD-параметр BackupCount</term> і присвоюємо йому значення рівне бажаній кількості бекапів гілки <path>CurrentControlSet</path>. Рекомендують <b>2</b>, не буду сперечатися.</li>
+		<li>У цьому ж розділі створюємо підрозділ <path>LastKnownGood</path>, а в ньому <term>DWORD-параметр Enabled</term> зі значенням <b>1</b>.</li>
+		<li>На останок розблоковуємо спрацювання клавіші <term>F8</term><xmp class="bsh">bcdedit /set "{current}" bootmenupolicy legacy</xmp></li>
 		</ol>
 		<h4>Переміщення директорії Users в процесі встановлення</h4>
-		<p>Для переміщення директорії з профілями користувачів у процесі встановлення потрібно на етапі вибору стандартних параметрів перейти в режим аудиту(CTRL+SHIFT+F3). Комп'ютер перезавантажується і запускає <b class="term">sysprep</b>.</p>
+		<p>Для переміщення директорії з профілями користувачів у процесі встановлення потрібно на етапі вибору стандартних параметрів перейти в режим аудиту(CTRL+SHIFT+F3). Комп'ютер перезавантажується і запускає <term>sysprep</term>.</p>
 		<ol>
-	    <li>Закриваємо <b class="term">sysprep</b>;</li>
-		<li>Створюємо файл <b class="term">relocate.xml</b> такого виду. В даному випадку архітектура <b class="term">amd64</b> та новий шлях до профілів <b class="path">d:\Users;</b></li>
+	    <li>Закриваємо <term>sysprep</term>;</li>
+		<li>Створюємо файл <term>relocate.xml</term> такого виду. В даному випадку архітектура <term>amd64</term> та новий шлях до профілів <path>d:\Users;</path></li>
 		<li>Копіюємо файл в корінь будь-якого диску;</li>
 		<li>Запускаємо командний рядок від імені адміністратора:
-		<ul><li>впевнюємося що вимкнена служба <b class="term">WMPNetworkSvc</b>
-		<pre><code>net stop wmpnetworksvc</code></pre></li>
+		<ul><li>впевнюємося що вимкнена служба <term>WMPNetworkSvc</term>
+		<xmp class="bsh">net stop wmpnetworksvc</xmp></li>
 		<li>запускаємо sysprep з потрібними параметрами
-		<pre><code>%windir%\system32\sysprep\sysprep.exe /oobe /reboot /unattend:d:\relocate.xml</code></pre></li></ul></li>
+		<xmp class="bsh">%windir%\system32\sysprep\sysprep.exe /oobe /reboot /unattend:d:\relocate.xml</xmp></li></ul></li>
 		</ol>
 		<p>Після перезавантаження продовжуємо встановлення системи.<br>Теоретично повинно працювати і на живій системі при виконанні пунктів <b>2-4</b>. Правда я після цього отримав зациклений перезапуск в режимі аудиту, можливо тому що система була вже не чиста.</p>
 		<h4>Your user profile was not loaded correctly! You have been logged on with a temporary profile.</h4>
-		<p>У <b class="term">Win Vista+</b> якщо перейменувати/перенести профіль доменного користувача(локального теоретично також) то після перезавантеження він не створиться з нуля, як у <b class="term">Win XP</b>, а завантажиться тимчасовий профіль. Ідіотизм рішення очевидний. Лікується видаленням бекапу гілки реєстру <b class="path">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\S-1-5-...bak</b> у якій параметр <b class="term">ProfileImagePath</b> вказує на директорію де знаходився видалений/переіменований профіль.</p>
+		<p>У <term>Win Vista+</term> якщо перейменувати/перенести профіль доменного користувача(локального теоретично також) то після перезавантеження він не створиться з нуля, як у <term>Win XP</term>, а завантажиться тимчасовий профіль. Ідіотизм рішення очевидний. Лікується видаленням бекапу гілки реєстру <path>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\S-1-5-...bak</path> у якій параметр <term>ProfileImagePath</term> вказує на директорію де знаходився видалений/переіменований профіль.</p>
 		<h4>Відновлення завантажувача Windows 10.</h4>
 		<ol>
 	    <li>Завантажуємося з установочного диску Windows 10;</li>
-		<li>Доходимо до етапу з кнопкою <b class="term">Install Now</b> та натискаємо <b class="term">Repair your computer</b>;</li>
+		<li>Доходимо до етапу з кнопкою <term>Install Now</term> та натискаємо <term>Repair your computer</term>;</li>
 <a rel="colorbox" href="/media/repair-10.jpg" >
      <img class="blog" src="/media/repair-10.jpg"  alt="">
 </a>
-		<li>Далі йдемо за пунктами <b class="term">Troubleshoot/Advanced options/Command Prompt</b>;</li>
+		<li>Далі йдемо за пунктами <term>Troubleshoot/Advanced options/Command Prompt</term>;</li>
 <a rel="colorbox" href="/media/repair-10-1.jpg" >
      <img class="blog" src="/media/repair-10-1.jpg"  alt="">
 </a>
-		<li>виконуємо:
-		<pre><code>Bootrec /fixMbr</code></pre>
-		<pre><code>Bootrec /fixBoot</code></pre></li></ul></li>
+		<li>Виконуємо:
+		<xmp class="bsh">Bootrec /fixMbr</xmp>
+		<xmp class="bsh">Bootrec /fixBoot</xmp></li></ul></li>
 		</ol>
 		<h4>NumLock у Windows 10.</h4>
-<p>Якщо система не вмикає при старті NumLock незважаючи ні на налаштування bios, ні на свої можна ще спробувати руками у гілці реєстру <b class="path">HKEY_USERS\.Default\Control Panel\Keyboard</b> задати параметру <b class="path">InitialKeyboardIndicators</b> значення <b>2</b>, значення за замовчуванням <b>0</b>. Це має увімкнути NumLock ще на етапі <b>logonscreen</b>.</p>
+<p>Якщо система не вмикає при старті NumLock незважаючи ні на налаштування bios, ні на свої можна ще спробувати руками у гілці реєстру <path>HKEY_USERS\.Default\Control Panel\Keyboard</path> задати параметру <path>InitialKeyboardIndicators</path> значення <b>2</b>, значення за замовчуванням <b>0</b>. Це має увімкнути NumLock ще на етапі <b>logonscreen</b>.</p>
 		</ol>

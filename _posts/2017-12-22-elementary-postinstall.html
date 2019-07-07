@@ -4,16 +4,16 @@ title: Постустановочне налаштування elementary os.
 category: [LINUX]
 ---
 <img class="head" src="/media/elementary.png" alt="">
-<p>Невеликий скрипт для післяустановочного налаштування <b class="term">elementary os</b> майже повністю підходить і для <b class="term">ubuntu</b>. Основні підтримувані функції:</p>
+<p>Невеликий скрипт для післяустановочного налаштування <term>elementary os</term> майже повністю підходить і для <term>ubuntu</term>. Основні підтримувані функції:</p>
 <ol>
 <li>Задання та очищення налаштувань проксі;</li><!--more-->
 <li>Оновлення системи та очищення кешу apt;</li>
 <li>Додавання репозиторіїв та установка обраного програмного забезпечення;</li>
-<li>Установка <b class="term">dropbox</b> для <b class="term">elementary os</b>;</li>
-<li>Установка <b class="term">teamviewer</b>;</li>
+<li>Установка <term>dropbox</term> для <term>elementary os</term>;</li>
+<li>Установка <term>teamviewer</term>;</li>
 </ol>
 <p>Текст скрипта:</p>
-<xmp>#!/bin/bash
+<xmp class="lst">#!/bin/bash
 # Шапка-костиль, нічого не використовується.
 ROOT_UID=0 #Лише користувач з $UID 0 має права root.
 E_XCD=86 #Неможливо змінити директорію?
@@ -59,7 +59,7 @@ sudo rm -r /etc/apt/apt.conf.d/02proxy
 ;;
 3)
 echo -e "\n"
-sudo apt update && sudo apt -y dist-upgrade 
+sudo apt update && sudo apt -y dist-upgrade
 ;;
 4)
 echo -e "\n"
@@ -135,7 +135,7 @@ sleep 10 && ./case.sh
 <p>Виглядає якось так:<br></p>
 <a rel="colorbox" href="/media/screen-0.png" >
      <img class="blog" src="/media/screen-0.png"  alt="">
-</a> 
+</a>
 <a rel="colorbox" href="/media/screen-1.png" >
      <img class="blog" src="/media/screen-1.png"  alt="">
 </a>
@@ -144,5 +144,4 @@ sleep 10 && ./case.sh
 </a>
 
 <p>Завантажити можна <a href="https://github.com/nyurch/postinstall" target="_blank">тут</a>.</p>
-
 

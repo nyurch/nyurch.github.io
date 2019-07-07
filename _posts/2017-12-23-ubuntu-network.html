@@ -3,29 +3,29 @@ layout: post
 title: Налаштування параметрів мережі Ubuntu в терміналі.
 category: [LINUX]
 ---
-<p>Виявляється є момент, плюс чомусь <b class="term">address</b> завжди намагаюся писати з однією d.<!--more-->
-Всі налаштування мережевого адаптера знаходяться тепер у файлі <b class="path">/etc/network/interfaces</b>. Для його налаштування необхідно дописати у кінець файлу наступні параметри для статичної ip-адреси</p>
-<pre><code># Моя мережа.
-iface eth0 inet static 
-address 192.168.0.1 
-netmask 255.255.255.0 
-gateway 192.168.0.254 
+<p>Виявляється є момент, плюс чомусь <b>address</b> завжди намагаюся писати з однією d.<!--more-->
+Всі налаштування мережевого адаптера знаходяться тепер у файлі <path>/etc/network/interfaces</path>. Для його налаштування необхідно дописати у кінець файлу наступні параметри для статичної ip-адреси</p>
+<xmp class="lst"># Моя мережа.
+iface eth0 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+gateway 192.168.0.254
 dns-nameservers 192.168.0.254 8.8.8.8
-auto eth0 </code></pre>
+auto eth0 </xmp>
 <p>та наступні для динамічної</p>
-<pre><code># Моя мережа.
+<xmp class="lst"># Моя мережа.
 iface eth0 inet dhcp
-auto eth0</code></pre>
+auto eth0</xmp>
 <p>Є 2 моменти:</p>
 <ol>
-<li>Звично необхідно знати ім'я інтерфейсу, у даному випадку <b class="term">eth0</b>. Подивитися його, як завжди, можна або скориставшись командою <pre><code>ifconfig</code></pre> або <pre><code>sudo lshw -C network | grep "logical name"</code></pre></li>
-<li>Налаштування dns-серверу, починаючи з <b class="term">Ubuntu 12.04</b>, задається параметром <b class="term">dns-nameservers</b>. <p class="warning">!!! файл /etc/resolv.conf тепер генерується автоматично і всі руками внесені в нього зміни видаляються.</p></li>
+<li>Звично необхідно знати ім'я інтерфейсу, у даному випадку <b>eth0</b>. Подивитися його, як завжди, можна або скориставшись командою <xmp class="bsh">ifconfig</xmp> або <xmp class="bsh">sudo lshw -C network | grep "logical name"</xmp></li>
+<li>Налаштування dns-серверу, починаючи з <term>Ubuntu 12.04</term>, задається параметром <b>dns-nameservers</b>. <p class="warning">!!! файл /etc/resolv.conf тепер генерується автоматично і всі руками внесені в нього зміни видаляються.</p></li>
 </ol>
 <p>Тимчасові налаштування адаптеру які обнуляться після перезавантаження системи можна задати наступною командою:</p>
-<pre><code>sudo ip addr add 192.168.0.1/24 dev eth0</code></pre>
+<xmp class="bsh">sudo ip addr add 192.168.0.1/24 dev eth0</xmp>
 <p>Після внесення всіх змін перезапускаємо мережу командою на вибір:</p>
-<pre><code>sudo /etc/init.d/networking restart
+<xmp class="bsh">sudo /etc/init.d/networking restart
 sudo services networking restart
 sudo ifconfig eth0 down && sudo ifconfig eth0 up
-sudo ifdown eth0 && sudo ifup eth0</code></pre>
+sudo ifdown eth0 && sudo ifup eth0</xmp>
 

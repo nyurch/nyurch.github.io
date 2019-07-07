@@ -4,11 +4,11 @@ title: Установка продуктів Office 365.
 category: [ПРИКЛАДНІ ПРОГРАМИ]
 ---
 <img class="head" src="/media/office365.png" alt="">
-<p>Досить часто і малозрозуміло чому при установці наземних пакетів <b class="term">Office 365</b>, вони відмовляються ставитися аргументуючи це тим що щось уже встановлено якийсь продукт <b class="term">МС</b>. Наприклад установлено <b class="term">Office 2016</b>, а треба ще поставити <b class="term">Project 2016</b>. <!--more-->Ну, руки із жопи так руки із жопи, обійти це рукожопіє авторів інсталятора можна або їхнім же <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49117">Office Deployment Tool</a>, або генератором установочного конфігураційного файлу на <a href="https://officedev.github.io/Office-IT-Pro-Deployment-Scripts/XmlEditor.html">github</a>. В кінцевому результаті ми повинні мати 3 файла:</p>
+<p>Досить часто і малозрозуміло чому при установці наземних пакетів <term>Office 365</term>, вони відмовляються ставитися аргументуючи це тим що щось уже встановлено якийсь продукт <term>МС</term>. Наприклад установлено <term>Office 2016</term>, а треба ще поставити <term>Project 2016</term>. <!--more-->Ну, руки із жопи так руки із жопи, обійти це рукожопіє авторів інсталятора можна або їхнім же <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49117">Office Deployment Tool</a>, або генератором установочного конфігураційного файлу на <a href="https://officedev.github.io/Office-IT-Pro-Deployment-Scripts/XmlEditor.html">github</a>. В кінцевому результаті ми повинні мати 3 файла:</p>
 <ol>
-<li><b>setup.exe</b> - інсталятор, з повного установочного пакету, чи онлайновий з профілю <b class="term">Office 365</b></li>
+<li><b>setup.exe</b> - інсталятор, з повного установочного пакету, чи онлайновий з профілю <term>Office 365</b></li>
 <li><b>configuration.xml</b> створений одним з методів описаним вище з приблизно таким вмістом
-<xmp><Configuration>
+<xmp class="lst"><Configuration>
     <Add OfficeClientEdition="32" Channel="Monthly">
         <Product ID="SkypeforBusinessEntryRetail">
             <Language ID="en-uk"/>
@@ -17,7 +17,7 @@ category: [ПРИКЛАДНІ ПРОГРАМИ]
 </Configuration></xmp>
 </li>
 <li><b>setup.bat</b> для запуску установки з використанням нашого файлу конфігурації
-<xmp>setup.exe /configure configuration.xml</xmp>
+<xmp class="bsh">setup.exe /configure configuration.xml</xmp>
 </li>
 </ol>
 

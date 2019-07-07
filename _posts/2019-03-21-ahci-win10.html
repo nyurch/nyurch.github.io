@@ -3,10 +3,10 @@ layout: post
 title: Зміна режиму роботи контролера на встановленій Windows 10.
 category: [WINDOWS]
 ---
-<p>Для диркоголових що встановили <b class="term">Windows 10</b> і тільки потім побачили що в <b>BIOS</b> стояв режим <b>IDE</b>.<!--more--> У <b class="term">Windows 10</b> це робиться до непристойності елементарно. Все що треба, це після виставлення правильного режиму в <b>BIOS</b> змінити пару параметрів в реєстрі системи.
-У наступних гілках реєстру параметрам <b>Start</b> та <b>0</b> потрібно просто задати значення <b>0</b>.
-<b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iaStorV</b><br>
-<b class="path">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iaStorAV\StartOverride</b><br>
-<b class="path">HKEY_LOCAL_MACHINE\ SYSTEM\ CurrentControlSet\ Services\storahci</b><br>
-<b class="path">HKEY_LOCAL_MACHINE\ SYSTEM\ CurrentControlSet\ Services\ storahci\StartOverride</b><br>
+<p>Для диркоголових що встановили <term>Windows 10</term> і тільки потім побачили що в <term>BIOS</term> стояв режим <term>IDE</term>.<!--more--> У <term>Windows 10</term> це робиться до непристойності елементарно. Все що треба, це після виставлення правильного режиму в <b>BIOS</b> змінити пару параметрів в реєстрі системи.
+У наступних гілках реєстру параметрам <b>Start</b> та <b>0</b> потрібно просто задати значення <b>0</b>.<br>
+<path>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iaStorV</path><br>
+<path>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iaStorAV\StartOverride</path><br>
+<path>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\storahci</path><br>
+<path>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\storahci\StartOverride</path><br>
 Після чого перезавантажитися.

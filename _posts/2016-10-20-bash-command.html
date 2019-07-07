@@ -6,75 +6,75 @@ category: [LINUX]
 <img class="head" src="/media/bash.png" alt="">
 <p>Набір корисних і дуже корисних команд, котрі в силу своєї довжини не завжди вміщаються в голові.<!--more--></p>
 <h4>Вивід топ-5 директорій</h4>
-<p>На прикладі деректорії <b class="path">~/</b>:</p>
-<pre><code>du -hs ~/* | sort -rh | head -5</code></pre>
+<p>На прикладі деректорії <path>~/</path>:</p>
+<xmp class="bsh">du -hs ~/* | sort -rh | head -5</xmp>
 <p>Вивід топ-5 директорій включаючи піддиректорії:</p>
-<pre><code>du -hS ~/* | sort -rh | head -5</code></pre>
+<xmp class="bsh">du -hS ~/* | sort -rh | head -5</xmp>
 <p>Вивід топ-5 файлів:</p>
-<pre><code>find ~/* -type f -exec du -Sh {} + | sort -rh | head -n 5</code></pre>
+<xmp class="bsh">find ~/* -type f -exec du -Sh {} + | sort -rh | head -n 5</xmp>
 <h4>Копіювання файлів із відображенням прогресу</h4>
 <p>Використовується програма <b class="term">pv</b> яка ставиться зі стандартних репозиторіїв. Приклад використання:</p>
-<pre><code>pv що_копіювати > куди_копіювати</code></pre>
+<xmp class="bsh">pv що_копіювати > куди_копіювати</xmp>
 <p>Взято з <a href="http://www.tecmint.com/monitor-copy-backup-tar-progress-in-linux-using-pv-command/" target="_blank">www.tecmint.com</a></p>
 <img class="blog" src="/media/copy-files-show-progress-bar.gif" alt="">
 <h4>sed</h4>
 <p>Знайти в директорії та у всіх вкладених директоріях файли txt й замінити в них один текст на інший:</p>
-<pre><code>find -name '*.txt' -exec sed -i -e 's/що замінити/на що замінити/i' "{}" \;</code></pre>
+<xmp class="bsh">find -name '*.txt' -exec sed -i -e 's/що замінити/на що замінити/i' "{}" \;</xmp>
 <p>У файлі test вставити слово ТЕКСТ на початку кожного рядка:</p>
-<pre><code>sed 's/^/текст/' test</code></pre>
+<xmp class="bsh">sed 's/^/текст/' test</xmp>
 <p>У файлі test з'єднати рядки попарно(як варіант видалення порожніх рядків). Класичний приклад, зараз чомусь ще й видаляє перший символ кожного рядка:</p>
-<pre><code>sed '$!N;s/\n/ /' test</code></pre>
+<xmp class="bsh">sed '$!N;s/\n/ /' test</xmp>
 <p>У файлі test витерти порожні рядки. Класичний приклад, без \s* перед $, що гуляє всіма інтернетами, зараз чомусь не спрацьовує.</p>
-<pre><code>sed '/^\s*$/d' test</code></pre>
+<xmp class="bsh">sed '/^\s*$/d' test</xmp>
 <p>У файлі test в кінці рядка дописати КІНЕЦЬ РЯДКА. Класичний приклад, без \s* перед $, що гуляє всіма інтернетами, зараз чомусь не спрацьовує.</a></p>
-<pre><code>sed 's/\s*$/ кінець рядка/g' test</code></pre>
+<xmp class="bsh">sed 's/\s*$/ кінець рядка/g' test</xmp>
 <p>У файлі test через кожні 2 символи написати ВСТАВКА:</p>
-<pre><code> sed 's/\(..\)/\1ВСТАВКА/g' test</code></pre>
+<xmp class="bsh"> sed 's/\(..\)/\1ВСТАВКА/g' test</xmp>
 <p>У файлі test замінити 2+ пробілів одним, \( \)\+ можна заміняти на  пробілпробіл*:</p>
-<pre><code>sed 's/\( \)\+/ /g' test
-sed 's/  */ /g' test</code></pre>
+<xmp class="bsh">sed 's/\( \)\+/ /g' test
+sed 's/  */ /g' test</xmp>
 <p>У файлі test вставити пробіл після кожного символу:</p>
-<pre><code>sed 's/\(\)\+/ /g' test</code></pre>
+<xmp class="bsh">sed 's/\(\)\+/ /g' test</xmp>
 <p>У файлі test витерти пробіли в кінці рядків:</p>
-<pre><code>sed 's/ *$//' test</code></pre>
+<xmp class="bsh">sed 's/ *$//' test</xmp>
 <p>У файлі test витерти пробіл перед крапками чи витерти всі пробіли перед крапками:</p>
-<pre><code>sed 's/ \./\./g' test
-sed 's/\( \)\+\./\./g' test</code></pre>
+<xmp class="bsh">sed 's/ \./\./g' test
+sed 's/\( \)\+\./\./g' test</xmp>
 <p>або \( \)\+ можна заміняти на  пробіл* :</p>
-<pre><code>sed 's/ *\./\./g' test</code></pre>
+<xmp class="bsh">sed 's/ *\./\./g' test</xmp>
 <p>У файлі test витерти пробіл перед комами чи витерти всі пробіли перед комами:</p>
-<pre><code>sed 's/ ,/,/g' test
+<xmp class="bsh">sed 's/ ,/,/g' test
 sed 's/\( \)\+,/,/g' test
-sed 's/ *,/,/g' test</code></pre>
+sed 's/ *,/,/g' test</xmp>
 <p>У файлі test додати в кінці рядків крапку якщо її немає.</p>
-<pre><code>sed 's/[^\.]$/./' test</code></pre>
+<xmp class="bsh">sed 's/[^\.]$/./' test</xmp>
 <p>Хитрий набір команд бере файл file_list що є файлом який містить список файлів та тек створеним у Total Commander і робить з нього список в один рядок:</p>
-<pre><code>sed -i 's/.$//' file_list
+<xmp class="bsh">sed -i 's/.$//' file_list
 cat file_list | tr '\n' ' ' > test
 cat test | tr '[:upper:]' '[:lower:]' > file_list
 sed -i 's/\\/,/g;s/\( \)\+/ /g;s/, $//' file_list
-rm test</code></pre>
-<h4>Монтування ISO-образу</h4>
-<pre><code>mount -o loop,iocharset=utf8 -t iso9660 /шлях/до/образу /куди/монтувати</code></pre>
-<h4>Знайти всі mp3-файли й перекодувати теги в UTF8</h4>
-<pre><code>find /де/шукати/ -name "*.mp3" -print0 | xargs -0 mid3iconv -eCP1251 --remove-v1</code></pre>
-<h4>Виконати захват відео без звуку з екрану</h4>
-<pre><code>ffmpeg -f x11grab -s 1920x1080 -r 25 -i :0.0 -vcodec qtrle -f mov ~/video.mov</code></pre>
-<p>Детальніше на <a href="http://www.ffmpeg.org/ffmpeg.html" target="_blank">ffmpeg.org</a></p>
+rm test</xmp>
+<h4>Використання команд grep/egrep для перегляду файлів.</h4>
+<p>Команди <b class="term">grep/egrep</b> можна використовувати для виводу вмісту файлу без певних визначених рядків.<!--more--> Наприклад можна виводити вміст файлів конфігурації без закоментованих рядків. Досить цікава штука так як розмір файлу може бути в кілька метрів довжиною, а на 99.99% це можуть бути коментарі та закоментовані параметри. При цьому основна відмінність команди <b class="term">egrep</b> від <b class="term">grep</b> в тому що для неї просто можна задавати не один фільтр, а декілька. Приклад використання:</p>
+<xmp class="bsh">egrep -v "^$|^#" /boot/grub/grub.cfg</xmp>
+<p>Що тут маємо - <b>^X</b> - показує який символ початку рядка ми хочемо додати у шаблон, де <b>X</b> - будь-який символ.<br>
+<b>|</b> використовуємо для розділення при додаванні кількох символів у шаблон.<br>
+У даному випадку ми виводимо вміст файлу <path>/boot/grub/grub.cfg</path> без порожніх(<b>^$</b>) та без закоментованих(<b>^#</b>) рядків.<br>
+Без ключа <b>-v</b> виведуться лише порожні та закоментовані рядки.</p>
 <h4>Визначення mac-адреси</h4>
 <ol>
 <li>windows - getmac</li>
 <li>linux - arp-scan</li>
 </ol>
-<h4>Вимкнення ПК з Windows через Linux</h4>
-<pre><code>net rpc shutdown -r -f -C "shutting down" -I 192.168.7.14 -U домен/\логін%пароль</code></pre>
-<h4>Порівняння директорій</h4>
-<pre><code>diff -q dir-1/ dir-2/</code></pre>
+<h4>Монтування ISO-образу</h4><br>
+<xmp class="lst">mount -o loop,iocharset=utf8 -t iso9660 /шлях/до/образу /куди/монтувати</xmp>
+<h4>Знайти всі mp3-файли й перекодувати теги в UTF8</h4><br>
+<xmp class="bsh">find /де/шукати/ -name "*.mp3" -print0 | xargs -0 mid3iconv -eCP1251 --remove-v1</xmp>
+<h4>Виконати захват відео без звуку з екрану</h4><br>
+<xmp class="bsh">ffmpeg -f x11grab -s 1920x1080 -r 25 -i :0.0 -vcodec qtrle -f mov ~/video.mov</xmp>
+<p>Детальніше на <a href="http://www.ffmpeg.org/ffmpeg.html" target="_blank">ffmpeg.org</a></p>
+<h4>Вимкнення ПК з Windows через Linux</h4><br>
+<xmp class="bsh">net rpc shutdown -r -f -C "shutting down" -I 192.168.7.14 -U домен/\логін%пароль</xmp>
+<h4>Порівняння директорій</h4><br>
+<xmp class="bsh">diff -q dir-1/ dir-2/</xmp>
 <p>Або використовуючи програму <b class="term">meld</b> при наявності графічного оточення.</p>
-<h4>Використання команд grep/egrep для перегляду файлів.</h4>
-<p>Команди <b class="term">grep/egrep</b> можна використовувати для виводу вмісту файлу без певних визначених рядків.<!--more--> Наприклад можна виводити вміст файлів конфігурації без закоментованих рядків. Досить цікава штука так як розмір файлу може бути в кілька метрів довжиною, а на 99.99% це можуть бути коментарі та закоментовані параметри. При цьому основна відмінність команди <b class="term">egrep</b> від <b class="term">grep</b> в тому що для неї просто можна задавати не один фільтр, а декілька. Приклад використання:</p>
-<pre><code>egrep -v "^$|^#" /boot/grub/grub.cfg</code></pre>
-<p>Що тут маємо - <b>^X</b> - показує який символ початку рядка ми хочемо додати у шаблон, де <b>X</b> - будь-який символ.<br>
-<b>|</b> використовуємо для розділення при додаванні кількох символів у шаблон.<br>
-У даному випадку ми виводимо вміст файлу <b class="path">/boot/grub/grub.cfg</b> без порожніх(<b>^$</b>) та без закоментованих(<b>^#</b>) рядків.<br>
-Без ключа <b>-v</b> виведуться лише порожні та закоментовані рядки.</p>

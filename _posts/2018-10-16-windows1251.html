@@ -3,9 +3,9 @@ layout: post
 title: Текстові редактори в Linux та кодування windows-1251.
 category: [LINUX]
 ---
-<p>За замовчуванням у linux-системах графічні текстові редактори не визначають кодування windows-1251 автоматично. Як це змінити, на прикладі gedit, xed, code.<!--more--> Перш за все треба встановити dconf-editor
-<xmp>sudo apt install dconf-editor</xmp>
-<p>Налаштування кодувань знаходяться в ключах <b class="path">/org/gnome/gedit/preferences/encodings/auto-detected</b>, для <b class="term">gedit 3</b>, та <b class="path">/org/x/editor/preferences/encodings/auto-datedted</b> для <b class="term">xed</b>. До ключа треба руками додати значення <b>WINDOWS-1251</b>.<br>Або через  термінал</p>
-<xmp>gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8', 'WINDOWS-1251', 'KOI8-U', 'CP866', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+<p>За замовчуванням у <term>linux</term>-системах графічні текстові редактори не визначають кодування <term>windows-1251</term> автоматично. Як це змінити, на прикладі <term>gedit</term>, <term>xed</term>.<!--more--> Перш за все треба встановити <term>dconf-editor</term>
+<xmp class="bsh">sudo apt install dconf-editor</xmp>
+<p>Налаштування кодувань знаходяться в ключах <path>/org/gnome/gedit/preferences/encodings/auto-detected</path>, для <term>gedit 3</term>, та <path>/org/x/editor/preferences/encodings/auto-datedted</path> для <term>xed</term>. До ключа треба руками додати значення <b>WINDOWS-1251</b>.<br>Або через  термінал</p>
+<xmp class="bsh">gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8', 'WINDOWS-1251', 'KOI8-U', 'CP866', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 gsettings set org.x.editor.preferences.encodings auto-detected "['UTF-8', 'WINDOWS-1251', 'KOI8-U', 'CP866', 'CURRENT', 'ISO-8859-15', 'UTF-16']"</xmp>
 

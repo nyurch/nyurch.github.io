@@ -4,29 +4,29 @@ title: Samba-сервер в Ubuntu.
 category: [LINUX]
 ---
 <img class="head" src="/media/samba.jpg"  alt="">
-<p>Організація доступу до файлів на комп'ютері під керуванням операційної системи <b class="term">Ubuntu</b> за допомогою <b class="term">samba</b>. <b class="term">Samba</b> - реалізація мережевого протоколу <b class="term">SBM/CIFS</b>, що використовується для  надання доступу до файлів, принтерів, портів та реалізації іншої взаємодії між елементами комп'ютерних мереж.<!--more--></p>
+<p>Організація доступу до файлів на комп'ютері під керуванням операційної системи <term>Ubuntu</term> за допомогою <term>samba</term>. <term>Samba</term> - реалізація мережевого протоколу <term>SBM/CIFS</term>, що використовується для  надання доступу до файлів, принтерів, портів та реалізації іншої взаємодії між елементами комп'ютерних мереж.<!--more--></p>
 <ol>
 <li>
 Першим кроком є встановлення  самого пакету:
-<pre><code>sudo apt-get install samba</code></pre></li>
-<li>Додаємо у файл <b class="path">/etc/shells</b> запис <b class="path">/bin/false</b></li>
+<xmp class="bsh">sudo apt-get install samba</xmp></li>
+<li>Додаємо у файл <path>/etc/shells</path> запис <path>/bin/false</path></li>
 <li>Створюємо групу для доступу до спільних файлів:
-<pre><code>sudo addgroup smbgroup</code></pre></li>
+<xmp class="bsh">sudo addgroup smbgroup</xmp></li>
 <li>Створюємо в цый групі користувача для доступу до спільних файлів:
-<pre><code>sudo useradd samba -s /bin/false
+<xmp class="bsh">sudo useradd samba -s /bin/false
 sudo smbpasswd -a samba
-sudo usermod -aG smbgroup samba</code></pre>
+sudo usermod -aG smbgroup samba</xmp>
 вводимо для нього пароль з яким він матиме доступ до файлів.</li>
-<li>Далі потрібно відкорегувати вміст файлу <b class="path">/etc/samba/smb.conf</b> з урахуванням параметрів мережі та доступу до необхідних ресурсів.</li>
+<li>Далі потрібно відкорегувати вміст файлу <path>/etc/samba/smb.conf</path> з урахуванням параметрів мережі та доступу до необхідних ресурсів.</li>
 <li>Створюємо директорії і видаємо права на них
-<pre><code>sudo chown -R root:smbgroup /home/juno/Samba/write/
+<xmp class="bsh">sudo chown -R root:smbgroup /home/juno/Samba/write/
 sudo chown -R root:smbgroup /home/juno/Samba/read/
 sudo chmod -R 0777 /home/juno/Samba/write/
-sudo chmod -R 0555 /home/juno/Samba/read/</code></pre></li>
+sudo chmod -R 0555 /home/juno/Samba/read/</xmp></li>
 </ol>
-<p>Можна використати наступний файл конфігурації. Він налаштований для ПК що знаходиться в робочій групі <b>Workgroup</b>, користувач для авторизованого доступу - <b class="term">samba</b>, та теки до яких надається доступ <b class="path">/home/juno/Samba/read</b> та <b class="path">/home/juno/Samba/write</b>.
+<p>Можна використати наступний файл конфігурації. Він налаштований для ПК що знаходиться в робочій групі <b>Workgroup</b>, користувач для авторизованого доступу - <term>samba</term>, та теки до яких надається доступ <path>/home/juno/Samba/read</path> та <path>/home/juno/Samba/write</path>.
 </p>
-<pre><code>[global]
+<xmp class="lst">[global]
    workgroup = WORKGROUP
    server string = %h server (Samba, Ubuntu)
    dns proxy = no
@@ -67,14 +67,14 @@ sudo chmod -R 0555 /home/juno/Samba/read/</code></pre></li>
    valid users @smbgroup
    force create mode = 0777
    force directory mode = 0777
-</code></pre>
+</xmp>
 <p> Для анонімного доступу до вказаних ресурсів файл конфігурації та права на директорії такі:
-<pre><code>sudo chown -R nobody:nogroup /home/juno/Samba/write/
+<xmp class="bsh">sudo chown -R nobody:nogroup /home/juno/Samba/write/
 sudo chown -R nobody:nogroup /home/juno/Samba/read/
 sudo chmod -R 0777 /home/juno/Samba/write/
-sudo chmod -R 0555 /home/juno/Samba/read/</code></pre></li>
+sudo chmod -R 0555 /home/juno/Samba/read/</xmp></li>
 </p>
-<pre><code>[global]
+<xmp class="lst">[global]
    workgroup = WORKGROUP
    server string = %h server (Samba, Ubuntu)
    dns proxy = no
@@ -108,4 +108,4 @@ sudo chmod -R 0555 /home/juno/Samba/read/</code></pre></li>
    guest ok = Yes
    guest only = Yes
    force create mode = 0777
-   force directory mode = 0777</code></pre>
+   force directory mode = 0777</xmp>

@@ -6,18 +6,18 @@ category: [WINDOWS]
 <img class="head" src="/media/bash.png" alt="">
 <p>Набір корисних і дуже корисних команд, котрі забуваються в силу того що це Windows і вони рідко використовуються.<!--more--></p>
 <h4>Стати власником директорії, всіх файлів та піддиректорій</h4><br>
-<pre><code>takeown /F об'єкт /R
+<xmp class="bsh">takeown /F об'єкт /R
 F - шаблон імені файлу чи директорії
-R - примінити до всіх вкладених об'єктів</code></pre>
+R - примінити до всіх вкладених об'єктів</xmp>
 <h4>Отримати повний доступ до директорії, всіх файлів та піддиректорій</h4><br>
-<pre><code>icacls директорія /grant %username%:(OI)(CI)F /T
+<xmp class="bsh">icacls директорія /grant %username%:(OI)(CI)F /T
 F - повний доступ
 OI - всі НОВІ файли успадковують задані тут дозволи
 CI - всі НОВІ піддиректорії успадковують задані тут дозволи
-T - всі ІСНУЮЧІ файли та піддиректорії успадковують задані тут дозволи</code></pre>
+T - всі ІСНУЮЧІ файли та піддиректорії успадковують задані тут дозволи</xmp>
 <h4>Кастомізація виводу дати і часу</h4>
 <p>Зразу приклад скрипта:</p>
-<pre><code>@echo off
+<xmp class="lst">@echo off
 set h=%TIME:~0,2%
 set m=%TIME:~3,2%
 set s=%TIME:~6,2%
@@ -30,30 +30,30 @@ set yyyy=%DATE:~8,2%
 set curdate=%dd%-%mm%-%yyyy%
 set curdatetime=%curdate% %curtime%
 
-echo Current data and time - %curdatetime%</code></pre>
+echo Current data and time - %curdatetime%</xmp>
 <p>Суть у тому що після символу :~ перша цифра вказує починаючи з якого символу стандартної видачі брати значення, а друга кількість символів. По такому ж шаблону можна при бажанні працювати з будь-якими системними змінними.</p>
 <h4>Цикл FOR</h4>
 <p>В загальному синтаксис наступний:</p>
-<pre><code>for %%змінна in (файли) do дія - для роботи з файлами
+<xmp class="bsh">for %%змінна in (файли) do дія - для роботи з файлами
 for /D %%змінна in (каталоги) do дія - для роботи з каталогами
 for /R [шлях] %%змінна in (файли) do дія - для роботи з файлами у підкаталогах
-for /L %%змінна in (початок, крок, кінець) do дія - виконання дій в циклі обмеженої довжини що задається початковим і кінцевим значенням та кроком піж ними</code></pre>
+for /L %%змінна in (початок, крок, кінець) do дія - виконання дій в циклі обмеженої довжини що задається початковим і кінцевим значенням та кроком піж ними</xmp>
 <p>Деякі приклади:<br>
 Створюємо 6 директорій з іменами від 0 до 5</p>
-<pre><code>@echo off
-for /L %%i in (0, 1, 5) do mkdir %%i</code></pre>
-<p>Виводимо вміст всіх текстових файлів у директорії %temp%</p>
-<pre><code>@echo off
-for %%i in (%temp%\*.txt) do (echo %%i)</code></pre>
-<p>Вивести всі піддиректорії з директорій %appdata% та %temp%</p>
-<pre><code>@echo off
-for /D %%i in (%appdata%\* %temp%\*) do echo %%i</code></pre>
-<p>Вивести всі txt- та md-файли з директорії %temp%</p>
-<pre><code>@echo off
-for /R %temp% %%i in (*.txt *.md) do echo %%i</code></pre>
-<p>Вивести всі піддиректорії з директорії %temp%</p>
-<pre><code>@echo off
-for /R %temp% /d %%i in (*) do echo %%i</code></pre>
+<xmp class="lst">@echo off
+for /L %%i in (0, 1, 5) do mkdir %%i</xmp>
+<p>Виводимо вміст всіх текстових файлів у директорії <path>%temp%</path></p>
+<xmp class="lst">@echo off
+for %%i in (%temp%\*.txt) do (echo %%i)</xmp>
+<p>Вивести всі піддиректорії з директорій <path>%appdata%</path> та <path>%temp%</path></p>
+<xmp class="lst">@echo off
+for /D %%i in (%appdata%\* %temp%\*) do echo %%i</xmp>
+<p>Вивести всі txt- та md-файли з директорії <path>%temp%</path></p>
+<xmp class="lst">@echo off
+for /R %temp% %%i in (*.txt *.md) do echo %%i</xmp>
+<p>Вивести всі піддиректорії з директорії <path>%temp%</path></p>
+<xmp class="lst">@echo off
+for /R %temp% /d %%i in (*) do echo %%i</xmp>
 <h4>Визначення mac-адреси</h4>
 <ol>
 <li>windows - getmac</li>

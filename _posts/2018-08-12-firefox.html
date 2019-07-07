@@ -4,34 +4,34 @@ title: Костилі для Mozilla Firefox.
 category: [ПРИКЛАДНІ ПРОГРАМИ]
 ---
 <img class="head" src="/media/firefox-logo.png" alt="">
-<p>Набір костилів для <b class="path">Mozilla Firefox</b>.<!--more--></p>
+<p>Набір костилів для <term>Mozilla Firefox</term>.<!--more--></p>
 <h4><b class="warning">!!!</b>Підключення "несумісних" додатків</h4>
-<p>Остання версія <b class="path">Firefox ESR</b> взяла і без оголошення війни відключила додаток <b class="path">Multifox</b>, заявивши що він з нею несумісний. Виявилося що древні варіанти вирішення проблеми через <b class="path">about:config</b> уже не працюють. Для того щоб подружити "несумісні" додатки з браузером тепер треба поставити ще один додаток - <b class="path">Nightly Tester Tools</b> і тицьнути там галочку у <b class="path">Force Addon Compatibility</b></p>
+<p>Остання версія <term>Firefox ESR</term> взяла і без оголошення війни відключила додаток <term>Multifox</term>, заявивши що він з нею несумісний. Виявилося що древні варіанти вирішення проблеми через <path>about:config</path> уже не працюють. Для того щоб подружити "несумісні" додатки з браузером тепер треба поставити ще один додаток - <term>Nightly Tester Tools</term> і тицьнути там галочку у <path>Force Addon Compatibility</path></p>
 <a rel="colorbox" href="/media/firefox.jpg" >
      <img class="blog" src="/media/firefox.jpg"  alt="">
-</a> 
+</a>
 <p class="warning">!!! Втратило актуальність з виходом Firefox Quantum(57).</p>
 <h4>Асоціації невідомих Firefox-у протоколів з невідомими Firefox-у програмами</h4>
-<p>Постав перед необхідністю запускати отримані поштою, яка відкривається у <b class="term">Firefox</b>, посилання на бази в <b class="term">IBM Notes</b>. При стандартних параметрах <b class="term">Firefox</b> кричить що не знає протоколу для відкриття лінків типу <b class="path">notes://сервер/база</b>.
-Щоб вказати програму яка буде Firefox-ом асоціюватися з протоколом notes треба в <b class="path">about:config</b> створити логічний параметр з назвою <b class="path">network.protocol-handler.expose.notes</b> і значенням <b class="path">false</b>.
+<p>Постав перед необхідністю запускати отримані поштою, яка відкривається у <term>Firefox</term>, посилання на бази в <term>IBM Notes</term>. При стандартних параметрах <term>Firefox</term> кричить що не знає протоколу для відкриття лінків типу <path>notes://сервер/база</path>.
+Щоб вказати програму яка буде Firefox-ом асоціюватися з протоколом notes треба в <path>about:config</path> створити логічний параметр з назвою <path>network.protocol-handler.expose.notes</path> і значенням <path>false</path>.
 Тепер при першому кліку по посиланню на базу з'явиться вікно із запитом якою програмою відкривати посилання даного типу.</p>
 <h4>Баги Adobe Flash Player</h4>
-<p> Як говорить теорія - після включення нового <b class="term">protected mode</b> у <b class="term">Adobe Flash Player 11.3.300.257</b> він може приводити до збоїв <b class="term">Firefox 4+</b> в ОС <b class="term">Windows Vista/7</b>.
+<p> Як говорить теорія - після включення нового <term>protected mode</term> у <term>Adobe Flash Player 11.3.300.257</term> він може приводити до збоїв <term>Firefox 4+</term> в ОС <term>Windows Vista/7</term>.
 На практиці  у мене ці збої проявлялися у диких зависаннях браузера та системи при відкиті будь-якого сайту на яких є флеш-відео і т.п.
 Побороти цю "оптимізацію" можна  додавши рядок</p>
-<pre><code>ProtectedMode=0</code></pre>
-<p>у файл <b class="path">MMS.CFG(%windir%\system32\macromed\flash</b> - для 32-розрядних систем і <b class="path">%windir%\syswow64\macromed\flash</b> - для 64-розрядних систем).</p>
+<xmp class="lst">ProtectedMode=0</xmp>
+<p>у файл <path>MMS.CFG(%windir%\system32\macromed\flash</path> - для 32-розрядних систем і <path>%windir%\syswow64\macromed\flash</path> - для 64-розрядних систем).</p>
 <h4>Установка ESR версії в Linux</h4>
-<p>На даний момент репозиторіїв з <b class="term">Firefox ESR</b>, як мінімум для <b class="term">Ubuntu</b>, немає. Тому ставимо так:
+<p>На даний момент репозиторіїв з <term>Firefox ESR</term>, як мінімум для <term>Ubuntu</term>, немає. Тому ставимо так:
 <ol>
 <li>беремо архів з програмою <a href="https://www.mozilla.org/en-US/firefox/organizations/all/#en-US">тут</a>;</li>
-<li>розпаковуємо в <b class="path">/opt</b>, чи куди треба;</li>
+<li>розпаковуємо в <path>/opt</path>, чи куди треба;</li>
 <li>бекапимо лінк на просту версію, якщо треба, та робимо лінк на нову
-<pre><code>sudo mv /usr/bin/firefox /usr/bin/firefox-old
-sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre>
+<xmp class="bsh">sudo mv /usr/bin/firefox /usr/bin/firefox-old
+sudo ln -s /opt/firefox/firefox /usr/bin/firefox</xmp>
 </li>
 </ol></p>
 <h4>Firefox та html5 в Linux</h4>
-<p>На даний момент чомусь не працює <b class="term">html5-відео</b> наприклад на <b class="term">yuotube</b>. Лікується досить просто, треба створити новий <b class="term">boolean</b> ключ <b class="term">media.mediasource.ignore_codecs</b> і задати йому значення <b class="term">true</b>. Також при необхідності задати значення <b class="term">true</b> всім ключам що містять <b class="term">mediasource</b>.</p>
+<p>На даний момент чомусь не працює <term>html5-відео</term> наприклад на <term>yuotube</term>. Лікується досить просто, треба створити новий <term>boolean</term> ключ <b>media.mediasource.ignore_codecs</b> і задати йому значення <term>true</b>. Також при необхідності задати значення <term>true</b> всім ключам що містять <b>mediasource</b>.</p>
 <h4>"libavcodev may be vulnerable or is not supported" в Linux</h4>
-<p>Як правило зустрічаю в древніх версіях <b class="term">Linux</b> наприклад на <b class="term">Ubuntu 12.04</b>. Лікується досить просто, треба виправити ключ <b class="term">media.libavcodec.allow-obsolete</b> і задати йому значення <b class="term">true</b>.</p>
+<p>Як правило зустрічаю в древніх версіях <term>Linux</term> наприклад на <term>Ubuntu 12.04</term>. Лікується досить просто, треба виправити ключ <b>media.libavcodec.allow-obsolete</b> і задати йому значення <b>true</b>.</p>

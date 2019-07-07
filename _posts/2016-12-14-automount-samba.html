@@ -4,21 +4,21 @@ title: Автоматичне монтування мережевих ресур
 category: [LINUX]
 ---
 <img class="head" src="/media/samba.jpg"  alt="">
-<p>Трохи про автоматичне монтування мережевих ресурсів в Linux(Ubuntu).<!--more--> Спочатку ставимо необхідні пакети:</p>
-<pre><code>sudo apt-get install samba smbfs</code></pre>
+<p>Трохи про автоматичне монтування мережевих ресурсів в <term>Linux(Ubuntu)</term>.<!--more--> Спочатку ставимо необхідні пакети:</p>
+<xmp class="bsh">sudo apt-get install samba smbfs</xmp>
 
 <p>Створюємо директорії в які буде відбуватися підключення:</p>
-<pre><code>mkdir /media/share</code></pre>
+<xmp class="bsh">mkdir /media/share</xmp>
 
 <p>У файлі /etc/fstab прописуємо що і куди мотуємо:</p>
-<pre><code>//host/share /media/share cifs  iocharset=utf8,codepage=cp866,uid=500,gid=500,rw,credentials=/root/pass.txt 0 0</code></pre>
+<xmp class="lst">//host/share /media/share cifs  iocharset=utf8,codepage=cp866,uid=500,gid=500,rw,credentials=/root/pass.txt 0 0</xmp>
 
-<p>Створюємо файл /root/pass.txt з даними для авторизації:</p>
-<pre><code>username=user
-password=password</code></pre>
+<p>Створюємо файл <path>/root/pass.txt</path> з даними для авторизації:</p>
+<xmp class="lst">username=user
+password=password</xmp>
 
 <p>Змінюємо права доступу до нього:</p>
-<pre><code>sudo chmod 600 /root/pass.txt</code></pre>
+<xmp class="bsh">sudo chmod 600 /root/pass.txt</xmp>
 
 <p>Перезавантажуємося, або виконуємо</p>
-<pre><code>sudo mount -a</code></pre>
+<xmp class="bsh">sudo mount -a</xmp>

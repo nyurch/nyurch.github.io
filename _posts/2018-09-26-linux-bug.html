@@ -4,31 +4,40 @@ title: Костилі для Linux-систем. Оновлюється.
 category: [LINUX]
 ---
 <img class="head" src="/media/linux.jpg" alt="">
-<p>Набір костилів для <b class="path">Linux-систем</b>.<!--more--></p>
+<p>Набір костилів для <term>Linux-систем</term>.<!--more--></p>
 <h4>Elementary OS</h4>
-<p><b class="path">Elementary OS Loky</b> відмовляється приймати адміністративний пароль при установці пакету <b class="path">HP Linux Imaging and Printing</b>.<br>
+<p><term>Elementary OS Loky</term> відмовляється приймати адміністративний пароль при установці пакету <term>HP Linux Imaging and Printing</term>.<br>
 Лікується перезаданням пароля для рута використовуючи термінал.</p>
-<pre><code>sudo passwd $ваш_пароль_для_root</code></pre>
-<p>В <b class="path">Elementary OS Juno</b> за замовчуванням не відображаються значки сторонніх програм в аплеті індикатора.<br>
+<xmp class="bsh">sudo passwd $ваш_пароль_для_root</xmp>
+<p>В <term>Elementary OS Juno</term> за замовчуванням не відображаються значки сторонніх програм в аплеті індикатора.<br>
 Лікується установкою та налаштуванням пакетів <b>indicator-application</b> та <b>wingpanel-indicator-ayatana</b>.</p>
 <ol>
-<li>Установка:<pre><code>sudo add-apt-repository ppa:yunnxx/elementary
+<li>Установка:<xmp class="bsh">sudo add-apt-repository ppa:yunnxx/elementary
 sudo apt update
-sudo apt install indicator-application wingpanel-indicator-ayatana</code></pre></li>
-<li>У файлі <b class="path">/etc/xdg/autostart/indicator-application.desktop</b> в рядок <b class="path">OnlyShowIn=Unity;GNOME;</b> дописуємо <b class="path">Pantheon</b>;</li>
+sudo apt install indicator-application wingpanel-indicator-ayatana</xmp></li>
+<li>У файлі <path>/etc/xdg/autostart/indicator-application.desktop</path> в рядок <b>OnlyShowIn=Unity;GNOME;</b> дописуємо <b>Pantheon</b>;</li>
 <li>Даємо можливість запуску простим користувачам:
-<pre><code>sudo cp /usr/lib/systemd/user/indicator-application.service /etc/systemd/user</code></pre></li>
-<li>Додаємо команду <b class="term">systemctl --user start indicator-application.service</b> до автозапуску;</li>
+<xmp class="bsh">sudo cp /usr/lib/systemd/user/indicator-application.service /etc/systemd/user</xmp></li>
+<li>Додаємо команду <b>systemctl --user start indicator-application.service</b> до автозапуску;</li>
 <li>Перелогінюємося.</li>
 </ol>
 <h4>VNC доступ до робочого столу Ubuntu 16.04</h4>
-<p>Не достатньо видати права на підключення використовуючи <b class="term">Desktop Sharing</b>. При спробі приєднатися, як мінімум з <b class="term">Windows</b> будемо отримувати <b class="path">Server did not offer supported security type!</b>.<br>
-Встановлюємо <b class="term">dconf Editor</b> та вимикаємо вимогу шифрування з'єднання.</p>
-<pre><code>sudo apt install dconf-editor
-gsettings set org.gnome.desktop.remote-access require-encryption false</code></pre>
+<p>Не достатньо видати права на підключення використовуючи <term>Desktop Sharing</term>. При спробі приєднатися, як мінімум з <term>Windows</term> будемо отримувати <b>Server did not offer supported security type!</b>.<br>
+Встановлюємо <term>dconf Editor</term> та вимикаємо вимогу шифрування з'єднання.</p>
+<xmp class="bsh">sudo apt install dconf-editor
+gsettings set org.gnome.desktop.remote-access require-encryption false</xmp>
 
 <h4>Ubuntu 16.04 і ядро 4.13.х.х</h4>
-<p>Якогось чорта система перестає завантажуватися після оновлення ядра до будь-якої версії 4.13.х.х. Теоретично пишуть повинно допомогти підключення репозиторію <b class="term">ppa:canonical-kernel-team/ppa</b> і оновлення ядра з нього, але мені не допомогло. Тому</p>
-<pre><code>sudo apt remove --purge linux-image-4.13*
+<p>Якогось чорта система перестає завантажуватися після оновлення ядра до будь-якої версії 4.13.х.х. Теоретично пишуть повинно допомогти підключення репозиторію <b>ppa:canonical-kernel-team/ppa</b> і оновлення ядра з нього, але мені не допомогло. Тому</p>
+<xmp class="bsh">sudo apt remove --purge linux-image-4.13*
 sudo update-grub2
-sudo reboot</code></pre>
+sudo reboot</xmp>
+
+<h4>VNC у Mint XFCE 18.04+</h4>
+<p>Виявляється <term>vino</term> уже не є пакетом встановленим з коробки
+<ol>
+<li>Доставляємо:<xmp class="bsh">sudo apt install dconf-editor vino</xmp></li>
+<li>Переходимо в розділ <path>/gnome/desktop/remote-access</path> там все досить очевидно, питання тільки у заданні пароля для авторизованого доступу</li>
+<li>Пароль для авторизованого доступу задається шифрованим у кодуванні <b>Base64</b>. Згенерувати його можна <a href="https://www.base64encode.org/" target="_blank">тут</a>.<br> <b>authentication-method</b> при цьому ставимо <b>vnc</b></li>
+<li>Додаємо службу <path>/usr/lib/vino/vino-server</path> в автозапуск.</li>
+</ol>

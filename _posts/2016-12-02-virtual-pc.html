@@ -8,15 +8,15 @@ category: [ПРИКЛАДНІ ПРОГРАМИ]
 </a>
 <p>Костилі для деяких диких глюків та просто деякі моменти при роботі з вітруальними ОС.<!--more--></p>
 <h4>Лаги</h4>
-<p>Якщо використовую віртуальну <b class="term">Ubuntu</b> запущену у <b class="term">VMWare Workstation</b> під <b class="term">Ubuntu</b> то отримую з часом дикі тормоза. Лікується, як виявляється, додаванням рядка <b class="term">clocksource=acpi_pm</b> у файл <b class="path">назва_віртуалки.vmx</b></p>
+<p>Якщо використовую віртуальну <term>Ubuntu</term> запущену у <term>VMWare Workstation</term> під <term>Ubuntu</term> то отримую з часом дикі тормоза. Лікується, як виявляється, додаванням рядка <b>clocksource=acpi_pm</b> у файл <path>назва_віртуалки.vmx</path></p>
 <h4>VirtualBox Guest Additions в Ubuntu</h4>
 <p>Для початку оновлюємо ядро, доставляємо необхідні пакети і переконфігуровуємся:</p>
-<pre><code>sudo apt-get update
+<xmp class="bsh">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install build-essential module-assistant
-sudo m-a prepare</code></pre>
-<p>Тепер можна встановлювати <b class="term">Guest Additions</b></p>
+sudo m-a prepare</xmp>
+<p>Тепер можна встановлювати <term>Guest Additions</term></p>
 <h4>Встановлення VirtualBox Extension Pack в терміналі</h4><br>
-<pre><code>VBoxManage extpack install <ім'я пакету> </code></pre>
+<xmp class="bsh">VBoxManage extpack install <ім'я пакету> </xmp>
 <h4>VMWare Workstation BIOS</h4>
-<p>Буває нереально встигнути заактивити вікно й натиснути необхідну кнопку. Лікується додаванням рядка <b class="term">bios.bootdelay = Т</b> у файл <b class="path">назва_віртуалки.vmx</b>. Де <b>T</b> - бажаний час затримки у мілісекундах.</p>
+<p>Буває нереально встигнути заактивити вікно й натиснути необхідну кнопку. Лікується додаванням рядка <b>bios.bootdelay = Т</b> у файл <path>назва_віртуалки.vmx</path>. Де <b>T</b> - бажаний час затримки у мілісекундах.</p>

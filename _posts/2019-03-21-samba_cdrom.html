@@ -3,13 +3,13 @@ layout: post
 title: Мережевий доступ до змінного носія. Samba 4.
 category: [LINUX]
 ---
-<p>Є пара моментів з тим як монтувати та розшарювати щоб мати доступ бо варіант зі сліпою аналогією до випадку зі звичайною директорією відкритою лише на читання не працює.<!--more--> Перш за все треба прописати у <b class="path">fstab</b> куди монтуватиметься носій, у нас на прикладі <b>CD-ROM</b>.</p>
-<xmp>/dev/sr0 /media/cdrom iso9660 defaults,noauto,ro,user,uid=1000,gid=1000 0 0</xmp>
+<p>Є пара моментів з тим як монтувати та розшарювати щоб мати доступ бо варіант зі сліпою аналогією до випадку зі звичайною директорією відкритою лише на читання не працює.<!--more--> Перш за все треба прописати у <path>/etc/fstab</path> куди монтуватиметься носій, у нас на прикладі <b>CD-ROM</b>.</p>
+<xmp class="lst">/dev/sr0 /media/cdrom iso9660 defaults,noauto,ro,user,uid=1000,gid=1000 0 0</xmp>
 <p>Звертаємо увагу на <b>uid/gid</b> бо буде монтуватися зі значенням <b>0(root)</b>.<br>
-Перечитуємо відредагований <b class="path">fstab</b></p>
-<xmp>sudo mount -a</xmp>
-<p>Лишається дати доступ до директорії <b class="path">/media/cdrom</b> у <b class="path">/etc/samba/smb.conf</b>.</p>
-<xmp>[DVD-ROM Drive]
+Перечитуємо відредагований <path>/etc/fstab</path></p>
+<xmp class="bsh">sudo mount -a</xmp>
+<p>Лишається дати доступ до директорії <path>/media/cdrom</path> у <path>/etc/samba/smb.conf</path>.</p>
+<xmp class="lst">[DVD-ROM Drive]
    path = /media/cdrom
    browseable = yes
    read only = no
@@ -19,4 +19,4 @@ category: [LINUX]
    postexec = /bin/umount /media/cdrom
 </xmp>
 <p>Перезапускаємо <b class="term">samba</b> і все повинно працювати.</p>
-<xmp>sudo systemctl restart smbd</xmp>
+<xmp class="bsh">sudo systemctl restart smbd</xmp>
