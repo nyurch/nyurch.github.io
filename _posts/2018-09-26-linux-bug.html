@@ -41,3 +41,10 @@ sudo reboot</xmp>
 <li>Пароль для авторизованого доступу задається шифрованим у кодуванні <b>Base64</b>. Згенерувати його можна <a href="https://www.base64encode.org/" target="_blank">тут</a>.<br> <b>authentication-method</b> при цьому ставимо <b>vnc</b></li>
 <li>Додаємо службу <path>/usr/lib/vino/vino-server</path> в автозапуск.</li>
 </ol>
+<h4>Видалення Vmware Horizon Client</h4>
+<xmp class="bsh">sudo ./VMware-Horizon-Client-x.x.x-yyyyyyy.bundle -u vmware-horizon-client</xmp>
+<p>або, якщо нема інсталяційного пакету</p>
+<xmp class="bsh">sudo vmware-installer --uninstall-product vmware-horizon-client</xmp>
+<p>Через vmware-installer також можна видалити якийсь 1 компонент чи ынший продукт VMWare. Подивитися ъх список можна так:</p>
+<xmp class="bsh">sudo vmware-installer --list-products
+sudo vmware-installer --list-components</xmp>
