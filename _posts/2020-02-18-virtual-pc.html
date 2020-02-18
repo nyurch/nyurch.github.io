@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Деякі моменти з віртуалізацією.
+title: Віртуалізація. VirtualBox та VMWare.
 category: [ПРИКЛАДНІ ПРОГРАМИ]
 ---
 <a rel="colorbox" href="/media/guest-os.jpg" >
@@ -20,3 +20,12 @@ sudo m-a prepare</xmp>
 <xmp class="bsh">VBoxManage extpack install <ім'я пакету> </xmp>
 <h4>VMWare Workstation BIOS</h4>
 <p>Буває нереально встигнути заактивити вікно й натиснути необхідну кнопку. Лікується додаванням рядка <b>bios.bootdelay = Т</b> у файл <path>назва_віртуалки.vmx</path>. Де <b>T</b> - бажаний час затримки у мілісекундах.</p>
+<h4>VirtualBox завантаження з USB-диску</h4>
+<p>Для тестів завантажувальних флешок - під'єднуємо і створюємо vmdk-образ для VirtualBox</p>
+<xmp class="bsh">sudo vboxmanage internalcommands createrawvmdk -filename ~/Temp/usb.vmdk -rawdisk /dev/sdc -relative</xmp>
+<p>Даємо права на образ</p>
+<xmp class="bsh">sudo chmod 777 usb.vmdk</xmp>
+<p>Додаємо користувача у групи <term>disk</term>, потрібно для доступу до raw-дисків, та <term>vboxusers</term>, впринципі він уже повинен там бути.</p>
+<xmp class="bsh">sudo usermod -a -G disk $USER
+sudo usermod -a -G vboxusers $USER</xmp>
+<p>Перелогінюємся. При вставленій флешці створений парусотбайтний файл дозволяє з неї завантажуватися.</p>
