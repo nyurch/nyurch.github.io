@@ -112,8 +112,6 @@ dhcp-option=option:dns-server,8.8.8.8</xmp></li>
 <xmp class="lst">/netboot/nfs  *(ro,sync,no_wdelay,insecure_locks,no_root_squash,insecure,no_subtree_check)</xmp></li>
 <li>І робимо спільний ресурс доступним
 <xmp class="bsh">sudo exportfs -a</xmp></li>
-<li>Встановлюємо syslinux та pxelinux
-<xmp class="bsh">sudo apt install syslinux pxelinux</xmp></li>
 <li>Копіюємо чи створюємо посилання на файл <path>/usr/lib/syslinux/memdisk</path> необхідного для завантаження напряму з iso-образу
 <xmp class="bsh">sudo ln -s /usr/lib/syslinux/memdisk /netboot/tftp</xmp></li>
 <li>Створюємо директорії з яких будуть ставитися linux-системи, Linux Mint 19 XFCE, у нашому випадку
