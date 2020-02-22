@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Завантаження та установка ОС з PXE-сервера. Чорновик.
+title: Завантаження та установка ОС з PXE-сервера.
 category: [LINUX]
 ---
 <a rel="colorbox" href="/media/PXE_diagram.png" >
@@ -172,6 +172,38 @@ label Testing_tools
 menu label ^Testing tools
 kernel vesamenu.c32
 append pxelinux.cfg/hard_test</xmp></li>
-<li>Роздаємо права, здається зайве, треба протестити на чистій інсталяції
+<li>Роздаємо права
 <xmp class="bsh">sudo chmod -Rfv 777 /netboot</xmp></li>
 </ol>
+<p>Плюс описаного вище підходу з використанням <b>Syslinux</b> в його більшій простоті в порівнянні з <b>Grub</b>, мінус в тому що він адекватно працює тільки з <b>legacy bios</b>, коли маємо <b>EFI</b> починаються кошмарні тормоза. Тому є сенс використовувати <b>grub</b> з перспективою завантажуватися і з <b>EFI</b>.</p>
+<ol>
+<li> Встановлюємо, якщо не встановлено, <b>grub-pc</b>
+<xmp class="bsh">sudo apt-get install grub-pc</xmp></li>
+<li> Генеруємо завантажувач
+<xmp class="bsh">cd /netboot/tftp
+grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o ./booti386.0 -p '/grub' pxe tftp</xmp></li>
+<li> Копіюємо файли <b>grub</b>
+<xmp class="bsh">sudo rsync -vua /usr/lib/grub/i386-pc /netboot/tftp/grub/</xmp></li>
+<li> Створюємо файл конфігурації завантаження
+<xmp class="bsh">sudo touch /netboot/tftp/grub/grub.cfg</xmp></li>
+<li> Замінимо у файлі <path>dnsmasq.conf</path> секцію <b>PXE menu</b> наступною
+<xmp class="lst"># PXE menu.  The first part is the text displayed to the user.  The second is the timeout, in seconds.
+pxe-prompt="Press F8 for PXE Network boot...", 10
+pxe-service=x86PC, "Boot from local disk"
+pxe-service=x86PC, "Run Syslinux via PXE", pxelinux
+pxe-service=x86PC, "Run Grub via PXE", booti386</xmp></li>
+</ol>
+<p>На даний момент не можу змусити завантажуватися у варіанті <b>EFI Grub</b>, хоча в режимі <b>legacy bios</b> навіть пункт <b>pxe-service=Х86-64_EFI, "Run EFI Grub via PXE", bootx64.efi</b> ігнорується і не відображається, що очевидно правильно. Також в результаті незрозумілим є параметр dhcp-boot бо без нього все працює. Файл тестової конфігурації в результаті скорочується до наступного:</p>
+<xmp class="lst">port=0
+log-dhcp
+tftp-root=/netboot/tftp
+enable-tftp
+dhcp-no-override
+dhcp-range=192.168.7.13,proxy
+
+pxe-prompt="Press F8 for PXE Network boot...", 10
+pxe-service=x86PC, "Boot from local disk"
+pxe-service=x86PC, "Run Syslinux via PXE", pxelinux
+pxe-service=x86PC, "Run Grub via PXE", booti386
+pxe-service=x86-64_EFI, "Run EFI Grub via PXE", bootx64.efi
+</xmp>
