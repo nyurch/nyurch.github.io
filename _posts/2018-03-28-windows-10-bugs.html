@@ -50,4 +50,10 @@ category: [WINDOWS]
 		</ol>
 		<h4>NumLock у Windows 10.</h4>
 <p>Якщо система не вмикає при старті NumLock незважаючи ні на налаштування bios, ні на свої можна ще спробувати руками у гілці реєстру <path>HKEY_USERS\.Default\Control Panel\Keyboard</path> задати параметру <path>InitialKeyboardIndicators</path> значення <b>2</b>, значення за замовчуванням <b>0</b>. Це має увімкнути NumLock ще на етапі <b>logonscreen</b>.</p>
-		</ol>
+		<h4>Пропадає індикатор клавіатури.</h4>
+<p>Пропадає індикатор розкладки клавіатури після перезавантаження. Якщо зайти в налаштування клавіатури то зразу з'являється. Після перезавантаження знов пропадає. На даний момент лікується костилем в автозавантаженні(<path>%ProgramData%\Microsoft\Windows\Start Menu\Programs\StartUp</path>).</p>
+		<xmp class="lst">@ECHO OFF
+ECHO
+start ms-settings:regionlanguage
+TIMEOUT /T 1
+taskkill /F /IM systemsettings.exe</xmp>
