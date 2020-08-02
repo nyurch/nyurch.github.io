@@ -57,7 +57,7 @@ category: [LINUX]
 	CYAN="\e[1;36\[m";
 	WHYTE="\e[1;37\[m";
 	END="\e\[m"
-	export PS1="$BLUE[\D{%m/%d/%Y} \A] $RED\u@\h $YELLOW\W $WHYTE"
+	export PS1="$BLUE[\D{ %m/%d/%Y } \A] $RED\u@\h $YELLOW\W $WHYTE"
 </xmp>
 <p>Звертаємо увагу на необхідність екранування символу [ перед m. А також на те що $END я не використовую.</p>
 <h4>TPUT підхід</h4>
@@ -79,5 +79,5 @@ category: [LINUX]
 	<li>7 - білий</li>
 </ol>
 <p>В результаті в <path>.bashrc</path> додаємо наприклад таку секцію:</p>
-<xmp class="lst">export PS1="\[$(tput bold)$(tput setab 7)$(tput setaf 5)\][\D{%m/%d/%Y} \A] \[$(tput setaf 1)\]\u@\h:\[$(tput setaf 4)\]\w $ \[$(tput sgr0)\] "</xmp>
+<xmp class="lst">export PS1="\[$(tput bold)$(tput setab 7)$(tput setaf 5)\][\D{ %m/%d/%Y } \A] \[$(tput setaf 1)\]\u@\h:\[$(tput setaf 4)\]\w $ \[$(tput sgr0)\] "</xmp>
 <p>Звертаємо увагу на необхідність екранування символів [].</p>
