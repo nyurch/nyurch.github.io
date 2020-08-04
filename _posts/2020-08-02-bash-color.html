@@ -38,18 +38,18 @@ category: [LINUX]
 </ol>
 <p>Для зручності зразу переводимо це у формат зрозумілих змінних:</p>
 <ol>
-	<li>BLACK='\e[1;30m'</li>
-	<li>RED='\e[1;31m'</li>
-	<li>GREEN='\e[1;32m'</li>
-	<li>YELLOW='\e[1;33m'</li>
-	<li>BLUE='\e[1;34m'</li>
-	<li>PURPLE='\e[1;35m'</li>
-	<li>CYAN='\e[1;36m'</li>
-	<li>WHYTE='\e[1;37m'</li>
-	<li>END='\e[m'</li>
+	<li>BLACK="\e[1;30m"</li>
+	<li>RED="\e[1;31m"</li>
+	<li>GREEN="\e[1;32m"</li>
+	<li>YELLOW="\e[1;33m"</li>
+	<li>BLUE="\e[1;34m"</li>
+	<li>PURPLE="\e[1;35m"</li>
+	<li>CYAN="\e[1;36m"</li>
+	<li>WHYTE="\e[1;37m"</li>
+	<li>END="\e[m"</li>
 </ol>
 <p>В результаті в <path>.bashrc</path> додаємо секцію:</p>
-<xmp class="lst">	RED="\e[1;31\[m";
+<xmp class="lst">	RED="\e[1;31m";
 	GREEN="\e[1;32m";
 	YELLOW="\e[1;33m";
 	BLUE="\e[1;34m";
