@@ -49,3 +49,15 @@ sudo reboot</xmp>
 <p>Через vmware-installer також можна видалити якийсь 1 компонент чи інший продукт VMWare. Подивитися їх список можна так:</p>
 <xmp class="bsh">sudo vmware-installer --list-products
 sudo vmware-installer --list-components</xmp>
+<h4>add-apt-repository</h4>
+<p>Була необхідність передати із Zenity для add-apt-repository кілька репозиторіїв для додавання, а стандартний скрипт уміє додавати лише по одному. Як варіант модифікації, тимчасової чи постійної, можна використовувати таку.<!--more--></p>
+<ol>
+	<li>Шукаємо де знаходиться команда<xmp class="bsh">which add-apt-repository</xmp> як правило це <path>/usr/bin/apt-add-repository</path></li>
+	<li>Робимо бекап<xmp class="bsh">sudo mv /usr/bin/add-apt-repository /usr/bin/add-apt-repository.single</xmp></li>
+	<li>Створюємо новий файл<xmp class="bsh">sudo nano add-apt-repository</xmp> з наступним вмістом<xmp class="lst">#! /bin/bash
+#
+for i in "$@"; do
+   /usr/bin/add-apt-repository.single "$i"
+done</xmp></li>
+	<li>Робимо файл виконуваним<xmp class="bsh">chmod a+rx /usr/bin/add-apt-repository</xmp></li>
+</ol>
