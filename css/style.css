@@ -13,9 +13,9 @@ body {
 	margin: 0 auto;
 	text-align: center;
  }
-/*div.spacing {
+div.disqus {
     padding: 0px 50px;
-}*/
+}
 
 .list {
 	 box-shadow:  0 0 10px rgba(0,0,0,1);
