@@ -14,7 +14,7 @@ body {
 	text-align: center;
  }
 div.spacing {
-    padding: 150px;
+    padding: 150px 130px 150px 100px;
 }
 
 .list {
