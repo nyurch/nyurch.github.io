@@ -4,10 +4,9 @@ layout: default
 <div class="container">
   <h1>{{ page.title }}</h1>
   <div class="blog-post spacing">
-    {{ content
+    {{ content  }}
 {% if site.disqus.shortname %}
   {% include disqus_comments.html %}
 {% endif %}
-    }}
 </div>
 </div>
