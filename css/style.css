@@ -13,6 +13,10 @@ body {
 	margin: 0 auto;
 	text-align: center;
  }
+div.spacing {
+   	margin: 150px;
+	font-size: 10em;
+}
 
 .list {
 	 box-shadow:  0 0 10px rgba(0,0,0,1);
