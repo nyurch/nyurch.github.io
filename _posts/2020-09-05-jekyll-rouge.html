@@ -1,0 +1,82 @@
+---
+layout: post
+comments: true
+title: Підсвітка синтаксису в Jekyll.
+category: [WEB]
+---
+<img class="head" src="/media/jekyll.png" alt="">
+<p>На майбутнє, щоб не забути. Можна перейти для відображення програмного коду від конструкцій типу <b>&lt;xmp&gt;...&lt;/xmp&gt;</b>, <b>&lt;code&gt;...&lt;/code&gt;</b>, <b>&lt;code&gt;&lt;code&gt;...&lt;/code&gt;&lt;/code&gt;</b>. До використання <a href="http://rouge.jneen.net/" target="_blank">Rouge</a>, що вже вбудовано в <b>Jekyll 3</b>. <!--more-->Плюси очевидні, незручності(мабуть екранування спецсимволів) почнуть вилазити в процесі.  <b>&#123;% rаw %&#125;...&#123;% endrаw %&#125;</b>.</p>
+<ol>
+    <li>Перевіряємо наявність встановлених Rouge та Kramdown
+    <xmp class="bsh">gem list --local</xmp></li>
+    <li>У файл <path>config.yml</path> додаємо наступне
+    <code>{% highlight yml linenos %}markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge{% endhighlight %}</code></li>
+    <li>Дивимось доступні на даний момент стилі та створюємо <b>css-файл</b>.
+    <xmp class="bsh">rougify help style
+...
+rougify style pastie > css/rouge.css</xmp></li>
+    <li>Підключаємо стиль у основний шаблон <path>_layouts/default.html</path>
+    <code>{% highlight html linenos %}<link rel="stylesheet" href="/css/rouge.css">{% endhighlight %}</code></li>
+    <li>Дивимося список підтримуваних мов та аліаси для них. Можна закинути у файл, щоб було під рукою.
+    <xmp class="bsh">rougify list > rougify.list</xmp></li>
+</ol>
+<p>Використання наступне - необхідний обривок коду обгортаємо тегами <b>{% raw %}{% highlight МОВА ПАРАМЕТРИ %}...{% endhighlight %}{% endraw %}</b>. Всі вищепоказані вставки у текстові файли уже показані за цим принципом.<br>Приклад більшого тексту</p>
+<pre><code>{% highlight posh linenos %}$Title = "Welcome"
+$Info = "Install choco and other software"
+
+function Show-Menu {
+    param (
+        [string]$Title = 'Main Menu'
+    )
+    Clear-Host
+    Write-Host "================ $Title ================"
+
+    Write-Host "1: Install choco."
+    Write-Host "2: Install software."
+    Write-Host "3: Check software update."
+    Write-Host "4: Update software."
+    Write-Host "5: Uninstall software."
+    Write-Host "6: List cinstalled software."
+    Write-Host "7: Disable hibernation."
+    Write-Host "8: Interface tweaks."
+    Write-Host "Q: Quit."
+
+    Write-Host "==========================================="
+}
+
+do
+ {
+    Show-Menu
+    $selection = Read-Host "Please make a selection"
+    switch ($selection)
+    {
+    '1' {
+    Set-ExecutionPolicy Bypass -Scope Process -Force; `
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    pause
+    exit
+    } '2' {
+    choco install doublecmd --nocolor --limitoutput --no-progress -y
+    } '3' {
+    choco outdated
+    } '4' {
+    choco update all
+    } '5' {
+    choco uninstall doublecmd --nocolor --limitoutput --no-progress -y
+    } '6' {
+    choco list -localonly
+    } '7' {
+    powercfg -h off
+    } '8' {
+    reg import first_run.reg
+	cmd /c del /f /q %systemdrive%\users\%username%\desktop\"Microsoft Edge.lnk"
+    }
+    }
+    pause
+ }
+ until ($selection -eq 'q'){% endhighlight %}</code></pre>
+<p>Написано по <a href="https://bnhr.xyz/2017/03/25/add-syntax-highlighting-to-your-jekyll-site-with-rouge.html" target="_blank">даному тексту</a>.
+</p>

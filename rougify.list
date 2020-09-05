@@ -1,0 +1,164 @@
+== Available Lexers ==
+=============================================================================================================================================================
+conf: A generic lexer for configuration files [aliases: config,configuration]
+console: A generic lexer for shell sessions. Accepts ?lang and ?output lexer options, a ?prompt option, and ?comments to enable # comments. [aliases: terminal,shell_session,shell-session]
+  ?comments= enable hash-comments at the start of a line - otherwise interpreted as a prompt. (default: false, implied by ?prompt not containing `#`)
+  ?lang= the shell language to lex (default: shell)
+  ?output= the output language (default: plaintext?token=Generic.Output)
+  ?prompt= comma-separated list of strings that indicate the end of a prompt. (default: $,#,>,;)
+css: Cascading Style Sheets, used to style web pages
+html: HTML, the markup language of the web
+ini: the INI configuration format
+java: The Java programming language (java.com)
+javascript: JavaScript, the browser scripting language [aliases: js]
+liquid: Liquid is a templating engine for Ruby (liquidmarkup.org)
+markdown: Markdown, a light-weight markup language for authors [aliases: md,mkd]
+plaintext: A boring lexer that doesn't highlight anything [aliases: text]
+powershell: powershell [aliases: posh]
+sed: sed, the ultimate stream editor
+shell: Various shell languages, including sh and bash [aliases: bash,zsh,ksh,sh]
+xml: <desc for="this-lexer">XML</desc>
+yaml: Yaml Ain't Markup Language (yaml.org) [aliases: yml]
+=============================================================================================================================================================
+abap: SAP - Advanced Business Application Programming
+actionscript: ActionScript [aliases: as,as3]
+apache: configuration files for Apache web server
+apiblueprint: Markdown based API description language. [aliases: apiblueprint,apib]
+applescript: The AppleScript scripting language by Apple Inc. (http://developer.apple.com/applescript/) [aliases: applescript]
+awk: pattern-directed scanning and processing language
+biml: BIML, Business Intelligence Markup Language
+bsl: The 1C:Enterprise programming language
+c: The C programming language
+ceylon: Say more, more clearly.
+cfscript: CFScript, the CFML scripting language [aliases: cfc]
+clojure: The Clojure programming language (clojure.org) [aliases: clj,cljs]
+cmake: The cross-platform, open-source build system
+coffeescript: The Coffeescript programming language (coffeescript.org) [aliases: coffee,coffee-script]
+common_lisp: The Common Lisp variant of Lisp (common-lisp.net) [aliases: cl,common-lisp,elisp,emacs-lisp]
+coq: Coq (coq.inria.fr)
+cpp: The C++ programming language [aliases: c++]
+crystal: Crystal The Programming Language (crystal-lang.org) [aliases: cr]
+csharp: a multi-paradigm language targeting .NET [aliases: c#,cs]
+d: The D programming language(dlang.org) [aliases: dlang]
+dart: The Dart programming language (dartlang.com)
+diff: Lexes unified diffs or patches [aliases: patch,udiff]
+digdag: A simple, open source, multi-cloud workflow engine (https://www.digdag.io/)
+docker: Dockerfile syntax [aliases: dockerfile]
+dot: graph description language
+eiffel: Eiffel programming language
+elixir: Elixir language (elixir-lang.org) [aliases: elixir,exs]
+elm: The Elm programming language (http://elm-lang.org/)
+erb: Embedded ruby template files [aliases: eruby,rhtml]
+  ?parent= the parent language (default: html)
+erlang: The Erlang programming language (erlang.org) [aliases: erl]
+factor: Factor, the practical stack language (factorcode.org)
+fortran: Fortran 2008 (free-form)
+fsharp: F# (fsharp.net)
+gherkin: A business-readable spec DSL ( github.com/cucumber/cucumber/wiki/Gherkin ) [aliases: cucumber,behat]
+glsl: The GLSL shader language
+go: The Go programming language (http://golang.org) [aliases: go,golang]
+gradle: A powerful build system for the JVM
+graphql: GraphQL
+groovy: The Groovy programming language (http://www.groovy-lang.org/)
+hack: The Hack programming language (hacklang.org) [aliases: hack,hh]
+  ?disabledmodules= Disable certain modules from being highlighted as builtins (default: empty)
+  ?funcnamehighlighting= Whether to highlight builtin functions (default: true)
+  ?parent= the parent language (default: html)
+  ?start_inline= Whether to start with inline php or require <?php ... ?>. (default: best guess)
+haml: The Haml templating system for Ruby (haml.info) [aliases: HAML]
+  ?filters[filter_name]= Mapping of lexers to use for haml :filters
+handlebars: the Handlebars and Mustache templating languages [aliases: hbs,mustache]
+  ?parent= the parent language (default: html)
+haskell: The Haskell programming language (haskell.org) [aliases: hs]
+hcl: Hashicorp Configuration Language, used by Terraform and other Hashicorp tools
+http: http requests and responses
+hylang: The HyLang programming language (hylang.org) [aliases: hy]
+idlang: Interactive Data Language
+igorpro: WaveMetrics Igor Pro
+io: The IO programming language (http://iolanguage.com)
+irb: Shell sessions in IRB or Pry [aliases: pry]
+irb_output:
+jinja: Django/Jinja template engine (jinja.pocoo.org) [aliases: django]
+  ?parent= the parent language (default: html)
+json: JavaScript Object Notation (json.org)
+json-doc: JavaScript Object Notation with extenstions for documentation
+jsonnet: An elegant, formally-specified config language for JSON
+jsx: React JSX (https://facebook.github.io/react/) [aliases: jsx,react]
+julia: The Julia programming language [aliases: jl]
+kotlin: Kotlin Programming Language (http://kotlinlang.org)
+lasso: The Lasso programming language (lassosoft.com) [aliases: lassoscript]
+  ?parent= the parent language (default: html)
+  ?start_inline= Whether to start inline instead of requiring <?lasso or [
+literate_coffeescript: Literate coffeescript [aliases: litcoffee]
+literate_haskell: Literate haskell [aliases: lithaskell,lhaskell,lhs]
+llvm: The LLVM Compiler Infrastructure (http://llvm.org/)
+lua: Lua (http://www.lua.org)
+  ?disabled_modules= builtin modules to disable
+  ?function_highlighting= Whether to highlight builtin functions (default: true)
+make: Makefile syntax [aliases: makefile,mf,gnumake,bsdmake]
+matlab: Matlab [aliases: m]
+moonscript: Moonscript (http://www.moonscript.org) [aliases: moon]
+  ?disabled_modules= builtin modules to disable
+  ?function_highlighting= Whether to highlight builtin functions (default: true)
+mosel: An optimization language used by Fico's Xpress.
+mxml: MXML
+nasm: Netwide Assembler
+nginx: configuration files for the nginx web server (nginx.org)
+nim: The Nim programming language (http://nim-lang.org/) [aliases: nimrod]
+nix: The Nix expression language (https://nixos.org/nix/manual/#ch-expression-language) [aliases: nixos]
+objective_c: an extension of C commonly used to write Apple software [aliases: objc,obj-c,obj_c]
+ocaml: Objective Caml (ocaml.org)
+pascal: a procedural programming language commonly used as a teaching language.
+perl: The Perl scripting language (perl.org) [aliases: pl]
+php: The PHP scripting language (php.net) [aliases: php,php3,php4,php5]
+  ?disabledmodules= Disable certain modules from being highlighted as builtins (default: empty)
+  ?funcnamehighlighting= Whether to highlight builtin functions (default: true)
+  ?parent= the parent language (default: html)
+  ?start_inline= Whether to start with inline php or require <?php ... ?>. (default: best guess)
+plist: plist [aliases: plist]
+pony:
+praat: The Praat scripting language (praat.org)
+prolog: The Prolog programming language (http://en.wikipedia.org/wiki/Prolog) [aliases: prolog]
+prometheus: prometheus [aliases: prometheus]
+properties: .properties config files for Java
+protobuf: Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data [aliases: proto]
+puppet: The Puppet configuration management language (puppetlabs.org) [aliases: pp]
+python: The Python programming language (python.org) [aliases: py]
+q: The Q programming language (kx.com) [aliases: kdb+]
+qml: QML, a UI markup language [aliases: qml]
+r: The R statistics language (r-project.org) [aliases: r,R,s,S]
+racket: Racket is a Lisp descended from Scheme (racket-lang.org)
+ruby: The Ruby programming language (ruby-lang.org) [aliases: rb]
+rust: The Rust programming language (rust-lang.org) [aliases: rs]
+sass: The Sass stylesheet language language (sass-lang.com)
+scala: The Scala programming language (scala-lang.org) [aliases: scala]
+scheme: The Scheme variant of Lisp
+scss: SCSS stylesheets (sass-lang.com)
+sieve: mail filtering language
+slim: The Slim template language
+smalltalk: The Smalltalk programming language [aliases: st,squeak]
+smarty: Smarty Template Engine [aliases: smarty]
+  ?parent= the parent language (default: html)
+sml: Standard ML [aliases: ml]
+sql: Structured Query Language, for relational databases
+swift: Multi paradigm, compiled programming language developed by Apple for iOS and OS X development. (developer.apple.com/swift)
+tap: Test Anything Protocol [aliases: tap]
+tcl: The Tool Command Language (tcl.tk)
+terraform: Terraform HCL Interpolations [aliases: tf]
+tex: The TeX typesetting system [aliases: TeX,LaTeX,latex]
+toml: the TOML configuration format (https://github.com/mojombo/toml)
+tsx: tsx
+tulip: the tulip programming language (twitter.com/tuliplang) [aliases: tulip]
+turtle: Terse RDF Triple Language, TriG
+twig: Twig template engine (twig.sensiolabs.org)
+  ?parent= the parent language (default: html)
+typescript: TypeScript, a superset of JavaScript [aliases: ts]
+vala: A programming language similar to csharp.
+vb: Visual Basic [aliases: visualbasic]
+verilog: The System Verilog hardware description language
+vhdl: Very High Speed Integrated Circuit Hardware Description Language
+viml: VimL, the scripting language for the Vim editor (vim.org) [aliases: vim,vimscript,ex]
+vue: Vue.js single-file components [aliases: vuejs]
+wollok: Wollok lang
+=============================================================================================================================================================
+
