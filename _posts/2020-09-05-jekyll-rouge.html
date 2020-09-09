@@ -5,7 +5,7 @@ title: Підсвітка синтаксису в Jekyll.
 category: [WEB]
 ---
 <img class="head" src="/media/rouge.png" alt="">
-<p>На майбутнє, щоб не забути. Можна перейти для відображення програмного коду від конструкцій типу <b>&lt;xmp&gt;...&lt;/xmp&gt;</b>, <b>&lt;code&gt;...&lt;/code&gt;</b>, <b>&lt;code&gt;&lt;code&gt;...&lt;/code&gt;&lt;/code&gt;</b> до використання <a href="http://rouge.jneen.net/" target="_blank">Rouge</a>, що вже вбудовано в <b>Jekyll 3</b>. <!--more-->Плюси очевидні, незручності(мабуть екранування спецсимволів) почнуть вилазити в процесі.  <b>&#123;% rаw %&#125;...&#123;% endrаw %&#125;</b>.</p>
+<p>На майбутнє, щоб не забути. Можна перейти для відображення програмного коду від конструкцій типу <b>&lt;xmp&gt;...&lt;/xmp&gt;</b>, <b>&lt;code&gt;...&lt;/code&gt;</b>, <b>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</b> до використання <a href="http://rouge.jneen.net/" target="_blank">Rouge</a>, що вже вбудовано в <b>Jekyll 3</b>. <!--more-->Плюси очевидні, незручності(мабуть екранування спецсимволів) почнуть вилазити в процесі.  <b>&#123;% rаw %&#125;...&#123;% endrаw %&#125;</b> - екранує код(щось хотів тут написати, але вже забув).</p>
 <ol>
     <li>Перевіряємо наявність встановлених Rouge та Kramdown
     <xmp class="bsh">gem list --local</xmp></li>
@@ -23,7 +23,7 @@ rougify style pastie > css/rouge.css</xmp></li>
     <li>Дивимося список підтримуваних мов та аліаси для них. Можна закинути у файл, щоб було під рукою.
     <xmp class="bsh">rougify list > rougify.list</xmp></li>
 </ol>
-<p>Використання наступне - необхідний обривок коду обгортаємо тегами <b>{% raw %}{% highlight МОВА ПАРАМЕТРИ %}...{% endhighlight %}{% endraw %}</b>. Всі вищепоказані вставки у текстові файли уже показані за цим принципом.<br>Приклад більшого тексту</p>
+<p>Використання наступне - необхідний обривок коду обгортаємо тегами <b>{% raw %}{% highlight МОВА ПАРАМЕТРИ %}...{% endhighlight %}{% endraw %}</b>. Всі вищепоказані вставки у текстові файли уже показані за цим принципом.<br>Приклад більшого тексту:</p>
 <pre><code>{% highlight posh linenos %}$Title = "Welcome"
 $Info = "Install choco and other software"
 

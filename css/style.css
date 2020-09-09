@@ -244,3 +244,9 @@ div.tag {
     background: #fc0; /* Цвет фона */
    }
 /*</Кнопка "Категорія"*/
+
+/*Markdown*/
+img[src$="head"] {
+  display:block;
+  margin: 0 auto;
+}
