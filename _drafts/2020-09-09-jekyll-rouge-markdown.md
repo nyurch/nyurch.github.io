@@ -5,10 +5,7 @@ title: Підсвітка синтаксису в Jekyll. Markdown-версія.
 category: [WEB]
 ---
 ![Rouge logo](/media/rouge.png?style=head)
-На майбутнє, щоб не забути. Можна перейти для відображення програмного коду від конструкцій типу **&lt;xmp&gt;...&lt;/xmp&gt;**, **&lt;code&gt;...&lt;/code&gt;**, **&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;** до використання [Rouge](http://rouge.jneen.net/ "Rouge. Офіційний портал."), що вже вбудовано в **Jekyll 3**. <!--more-->Плюси очевидні, незручності(мабуть екранування спецсимволів) почнуть вилазити в процесі.  **&#123;% rаw %&#125;...&#123;% endrаw %&#125;**.
-
-{% highlight console %}труляля{% endhighlight %}
-
+На майбутнє, щоб не забути. Можна перейти для відображення програмного коду від конструкцій типу **&lt;xmp&gt;...&lt;/xmp&gt;**, **&lt;code&gt;...&lt;/code&gt;**, **&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;** до використання [Rouge](http://rouge.jneen.net/ "Rouge. Офіційний портал."), що вже вбудовано в **Jekyll 3**. <!--more-->
 
 1. Перевіряємо наявність встановлених Rouge та Kramdown
 
@@ -24,8 +21,8 @@ category: [WEB]
 3. Дивимось доступні на даний момент стилі та створюємо **css-файл**
 
         {% highlight bash %}rougify help style
-        ...
-        rougify style pastie > css/rouge.css{% endhighlight %}
+...
+rougify style pastie > css/rouge.css{% endhighlight %}
 
 4. Підключаємо стиль у основний шаблон <path>_layouts/default.html</path>
 
@@ -62,11 +59,11 @@ category: [WEB]
         
         do
          {
-            Show-Menu
-           $selection = Read-Host "Please make a selection"
+          Show-Menu
+          $selection = Read-Host "Please make a selection"
           switch ($selection)
           {
-           '1' {
+            '1' {
           Set-ExecutionPolicy Bypass -Scope Process -Force; `
           iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
           pause

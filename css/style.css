@@ -250,3 +250,17 @@ img[src$="head"] {
   display:block;
   margin: 0 auto;
 }
+
+ul li {
+    text-align: left;
+}
+
+figure {
+    text-align: left;
+    padding: 5px;
+}
+
+pre.highlight {
+    text-align: left;
+    padding: 5px;
+}
