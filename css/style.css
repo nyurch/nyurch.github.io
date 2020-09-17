@@ -249,6 +249,8 @@ div.tag {
 img[src$="head"] {
   display:block;
   margin: 0 auto;
+  max-width: 50em;
+  max-height: 10em;
 }
 
 ul li {
