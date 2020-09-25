@@ -253,6 +253,13 @@ img[src$="head"] {
   max-height: 10em;
 }
 
+img[src$="blog"] {
+  display:block;
+  margin: 0 auto;
+  max-width: 50em;
+  max-height: 20em;
+}
+
 ul li {
     text-align: left;
 }
