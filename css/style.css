@@ -275,3 +275,11 @@ pre.highlight {
     text-align: left;
     padding: 5px;
 }
+
+em {
+	color: #0084b5;
+}
+
+strong em {
+    color: #4CAF50;
+}

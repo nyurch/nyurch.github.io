@@ -8,7 +8,7 @@ category: [WEB]
 Останній костиль у блог - пошук по сайту. Є 3 варіанти: **Google Custom Search Engine**, **Lunr.js** та **Simple Jekyll Search**.<!--more--> **Lunr** читав має проблеми з пошуком на кирилиці, тому не видумуючи велосипед для початку пробую використовувати те що вже є в самому **jekyll**  
 Зроблено по [статті](https://blog.webjeda.com/instant-jekyll-search/ "Jekyll Instant Search in 3 simple steps!").
 
-- У корені блогу створюємо <path>search.json</path> з наступним вмістом
+- У корені блогу створюємо *search.json* з наступним вмістом
 
         {% highlight liquid %}{% raw %}
         ---
