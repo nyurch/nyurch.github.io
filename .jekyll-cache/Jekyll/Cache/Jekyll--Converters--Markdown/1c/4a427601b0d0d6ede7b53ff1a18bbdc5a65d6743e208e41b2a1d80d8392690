@@ -1,0 +1,93 @@
+I"b<p><img src="/media/markdown.svg?style=head" alt="Markdown logo" /><br />
+А чи на почати його писати пости на <strong>markdown</strong>…<!--more--> Перший погляд показує що треба буде частково перероблювати <strong>css</strong> і перенести туди всі костилі які є в <strong>html</strong>, типу стилів, класів і тому подібного.</p>
+
+<h1 id="1-решітка-заголовок---1-рівня">1 решітка заголовок - 1 рівня</h1>
+<h2 id="2-решітки-заголовок---2-рівня">2 решітки заголовок - 2 рівня</h2>
+<h3 id="3-решітки-заголовок---3-рівня">3 решітки заголовок - 3 рівня</h3>
+
+<p>Перевід рядка<br />
+це 2 пробіли й ентер.</p>
+
+<p>Новий параграф це порожній рядок.</p>
+
+<p>Текст між 2 зірочками <strong>товстий</strong><br />
+Текст між зірочками <em>похилий</em><br />
+Відповідно між 3 зірочками <strong><em>товстий і похилий</em></strong></p>
+
+<blockquote>
+  <p>Цитата<br />
+з багатьма<br />
+рядками</p>
+</blockquote>
+
+<blockquote>
+  <p>В цитаті</p>
+  <blockquote>
+    <p>ще одна цитата</p>
+  </blockquote>
+</blockquote>
+
+<p><strong>Нумерований список</strong></p>
+<ol>
+  <li>Один.</li>
+  <li>Два.</li>
+  <li>Три.</li>
+</ol>
+
+<p><strong>Ненумерований список</strong></p>
+<ul>
+  <li>Один;</li>
+  <li>Два;</li>
+  <li>Три;</li>
+</ul>
+
+<p><strong>Нумерований список з вкладеним ненумерованим</strong></p>
+<ol>
+  <li>Один.</li>
+  <li>Два.
+    <ul>
+      <li>Один</li>
+      <li>Два</li>
+    </ul>
+  </li>
+  <li>Три.</li>
+</ol>
+
+<p><strong>Ненумерований список з вкладеним нумерованим</strong></p>
+<ul>
+  <li>Один;</li>
+  <li>Два;
+    <ol>
+      <li>Один.</li>
+      <li>Два.</li>
+    </ol>
+  </li>
+  <li>Три;</li>
+</ul>
+
+<p>Блок коду<br />
+має ідентифікуватися по табу чи мінімум 4 пробілам</p>
+
+<figure class="highlight"><pre><code class="language-posh" data-lang="posh"><span class="nf">Clear-Host</span><span class="w">
+    </span><span class="nx">Write-Host</span><span class="w"> </span><span class="s2">"================ </span><span class="nv">$Title</span><span class="s2"> ================"</span><span class="w">
+
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"1: Install choco."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"2: Install software."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"3: Check software update."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"4: Update software."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"5: Uninstall software."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"6: List cinstalled software."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"7: Disable hibernation."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"8: Interface tweaks."</span><span class="w">
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"Q: Quit."</span><span class="w">
+
+    </span><span class="nf">Write-Host</span><span class="w"> </span><span class="s2">"==========================================="</span></code></pre></figure>
+
+<p>Посилання: <a href="https://nyurch.github.io">Писанина</a>.<br />
+Посилання з описом: <a href="https://nyurch.github.io" title="Писанина на github">Писанина</a>.</p>
+
+<p>* Слеш екранує спецсимволи</p>
+
+<p>Очевидно всі стилі мають бути в <strong>css</strong>. Жодних костилів у самому <strong>.md</strong>.</p>
+
+:ET

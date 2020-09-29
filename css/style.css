@@ -231,8 +231,9 @@ img.head {
 	max-height: 10em;
 }
 img.blog {
-	max-width: 50em;
+	max-width: 100%;
 	max-height: 20em;
+    object-fit: fill;
 }
 /*</Картинки основної та блогу*/
 
@@ -256,8 +257,9 @@ img[src$="head"] {
 img[src$="blog"] {
   display:block;
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 100%;
   max-height: 20em;
+  object-fit: fill;
 }
 
 ul li {

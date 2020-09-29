@@ -1,0 +1,51 @@
+I"�<p><img src="/media/jekyll.png?style=head" alt="Jekyll logo" /><br />
+Останній костиль у блог - пошук по сайту. Є 3 варіанти: <strong>Google Custom Search Engine</strong>, <strong>Lunr.js</strong> та <strong>Simple Jekyll Search</strong>.<!--more--> <strong>Lunr</strong> читав має проблеми з пошуком на кирилиці, тому не видумуючи велосипед для початку пробую використовувати те що вже є в самому <strong>jekyll</strong><br />
+Зроблено по <a href="https://blog.webjeda.com/instant-jekyll-search/" title="Jekyll Instant Search in 3 simple steps!">статті</a>.</p>
+
+<ul>
+  <li>У корені блогу створюємо <path>search.json</path> з наступним вмістом</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid">        ---
+        ---
+        [
+          <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.posts</span><span class="w"> </span><span class="p">%}</span>
+            {
+        
+              "title"    : "<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="p">}}</span>",
+              "url"      : "<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">baseurl</span><span class="w"> </span><span class="p">}}{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>",
+              "category" : "<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>",
+              "tags"     : "<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">', '</span><span class="w"> </span><span class="p">}}</span>",
+              "date"     : "<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">}}</span>"
+        
+            } <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nb">forloop.last</span><span class="w"> </span><span class="p">%}</span>,<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+          <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+        ]
+        </code></pre></figure>
+
+<ul>
+  <li>Зберігаємо <a href="https://raw.githubusercontent.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js" title="Скрипт пошуку">search-script.js</a>;</li>
+  <li>Створюємо шаблонну сторінку пошуку, чи додаємо наступний код до шаблону</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">        <span class="c">&lt;!-- Html Elements for Search --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"search-container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"search-input"</span> <span class="na">placeholder=</span><span class="s">"search..."</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"results-container"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        
+        <span class="c">&lt;!-- Script pointing to search-script.js --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/path/to/search-script.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        
+        <span class="c">&lt;!-- Configuration --&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+        <span class="nx">SimpleJekyllSearch</span><span class="p">({</span>
+          <span class="na">searchInput</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">search-input</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">resultsContainer</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">results-container</span><span class="dl">'</span><span class="p">),</span>
+          <span class="na">json</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/search.json</span><span class="dl">'</span>
+        <span class="p">})</span>
+        <span class="nt">&lt;/script&gt;</span></code></pre></figure>
+
+<p>Готово.</p>
+
+:ET
