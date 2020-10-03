@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Total Commander LP 9.1a
-category: [ПРИКЛАДНІ ПРОГРАМИ]
+category: [SOFTWARE]
 ---
 ![tcm logo](/media/tc-logo.gif?style=head)  
 На ***Windows*** без ***Total Commander*** як на машині без коліс. Біда в тому що він у базовій комплектації як машина з колесами, але без мотору. Тому своя персональна збірка - ідеальний варіант, тим більше що в найпростішому вигляді, без інсталятора й вибору варіантів установки, її може навіть шимпанзе із зоопарку зібрати.<!--more-->
@@ -17,4 +17,3 @@ category: [ПРИКЛАДНІ ПРОГРАМИ]
 [![install tcm](/media/install_tc-02.png?style=blog "install tcm")](/media/install_tc-02.png "Repair"){:target="_blank"}  
 [![install tcm](/media/install_tc-03.png?style=blog "install tcm")](/media/install_tc-03.png "Repair"){:target="_blank"}  
 Забрати [тут](https://goo.gl/7xVLEC "збарегти TCM"){:target="_blank"}.
-

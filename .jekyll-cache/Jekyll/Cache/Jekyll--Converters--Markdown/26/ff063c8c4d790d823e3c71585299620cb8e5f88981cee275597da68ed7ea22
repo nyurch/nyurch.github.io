@@ -1,7 +1,0 @@
-I"(<p><img src="/media/xubuntu-weather-plugin.png?style=head" alt="Jekyll logo" /><br />
-Після зміни версії API на <strong>https://apt.met.no/</strong> в дистрибутивах на базі <strong>Ubuntu 18.04</strong> перестав працювати <strong>xfce4-weather-plugin</strong>.<!--more--> Найпростіший спосіб заміна <path>libweather.so</path> на нову перекомпільовану версію.
-Зроблено по <a href="https://askubuntu.com/questions/1274259/xfce4-weather-plugin-for-xubuntu-18-04-stopped-working" title="askubuntu">статті</a>.</p>
-
-<p>Забрати готовий файл можна за посиланням з оригінального обговорення чи <a href="https://github.com/nyurch/nyurch.github.io/tree/master/files/libweather.so" title="libweather.so">тут</a>
-помістити його за адресою <path>/usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libweather.so</path> та перезавантажити плагін.</p>
-:ET
