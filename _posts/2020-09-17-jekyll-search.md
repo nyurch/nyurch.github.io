@@ -35,7 +35,7 @@ category: [WEB]
         <!-- Html Elements for Search -->
         <div id="search-container">
         <input type="text" id="search-input" placeholder="search...">
-        <ul id="results-container"></ul>
+        <ul id="results-container">
         </div>
 
         <!-- Script pointing to search-script.js -->
