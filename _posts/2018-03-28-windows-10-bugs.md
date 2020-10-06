@@ -27,12 +27,12 @@ category: [WINDOWS]
 - Закриваємо ***sysprep***;
 - Створюємо файл *relocate.xml* такого виду. В даному випадку архітектура ***amd64*** та новий шлях до профілів *d:\Users*;
 - Копіюємо файл в корінь будь-якого диску;
-- Запускаємо командний рядок від імені адміністратора, впевнюємося що вимкнена служба ***WMPNetworkSvc***
+- Запускаємо командний рядок від імені адміністратора, впевнюємося що вимкнена служба ***WMPNetworkSvc***  
 
     {% highlight terminal %}
     net stop wmpnetworksvc{% endhighlight %}
 
-- запускаємо sysprep з потрібними параметрами
+- Запускаємо sysprep з потрібними параметрами
 
     {% highlight terminal %}
     %windir%\system32\sysprep\sysprep.exe /oobe /reboot /unattend:d:\relocate.xml{% endhighlight %}

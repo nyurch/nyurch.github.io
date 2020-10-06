@@ -40,11 +40,6 @@ div.disqus {
 	float: right; padding: 0px 13px 15px 10px;
 }
 
-.warning {
-	color: red;
-	font-size: 2em;
-}
-
 p {
 	margin: 15px;
 	font-size: 1em;
@@ -156,8 +151,8 @@ ul.topnav li.right {
     ul.topnav li.right,
     ul.topnav li {float: none;}
     img.float-left {float: none;}
-	img.float-right {float: none;}
-	img.head {display:none;}
+    img.float-right {float: none;}
+    img.head {display:none;}
 }
 /*</Навігація вверху*/
 
@@ -226,4 +221,11 @@ em {
 
 strong em {
     color: #f17c3b;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 50px;
+  padding: 0.5em 0px;
 }
