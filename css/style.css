@@ -199,6 +199,15 @@ img[src$="blog"] {
   object-fit: fill;
 }
 
+img[src$="404"] {
+  display:block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 20em;
+  object-fit: fill;
+	border-radius: 50%;
+}
+
 ul li {
     text-align: left;
 		padding: 0px 10px;
@@ -207,7 +216,7 @@ ul li {
 figure {
     text-align: left;
     padding: 5px;
-		    overflow-x: auto;
+    overflow-x: auto;
 }
 
 pre.highlight {

@@ -5,6 +5,7 @@ description: Мікроблог для всякої єрунди.
 url: https://nyurch.github.io
 plugins:
   - jekyll-feed
+  - jemoji
 # Disqus Comments
 disqus:
  # Leave shortname blank to disable comments site-wide.
@@ -15,3 +16,5 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+permalink: pretty
