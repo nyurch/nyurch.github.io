@@ -22,12 +22,12 @@ div.disqus {
 	 background-color: #f2f2f2;
 }
 
-.left{
+.left {
 	text-align: left;
 	list-style-type: none;
 }
 
-.post-list{
+.post-list {
 	max-width: 900px;
 	margin: 0 auto;
 	background-color: #f2f2f2;
@@ -237,4 +237,8 @@ blockquote {
   border-left: 10px solid #ccc;
   margin: 1.5em 50px;
   padding: 0.5em 0px;
+}
+
+ul.task-list{
+	list-style-type: none;
 }
