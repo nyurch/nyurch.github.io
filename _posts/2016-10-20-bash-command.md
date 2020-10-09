@@ -4,7 +4,7 @@ title: Командний рядок Linux. Деякі команди.
 category: [LINUX]
 ---
 
-![linux logo](/media/bash.png?style=head)  
+![linux logo](/assets/media/bash.png?style=head)  
 Набір корисних і дуже корисних команд, котрі в силу своєї довжини не завжди вміщаються в голові.<!--more-->
 
 #### Вивід топ-5 директорій
@@ -43,7 +43,7 @@ category: [LINUX]
 Використовується програма **_pv_** яка ставиться зі стандартних репозиторіїв. Приклад використання:
   {% highlight shell %}pv що_копіювати > куди_копіювати{% endhighlight %}
 Взято з [www.tecmint.com](http://www.tecmint.com/monitor-copy-backup-tar-progress-in-linux-using-pv-command/){:target="\_blank"}.
-![linux pv](/media/copy-files-show-progress-bar.gif?style=blog)
+![linux pv](/assets/media/copy-files-show-progress-bar.gif?style=blog)
 
 #### Використання команд grep/egrep для перегляду файлів.
 

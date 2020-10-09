@@ -4,7 +4,7 @@ title: Дещо про оптимізацію терміналу Ubuntu.
 category: [LINUX]
 ---
 
-![tilda logo](/media/tilda.jpg?style=head)  
+![tilda logo](/assets/media/tilda.jpg?style=head)  
 Однією з найбільших переваг **_unix-систем_** над **_Windows_** є наявність
 надзвичайно широкого спектру найрізноманітніших консольних команд, що
 дозволяють максимально просто й швидко виконувати повсякденні роботи не
@@ -30,7 +30,7 @@ f=01;35:_.rm=01;35:_.rmvb=01;35:_.flc=01;35:_.avi=01;35:_.fli=01;35:_.flv=01;35:
   {% highlight bash %}export PS1='${debian_chroot:+($debian_chroot)}\[\\033\[00;32m]\\D{ %m/%d/%Y }\\A \[\\033\[01;31m]\\u\[\\033\[00m]:\[\\033\[01;36m]\\w\[\\033\[00m]\\$ '{% endhighlight %}
 Результат можна спостерігати на скріншоті.  
 
-[![new-bash](/media/new-bash.png?style=blog "new-bash")](/media/new-bash.png "install tcm"){:target="\_blank"}  
+[![new-bash](/assets/media/new-bash.png?style=blog "new-bash")](/assets/media/new-bash.png "install tcm"){:target="\_blank"}  
 
 Третім кроком є опис у все тому ж файлі _~/.bashrc_ скорочень для найчастіше вживаних команд з параметрами ти їх послідовностей. Здійснюється це за допомогою команди **alias**, інтерпритатора командного рядка. Наприклад:
   {% highlight shell %}alias update="sudo apt-get update"
@@ -41,6 +41,6 @@ alias remove="sudo apt-get remove"
 alias temp="cd /data/temp"
 alias psef="ps -ef | grep"
 alias makeiso='mkisofs -J -l -R -D -N -joliet-long -relaxed-filenames -o /data/temp/soft_for_win.$(date +%x).iso /data/stor/\_iso_soft/'
-alias exfat='sudo mount -t exfat /dev/sdc1 /media/exfat'
-alias uexfat='sudo umount /media/exfat'{% endhighlight %}
+alias exfat='sudo mount -t exfat /dev/sdc1 /assets/media/exfat'
+alias uexfat='sudo umount /assets/media/exfat'{% endhighlight %}
 Поле для діяльності тут досить широке й визначається в основному частотою виконання тих чи інших операцій та довжиною команд, що при цьому потрібно набирати руками.

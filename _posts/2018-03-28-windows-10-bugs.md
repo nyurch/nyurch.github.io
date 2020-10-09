@@ -3,7 +3,7 @@ layout: post
 title: Костилі для Windows 10. Оновлюється.
 category: [WINDOWS]
 ---
-![windows logo](/media/windows_10.jpg?style=head)  
+![windows logo](/assets/media/windows_10.jpg?style=head)  
 Розгрібаємо результати розрідження мозку у індусів з Microsoft - виключаєм оновлення драйверів, кожне друге з яких призволить до смерті системи, повертаємо працездатність
 кнопки F8 у процесі завантаження, змінюємо положення директорії Users та повертаємо функціонал адміністративних мережевих ресурсів.<!--more-->
 
@@ -45,9 +45,9 @@ category: [WINDOWS]
 #### Відновлення завантажувача Windows 10.
 - Завантажуємося з установочного диску Windows 10;
 - Доходимо до етапу з кнопкою ***Install Now*** та натискаємо ***Repair your computer***;
-[![windows repair](/media/repair-10.jpg?style=blog "Repair")](/media/repair-10.jpg "Repair"){:target="_blank"}
+[![windows repair](/assets/media/repair-10.jpg?style=blog "Repair")](/assets/media/repair-10.jpg "Repair"){:target="_blank"}
 - Далі йдемо за пунктами ***Troubleshoot/Advanced options/Command Prompt***;
-[![windows repair](/media/repair-10-1.jpg?style=blog "Repair")](/media/repair-10-1.jpg "Repair"){:target="_blank"}
+[![windows repair](/assets/media/repair-10-1.jpg?style=blog "Repair")](/assets/media/repair-10-1.jpg "Repair"){:target="_blank"}
 - Виконуємо:
 
     {% highlight terminal %}

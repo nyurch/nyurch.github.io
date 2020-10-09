@@ -4,7 +4,7 @@ comments: true
 title: Блок з коментарями на сайті.
 category: [WEB]
 ---
-![disqus logo](/media/disqus.svg?style=head)  
+![disqus logo](/assets/media/disqus.svg?style=head)  
 Для можливості коментування на сайті розглядав 2 варіанти [Disqus](https://disqus.com/ "Disqus"){:target="_blank"} та [Staticman](https://staticman.net/ "Staticman"){:target="_blank"}. <!--more-->Почну з першого, далі буде видно. Далі вкорочений переклад [даного мануалу](https://desiredpersona.com/disqus-comments-jekyll/ "disqus-comments"){:target="_blank"}.
 - Створюємо акаунт на <a href="https://disqus.com/" target="_blank" >Disqus</a>
 - Проходимось там про майстру початкового налаштування.

@@ -3,7 +3,7 @@ layout: post
 title: Віртуалізація. VirtualBox та VMWare.
 category: [SOFTWARE]
 ---
-![virtual logo](/media/guest-os.jpg?style=head)
+![virtual logo](/assets/media/guest-os.jpg?style=head)
 Костилі для деяких диких глюків та просто деякі моменти при роботі з вітруальними ОС.<!--more-->
 #### Лаги
 Якщо використовую віртуальну ***Ubuntu*** запущену у ***VMWare Workstation*** під ***Ubuntu*** то отримую з часом дикі тормоза. Лікується, як виявляється, додаванням рядка **clocksource=acpi_pm** у файл *назва_віртуалки.vmx*

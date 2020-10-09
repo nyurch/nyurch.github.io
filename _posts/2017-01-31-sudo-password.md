@@ -3,7 +3,7 @@ layout: post
 title: Час дії пароля при виконанні команди з правами суперюзера.
 category: [LINUX]
 ---
-![sudo logo](/media/sudo.png?style=head)  
+![sudo logo](/assets/media/sudo.png?style=head)  
 Коли виконується команда від імені суперюзера, наприклад **sudo apt update**, наступні **Х** хвилин команди типу **sudo команда** можна виконувати не вводячи пароль.<!--more--> Змінити час дії пароля можна у файлі */etc/sudoers*
     {% highlight terminal %}sudo visudo{% endhighlight %}
 І рядок

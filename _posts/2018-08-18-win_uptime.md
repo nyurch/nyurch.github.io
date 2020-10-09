@@ -3,7 +3,7 @@ layout: post
 title: Взнаємо uptime віддаленого ПК з Windows.
 category: [WINDOWS]
 ---
-![windows logo](/media/windows-logo.png?style=head)  
+![windows logo](/assets/media/windows-logo.png?style=head)  
 Є 3 способи взнати час роботи віддаленого ПК від керуванням ***Windows***: <!--more-->
 
 - **systeminfo** - стандартна вбудована утиліта

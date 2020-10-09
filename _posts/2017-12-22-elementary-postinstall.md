@@ -3,7 +3,7 @@ layout: post
 title: Постустановочне налаштування elementary os.
 category: [LINUX]
 ---
-![elementary logo](/media/elementary.png?style=head)  
+![elementary logo](/assets/media/elementary.png?style=head)  
 Невеликий скрипт для післяустановочного налаштування ***elementary os*** майже повністю підходить і для ***ubuntu***. Основні підтримувані функції:<!--more-->
 - Задання та очищення налаштувань проксі;
 - Оновлення системи та очищення кешу apt;
@@ -132,6 +132,6 @@ sleep 10 && ./case.sh{% endhighlight %}
 
 Виглядає якось так:
 
-[![screenshot](/media/screen-0.png?style=blog "screenshot")](/media/screen-0.png "screenshot"){:target="_blank"}  
-[![screenshot](/media/screen-1.png?style=blog "screenshot")](/media/screen-1.png "screenshot"){:target="_blank"}  
-[![screenshot](/media/screen-2.png?style=blog "screenshot")](/media/screen-2.png "screenshot"){:target="_blank"}
+[![screenshot](/assets/media/screen-0.png?style=blog "screenshot")](/assets/media/screen-0.png "screenshot"){:target="_blank"}  
+[![screenshot](/assets/media/screen-1.png?style=blog "screenshot")](/assets/media/screen-1.png "screenshot"){:target="_blank"}  
+[![screenshot](/assets/media/screen-2.png?style=blog "screenshot")](/assets/media/screen-2.png "screenshot"){:target="_blank"}

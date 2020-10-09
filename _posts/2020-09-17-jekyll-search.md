@@ -4,7 +4,7 @@ comments: true
 title: Jekyll. Пошук по сайту.
 category: [WEB]
 ---
-![Jekyll logo](/media/jekyll.png?style=head)  
+![Jekyll logo](/assets/media/jekyll.png?style=head)  
 Останній костиль у блог - пошук по сайту. Є 3 варіанти: **Google Custom Search Engine**, **Lunr.js** та **Simple Jekyll Search**.<!--more--> **Lunr** читав має проблеми з пошуком на кирилиці, тому не видумуючи велосипед для початку пробую використовувати те що вже є в самому **jekyll**  
 Зроблено по [статті](https://blog.webjeda.com/instant-jekyll-search/ "Jekyll Instant Search in 3 simple steps!"){:target="_blank"} .
 
