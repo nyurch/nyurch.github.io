@@ -3,7 +3,7 @@ layout: post
 title: Дефрагментація жорстких дисків в Linux.
 category: [LINUX]
 ---
-![defragmentation logo](/assets/media/defragmentation.jpg?style=head)  
+![defragmentation logo](/assets/media/defragmentation.png?style=head)  
 Незважаючи на те що фрагментація файлових систем в ***Linux*** фактично відсутня є кілька випадків коли вона може бути досить значною і впливати на швидкодію. Як правило це при інтенсивнму використанні торрентів та віртуальних машин з динамічним розміром дисків. <!--more-->Перевірити необхідність дефрагментації можна командою **e4defrag**, що є частиною пакету **e2fsprogs**.
     {% highlight shell %}$ sudo e4defrag -c /dev/sda1
 [sudo] password for admin:

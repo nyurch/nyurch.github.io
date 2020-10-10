@@ -3,7 +3,7 @@ layout: post
 title: Автоматичне монтування мережевих ресурсів в Linux(Ubuntu).
 category: [LINUX]
 ---
-![samba logo](/assets/media/samba.jpg?style=head)  
+![samba logo](/assets/media/samba.png?style=head)  
 Трохи про автоматичне монтування мережевих ресурсів в ***Linux(Ubuntu)***.<!--more--> Спочатку ставимо необхідні пакети:
     {% highlight shell %}sudo apt-get install samba smbfs{% endhighlight %}
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Зміна місця розміщення браузерного кешу у Windows.
+title: Зміна розміщення браузерного кешу у Windows.
 category: [SOFTWARE]
 ---
-![browsers logo](/assets/media/browsers.gif?style=head)  
+![browsers logo](/assets/media/browsers.png?style=head)  
 Варіанти переносу браузерного кешу в нестандартні директорії для розвантаження **ssd** чи просто для зменшення фрагментації системного диску.<!--more-->
 #### Internet Explorer
 Мабуть також дійсте і для ***Edge***. Потрібно змінити значення 2 параметрів у реєстрі:  
