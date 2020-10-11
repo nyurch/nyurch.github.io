@@ -246,3 +246,7 @@ blockquote {
 ul.task-list{
 	list-style-type: none;
 }
+
+#warning {
+	color: #ff0000;
+}
