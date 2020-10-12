@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
   <!--[if IE]><meta http-equiv="refresh" content="1;url=_index_ie.html"><![endif]-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
-  <meta name="author" content="Nicolas Yurchuk" >
+  <meta name="author" content="Nicolas Yurchuk">
   <meta name="keywords" content="ubuntu, windows, elementary, itblog, samba, tweak, bash, powershell, xfce, jekyll, github, zenity, nagios, firefox">
   <meta name="description" content="Архів мануалів та дурних думок, щоб не забути.">
   <meta name="robots" content="all">
@@ -22,7 +23,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
@@ -33,15 +34,32 @@
   {% feed_meta %}
 </head>
 
-
-</head>
-
 <body>
+  <div class="list">
+    <div class="nav">
+      <ul class="topnav">
+        <li><a href="/#"><b>IT Pub</b></a></li>
+        <li><a href="/index.html">Основна</a></li>
+        <li><a href="/blog.html">За датою</a></li>
+        <li><a class="active" href="/categories/index.html">За категоріями</a></li>
+        <li><a href="/library.html">Бібліотека</a></li>
+        <li class="right"><a class="active" href="/feed.xml" target="_blank">RSS</a></li>
+      </ul>
+    </div>
 
-<div class="container">
+    <div class="container">
       {{ content }}
-</div>
+    </div>
 
-</div>
+    <div class="nav">
+      <ul class="topnav">
+        <li>
+          <p></p>
+        </li>
+        <li class="right"><a href="mailto:nicolas.yurchuk@gmail.com" target="_blank">© 2016 ITPub</a></li>
+      </ul>
+    </div>
+  </div>
 </body>
+
 </html>

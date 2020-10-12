@@ -8,3 +8,9 @@ recode, iconv</p>
 <xmp class="bsh">recode CP1251..UTF8 BACKUP-EXEC-201501.txt</xmp>
 <xmp class="bsh">iconv -f UTF-8 -t WINDOWS-1251 < BACKUP-EXEC-201501.txt > BACKUP-EXEC-2020.txt</xmp>
 
+
+Subscribe
+{% if site.data.social -%}
+{% for social in site.data.social -%}
+{%- endfor %}
+{%- endif %}
