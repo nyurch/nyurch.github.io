@@ -32,6 +32,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/assets/img/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   {% feed_meta %}
 </head>
 
@@ -40,24 +41,48 @@
     <div class="nav">
       <ul class="topnav">
         <li><a href="/#"><b>IT Pub</b></a></li>
-        <li><a href="/index.html">Основна</a></li>
-        <li><a class="active" href="/blog.html">За датою</a></li>
-        <li><a href="/categories/index.html">За категоріями</a></li>
-        <li><a href="/library.html">Бібліотека</a></li>
-        <li class="right"><a class="active" href="/feed.xml" target="_blank">RSS</a></li>
+        <li><a href="/index.html"><i class="fa fa-home"></i> Основна</a></li>
+        <li><a class="active" href="/blog.html"><i class="fa fa-bars"></i> За датою</a></li>
+        <li><a href="/categories/index.html"><i class="fa fa-bars"></i> За категоріями</a></li>
+        <li><a href="/library.html"><i class="fa fa-bars"></i> Бібліотека</a></li>
+        <li class="right"><a class="active" href="/feed.xml" target="_blank"><i class="fa fa-rss"></i> RSS</a></li>
       </ul>
     </div>
 
     <div class="container">
       {{ content }}
     </div>
+    
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 700px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
 
     <div class="nav">
       <ul class="topnav">
         <li>
           <p></p>
         </li>
-        <li class="right"><a href="mailto:nicolas.yurchuk@gmail.com" target="_blank">© 2016 ITPub</a></li>
+        <li class="right"><a href="mailto:nicolas.yurchuk@gmail.com" class="fa fa-envelope">© 2016 ITPub</a></li>
       </ul>
     </div>
   </div>
