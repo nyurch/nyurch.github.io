@@ -1,5 +1,5 @@
 ---
-layout: default_ind
+layout: default
 title: Блог-архів навколокомп'ютерних штук
 ---
 
@@ -37,5 +37,18 @@ title: Блог-архів навколокомп'ютерних штук
 		</script>
 
 	<hr>
-
+	<p>Закріплені записи що оновлюються:</p>
+	<ul class="left">
+		<a href="/linux/2018/09/26/linux-bug.html" target="_blank">Костилі для Linux.</a><br>
+		<a href="/windows/2018/03/28/windows-10-bugs.html" target="_blank">Костилі для Windows.</a><br>
+		<a href="/web/2020/09/09/markdown.html" target="_blank">Переходимо на Markdown.</a><br>
+		<a href="/linux/2016/10/20/bash-command.html" target="_blank">Командний рядок Linux. Деякі команди.</a><br>
+		<a href="/windows/2018/08/18/cmd-command.html" target="_blank">Командний рядок Windows. Деякі команди.</a>
+	</ul>
+	<p>Останні записи:</p>
+	<ul class="left">
+		{% for post in site.posts limit:5 %}
+		<li><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
 </div>

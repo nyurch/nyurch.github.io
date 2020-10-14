@@ -3,8 +3,11 @@ host: 0.0.0.0
 name: ITJunta
 description: Мікроблог для всякої єрунди.
 url: https://nyurch.github.io
+paginate: 10
+paginate_path: /blog/page:num/
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 # Disqus Comments
 disqus:
  # Leave shortname blank to disable comments site-wide.

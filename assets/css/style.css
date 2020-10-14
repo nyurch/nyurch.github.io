@@ -1,11 +1,8 @@
-/*Підключаєм шрифти*/
 @font-face {
 	font-family: Andika-R;
 	src: url(../font/Andika-R.ttf);
  }
-/*</Підключаєм шрифти*/
 
-/*Основні стилі*/
 body {
 	font-family: 'Andika-R';
 	background-image: url(../img/bg.png);
@@ -109,9 +106,7 @@ a.button:visited {
 ol {
 	text-align: left;
 }
-/*</Основні стилі*/
 
-/*Навігація вверху*/
 div.nav {
 	font-weight: bold;
 }
@@ -158,36 +153,29 @@ ul.topnav li.right {
     img.float-right {float: none;}
     img.head {display:none;}
 }
-/*</Навігація вверху*/
 
-/*Дата посту для Jekyll*/
 div.post-date {
 	text-align: left;
 	background-color: #ddd;
 	margin: 10px 10px -30px 10px;
 }
+
 div.cat-list {
 	text-align: left;
 	margin: 30px 10px 0px 10px;
 }
-/*</Дата посту для Jekyll*/
 
-/*Картинки основної та блогу*/
 div.about-site img {
     border-radius: 50%;
 }
-/*</Картинки основної та блогу*/
 
-/*Кнопка "Категорія"*/
 div.tag {
-    width: 150px; /* Ширина слоя */
-    margin: 2px; /* Значение отступов */
-    padding: 5px; /* Поля вокруг текста */
-    background: #fc0; /* Цвет фона */
+    width: 150px;
+    margin: 2px;
+    padding: 5px;
+    background: #fc0;
    }
-/*</Кнопка "Категорія"*/
 
-/*Markdown*/
 img[src$="head"] {
   display:block;
   margin: 0 auto;
@@ -251,7 +239,6 @@ ul.task-list{
 	color: #ff0000;
 }
 
-/* CSS icons */
 .fa {
   font-size: 20px;
   text-align: center;
@@ -287,3 +274,27 @@ ul.task-list{
 #myBtn:hover {
   background-color: #555;
 }
+
+.pagination a, .pagination span {
+    padding: 7px 18px;
+    border: 1px solid #eee;
+    margin-left: -2px;
+    margin-right: -2px;
+    background-color: #ffffff;
+    display: inline-block;
+    font-style: oblique;
+  }
+
+.pagination a {
+        background-color: rgb(204, 77, 5);
+        color: #ffffff;
+ }
+
+.pagination a:hover {
+       background-color: #ffffff;
+       color: rgb(204, 77, 5);
+}
+
+.pagination {
+    text-align: center;
+ }

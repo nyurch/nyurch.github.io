@@ -1,0 +1,49 @@
+---
+layout: default
+title: Список за датою
+---
+
+<div class="container">
+  <div class="post-list">
+    {% for post in paginator.posts %}
+    <div class="post-date">
+      <b>{% assign m = post.date | date: "%-m" %}
+        {{ post.date | date: "%-d" }}
+        {% case m %}
+        {% when '1' %}Січня
+        {% when '2' %}Лютого
+        {% when '3' %}Березня
+        {% when '4' %}Квітня
+        {% when '5' %}Травня
+        {% when '6' %}Червня
+        {% when '7' %}Липня
+        {% when '8' %}Серпня
+        {% when '9' %}Вересня
+        {% when '10' %}Жовтня
+        {% when '11' %}Листопада
+        {% when '12' %}Грудня
+        {% endcase %}
+        {{ post.date | date: "%Y" }}</b>
+    </div>
+    <div>
+      <h1 class="left"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      {{ post.excerpt }}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      <i class="fa fa-arrow-circle-left fa-lg"></i> Новіші
+    </a>
+  {% endif %}
+  <span class="page_number ">
+    Сторінка: {{ paginator.page }} з {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Старіші <i class="fa fa-arrow-circle-right fa-lg"></i></a>
+  {% endif %}
+</div>
