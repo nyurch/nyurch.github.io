@@ -1,4 +1,7 @@
 _site
-*.*~
-*.lock
+.sass-cache
 .jekyll-cache
+.jekyll-metadata
+vendor
+*.*~
+

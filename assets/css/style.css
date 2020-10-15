@@ -298,3 +298,12 @@ ul.task-list{
 .pagination {
     text-align: center;
  }
+
+ #results-container li {
+ 	list-style-type: circle;
+ }
+
+ #results-container li:hover {
+ 	list-style-type: disc;
+ 	padding: 0 20px;
+ }
