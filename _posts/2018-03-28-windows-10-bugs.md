@@ -66,3 +66,12 @@ category: [WINDOWS]
     start ms-settings:regionlanguage
     TIMEOUT /T 1
     taskkill /F /IM systemsettings.exe{% endhighlight %}
+
+#### Ідіоти приховали пункт "Запустити від імені іншого користувача"
+Не знаю що в голові у альтернативно обдарованих з **МС**, але його таки прибрали. І з дебільнго нового меню **Пуск**, і з костиля **Пошук**. Щоб повернути на місце потрібно запустити _gpedit.msc_ і виправити пункт **Show "Run as Different user" command on Start** за адресою _/Конфігурація кормстувачів/Administrative Templates/Start Menu and Taskbar/_  
+
+Можна через правку реєстра:
+    {% highlight posh %}
+New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\CurrentVersion\Explorer" -Name ShowRunasDifferentuserinStart -Value 1 -PropertyType DWORD -Force {% endhighlight %}
+
+Може знадобитися обновити групові політики. На ПК без підключення до домену працює зразу.

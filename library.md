@@ -19,3 +19,5 @@ title: Список на корисні ресурси
 [Webjeda. Blog.](https://blog.webjeda.com/ "Webjeda. Blog"){:target="_blank"}  
 [Convert Youtube url to GitHub comment.](http://embedyoutube.org/ "Convert Youtube url to GitHub comment"){:target="_blank"}  
 [W3Schools. Code snippets for HTML, CSS and JavaScript.](https://www.w3schools.com/howto/default.asp "W3Schools. Code snippets for HTML, CSS and JavaScript"){:target="_blank"}  
+[Cockpit. The easy-to-use, integrated, glanceable, and open web-based interface for your servers.](https://cockpit-project.org/ "Cockpit. The easy-to-use, integrated, glanceable, and open web-based interface for your servers"){:target="_blank"}  
+[Netdata. A Real-Time Performance Monitoring Tool for Linux Systems.](https://github.com/netdata/netdata "Netdata. A Real-Time Performance Monitoring Tool for Linux Systems"){:target="_blank"}  
