@@ -75,3 +75,10 @@ category: [WINDOWS]
 New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\CurrentVersion\Explorer" -Name ShowRunasDifferentuserinStart -Value 1 -PropertyType DWORD -Force {% endhighlight %}
 
 Може знадобитися обновити групові політики. На ПК без підключення до домену працює зразу.
+
+#### Конвертація ESD у WIM
+Якщо качати з https://www.microsoft.com/uk-ua/software-download/windows10 вінду віндою, вас ощасливлять необхідністю скачати ***Media Creation Tool***, хоча якщо качати з лінукса то звідти ж прекрасно скачується вже готовий **iso**. Костиль в тому що ***Media Creation Tool*** зробить образ із _install.esd_ всередині, а тому ж **WDS** треба _install.wim_.
+Дивимось список образів і витягуємо необхідний:
+    {% highlight posh %}
+dism /Get-WimInfo /WimFile:install.esd
+dism /export-image /SourceImageFile:install.esd /SourceIndex:4 /DestinationImageFile:install.wim /Compress:max /CheckIntegrity{% endhighlight %}
