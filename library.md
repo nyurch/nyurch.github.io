@@ -21,3 +21,4 @@ title: Список на корисні ресурси
 [W3Schools. Code snippets for HTML, CSS and JavaScript.](https://www.w3schools.com/howto/default.asp "W3Schools. Code snippets for HTML, CSS and JavaScript"){:target="_blank"}  
 [Cockpit. The easy-to-use, integrated, glanceable, and open web-based interface for your servers.](https://cockpit-project.org/ "Cockpit. The easy-to-use, integrated, glanceable, and open web-based interface for your servers"){:target="_blank"}  
 [Netdata. A Real-Time Performance Monitoring Tool for Linux Systems.](https://github.com/netdata/netdata "Netdata. A Real-Time Performance Monitoring Tool for Linux Systems"){:target="_blank"}  
+[Cheat.sh. Unified access to the best community driven cheat sheets repositories of the world.](https://github.com/chubin/cheat.sh "Cheat.sh. Unified access to the best community driven cheat sheets repositories of the world"){:target="_blank"}  
