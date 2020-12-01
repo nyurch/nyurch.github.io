@@ -38,3 +38,8 @@ category: [SOFTWARE]
 "STADIUM_NAME_CHANGE"    2000003560 "Parc Jean-Luc Ettori" ""
 "STADIUM_NAME_CHANGE"    2000003564 "Stade Luis Fernandez" ""
 "STADIUM_NAME_CHANGE"    2000003572 "Stade Jules Rimet" ""{% endhighlight %}
+
+#### Кастомний скін
+Беру з Heffem чи SSD21 папку _./panels/game_ і повністю додаю. Далі розбиратися лінь.
+З SSD21 _./panels/match/fixture details.xml_
+З TCS20 чи SSD21 _./panels/player_
