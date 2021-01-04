@@ -40,6 +40,29 @@ category: [SOFTWARE]
 "STADIUM_NAME_CHANGE"    2000003572 "Stade Jules Rimet" ""{% endhighlight %}
 
 #### Кастомний скін
-Беру з Heffem чи SSD21 папку _./panels/game_ і повністю додаю. Далі розбиратися лінь.
-З SSD21 _./panels/match/fixture details.xml_
-З TCS20 чи SSD21 _./panels/player_
+Беру з Heffem чи SSD21 папку _./panels/game_ і повністю додаю. Далі розбиратися лінь. Це фотографія домашнього стадіону наступного матчу при прокрутці часу.
+З SSD21 _./panels/match/fixture details.xml_ , це фото стадіону на якому відбувався матч на панелі календаря сезону.
+Наступний код додає фото міста на клубну панель, чи куди вставиш:
+  {% highlight xml %}<widget class="background" file="backgrounds" id="bgnd">
+<layout class="stick_to_sides_attachment" alignment="top" inset="0" />
+<layout class="stick_to_sides_attachment" alignment="horizontal" inset="0" />
+<layout class="stick_to_sides_attachment" alignment="left" offset="0" gap="0" />
+<record id="object_property">
+<integer id="get_property" value="bgnd" />
+<integer id="set_property" value="file" />
+</record>
+</widget>{% endhighlight %}  
+Хм... Не всюду, а на якісь сторінки фото міст, на якісь стадіонів.
+При цьому щоб позбутися бекграунду, а фото міст працюють виключно як бекграунд, беру _client object browser.xml_ з дефолтного скіна.
+З TCS20 чи SSD21 _./panels/player_ , уже не беру. Вже нормальний у FME Dark.
+Трохи розширив топ-бар щоб збільшити там розмір гербів. Файли _.\panels\generic\header.xml_ та _.\panels\generic\titlebar.xml_
+Нормальні назви клубів у матчі:
+У файлі _.\panels\match\match score area panel.xml_ знайти віджети з іменами і замінити на такі:
+{% highlight xml %}<widget class="team_button" id="homN" icon_enabled="true" auto_size="yes" font="title" size="10" alignment="right,centre_y,can_scale" click_event="htac" navigation_focus_target="false" colour="black" mode="1">
+  <record id="object_property" get_property="home" set_property="valu" />
+</widget>
+
+<widget class="team_button" id="awaN" icon_enabled="true" auto_size="yes" font="title" size="10" alignment="left,centre_y,can_scale" click_event="atac" navigation_focus_target="false" colour="black" mode="1">
+  <record id="object_property" get_property="away" set_property="valu" />
+</widget>{% endhighlight %}  
+Тут же замінити ширину панелі на ``<panel width="510">`` і ширину контейнерів з іменами на ``<container width="410" id="temc">``
