@@ -3,6 +3,7 @@ layout: post
 title: Оптимізація рутинних операцій через Ansible.
 category: [SOFTWARE]
 ---
+![ansible logo](/assets/media/ansible.svg?style=head)  
 На минулій, гори вона в пеклі, роботі все збирався систематизувати гору скриптів зліплених з batch, powershell, sysinternals suite, zenity, гівна і палок у вигляді чогось єдиноподібного. А точніше обєднати все ansibl-ом. Да все якось руки не доходили і от невелика систематизація уже зробленого і зауваження по тому як робити не треба. <!--more-->
 
 Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Ansible "Ansible"){:target="_blank"}:

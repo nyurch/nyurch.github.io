@@ -23,3 +23,4 @@ title: Список на корисні ресурси
 [Netdata. A Real-Time Performance Monitoring Tool for Linux Systems.](https://github.com/netdata/netdata "Netdata. A Real-Time Performance Monitoring Tool for Linux Systems"){:target="_blank"}  
 [Cheat.sh. Unified access to the best community driven cheat sheets repositories of the world.](https://github.com/chubin/cheat.sh "Cheat.sh. Unified access to the best community driven cheat sheets repositories of the world"){:target="_blank"}   
 [Ansible.Windows.](https://docs.ansible.com/ansible/latest/collections/ansible/windows/ "Ansible.Windows. Plugin Index"){:target="_blank"}  
+[Ansible. Community Collection.](https://galaxy.ansible.com/community "Ansible. Community Collection"){:target="_blank"}  
