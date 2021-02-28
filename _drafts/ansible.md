@@ -18,7 +18,7 @@ category: [SOFTWARE]
 
 Перший варіант не підходить. Да даний момент версія _**ansible**_ там **2.8.4**, не буде можливості встановити і використовувати модуль _**win_chocolatey**_, для якого треба мінімум **2.9**, да і були моменти з установкою всіх необхідних модулів пітона.
 Варіанти 2-3 виглядають рівнозначно. Тому:
-    {% highlight shell %}sudo apt install ansible python python-apt{% endhighlight %}
+    {% highlight shell %}sudo apt install ansible python3 python3-apt python3-pip{% endhighlight %}
 
 І доставляємо модуль для **chocolatey**:
     {% highlight shell %}ansible-galaxy collection install chocolatey.chocolatey{% endhighlight %}
