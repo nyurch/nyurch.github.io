@@ -6,6 +6,7 @@ category: [SOFTWARE]
 ![ansible logo](/assets/media/ansible.svg?style=head)  
 На минулій, гори вона в пеклі, роботі все збирався систематизувати гору скриптів зліплених з batch, powershell, sysinternals suite, zenity, гівна і палок у вигляді чогось єдиноподібного. А точніше обєднати все ansibl-ом. Да все якось руки не доходили і от невелика систематизація уже зробленого і зауваження по тому як робити не треба. <!--more-->
 
+#### Серверна частина
 Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Ansible "Ansible"){:target="_blank"}:
 >Ansible — програмне забезпечення, що надає засоби для управління конфігурацією, оркестровки, централізованої установки застосунків і паралельного виконання типових завдань на групі систем.
 
@@ -78,6 +79,47 @@ Vault password: **********
   vars:
     ansible_connection: ssh{% endhighlight %}  
 Я так розумію тепер при виконанні плейбука треба явно вказувати файл інвентаризації де описані хости, інакше шукатиме в *hosts* .
-В результаті мабуть ще розумно зробити для довгих команд з купою параметрів аліаси і можна використовувати.
+В результаті мабуть ще розумно зробити для довгих команд з купою параметрів аліаси і можна використовувати.  
 
-Далі про налаштування клієнтів....
+Цікавий модуль для візуалізації інформації про хости з інвенторі - [ansible-cmdb](https://github.com/fboender/ansible-cmdb "ansible-cmdb на github"){:target="_blank"}.  
+
+[![ansible-cmdb](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png?style=blog "ansible-cmdb")](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png "ansible-cmdb"){:target="_blank"}
+
+#### Налаштування Windows-клієнтів
+Повинно бути виконано кілька умов:
+1. PowerShell >=3.0;
+2. .Net >=4.0;
+3. Ввімкнена служба WinRM;
+
+Дві перші умови виконуються автоматично для **Windows 10+**.  
+Перевірити роботу служби:
+{% highlight cmd %}WinRM enumerate winrm/config/listener{% endhighlight %}
+
+Увімкнути службу можна 2 способами:
+1. Використовуючи купку костилів з доступом до ПК де це вмикається. Послідовність із старих запасів скриптів така:
+дозволити виконання *powershell*-скриптів
+{% highlight batch %}@echo off
+cls
+color FC
+net session >nul 2>&1
+if %errorLevel% == 0 (powershell Set-ExecutionPolicy RemoteSigned) else (echo "Run as Administrator please...")
+pause{% endhighlight %}
+активувати службу
+{% highlight powershell %}$url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
+(New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
+powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
+
+Упс... Кажуть можна просто
+{% highlight shell %}winrm quickconfig{% endhighlight %}
+{:start="2"}
+2. Через групові політики, якщо робити по нормальному:
+[Інструкція](https://winitpro.ru/index.php/2012/01/31/kak-aktivirovat-windows-remote-management-s-pomoshhyu-gruppovoj-politiki/ "Інструкція"){:target="_blank"}.  
+У двох словах:
+- Консоль **Group Policy Management editor**, перейти у розділ *Computer Configuration/Policies/Windows Components/Windows Remote Management (WinRM)* і активувати параметри *Allow automatic configuration of listeners* та *Allow Basic Authentication*, при цьому у пункті *IPv4 filter* задаємо значення **\***
+- Далі у розділі *Computer Configuration/Policies/Windows Components/Windows Remote Shell* активуємо пункт *Allow Remote Shell Access*
+- І прописуємо автозапуск у розділі *Computer Configuration/Windows Settings/Security Settings/System Services*
+
+Тепер ще й можемо віддалено запускати програми, наприклад
+{% highlight shell %}winrs –r:remote-pc cmd{% endhighlight %}
+запустить у нас консоль віддаленого ПК де ми зможемо працювати так ніби це наш локальний ПК.
