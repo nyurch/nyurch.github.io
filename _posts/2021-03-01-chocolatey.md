@@ -83,17 +83,15 @@ Install-ChocolateyPackage @packageArgs{% endhighlight %}
 
 Установка chocolatey на віддалений ПК(задати значення remotePC)
 {% highlight powershell %}$Credential = Get-Credential
-Invoke-Command -ComputerName remotePC -Credential $Credential -ScriptBlock
-{
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-  choco feature enable -n allowGlobalConfirmation
+Invoke-Command -ComputerName remotePC -Credential $Credential -ScriptBlock {
+    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    choco feature enable -n allowGlobalConfirmation
 }
 {% endhighlight %}
 
 І далі
 {% highlight powershell %}$Credential = Get-Credential
-Invoke-Command -ComputerName remotePC -Credential $Credential -ScriptBlock
-{
+Invoke-Command -ComputerName remotePC -Credential $Credential -ScriptBlock {
     choco install program1
     choco install program2
     choco install program3

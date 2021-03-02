@@ -83,7 +83,10 @@ Vault password: **********
 
 Цікавий модуль для візуалізації інформації про хости з інвенторі - [ansible-cmdb](https://github.com/fboender/ansible-cmdb "ansible-cmdb на github"){:target="_blank"}.  
 
-[![ansible-cmdb](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png?style=blog "ansible-cmdb")](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png "ansible-cmdb"){:target="_blank"}
+[![ansible-cmdb](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png?style=blog "ansible-cmdb")](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png "ansible-cmdb"){:target="_blank"}  
+
+Можна використовувати теги, для виконання певник операцій, а не всього плейбука, на прикладі шаблону *win_chocolatey_full_with_tags.yml*.  
+Тоді плейбук виконується з ключем `--tags`
 
 #### Налаштування Windows-клієнтів
 Повинно бути виконано кілька умов:
