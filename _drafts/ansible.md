@@ -133,3 +133,5 @@ powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
 2. export ANSIBLE_HOST_KEY_CHECKING=False
 3. sshd_config - дозволити аутентифікацію по паролю, вказати яким юзерам дозволено підключатися AllowUsers ansible
 
+ansible-playbook -i /etc/ansible/hosts playbooks/lin_install.yml --ask-become-pass
+
