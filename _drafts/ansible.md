@@ -126,3 +126,10 @@ powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
 Тепер ще й можемо віддалено запускати програми, наприклад
 {% highlight shell %}winrs –r:remote-pc cmd{% endhighlight %}
 запустить у нас консоль віддаленого ПК де ми зможемо працювати так ніби це наш локальний ПК.
+
+#### Налаштування Linux-клієнтів
+Для доступу по паролю:
+1. Встановити sshpass
+2. export ANSIBLE_HOST_KEY_CHECKING=False
+3. sshd_config - дозволити аутентифікацію по паролю, вказати яким юзерам дозволено підключатися AllowUsers ansible
+
