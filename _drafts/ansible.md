@@ -19,7 +19,7 @@ category: [SOFTWARE]
 
 Перший варіант не підходить. Да даний момент версія _**ansible**_ там **2.8.4**, не буде можливості встановити і використовувати модуль _**win_chocolatey**_, для якого треба мінімум **2.9**, да і були моменти з установкою всіх необхідних модулів пітона.
 Варіанти 2-3 виглядають рівнозначно. Тому:
-    {% highlight shell %}sudo apt install ansible python3 python3-apt python3-pip{% endhighlight %}
+    {% highlight shell %}sudo apt install ansible python3 python-is-python3 python3-apt python3-pip{% endhighlight %}
 
 І доставляємо модуль для **chocolatey**:
     {% highlight shell %}ansible-galaxy collection install chocolatey.chocolatey{% endhighlight %}
@@ -53,10 +53,10 @@ ansible_ssh_pass=password{% endhighlight %}
 ansible_password: adminpassword{% endhighlight %}
 {:start="2"}
 2. Плейбук виконуємо так
-    {% highlight bash %}sudo ansible-playbook --ask-vault-pass -e @winpassword_vars.yml myplaybook.yml{% endhighlight %}
+    {% highlight bash %}ansible-playbook --ask-vault-pass -e @winpassword_vars.yml myplaybook.yml{% endhighlight %}
 
 Для тесту пропінгуємо хости з групи winpc:
-    {% highlight bash %}sudo ansible winpc -i hosts -e @winpassword_vars.yml -m win_ping --ask-vault-pass
+    {% highlight bash %}ansible winpc -i hosts -e @winpassword_vars.yml -m win_ping --ask-vault-pass
 [sudo] password for deimos: **********
 Vault password: **********
 10.0.0.3 | SUCCESS => {
@@ -129,9 +129,7 @@ powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
 
 #### Налаштування Linux-клієнтів
 Для доступу по паролю:
-1. Встановити sshpass
-2. export ANSIBLE_HOST_KEY_CHECKING=False
-3. sshd_config - дозволити аутентифікацію по паролю, вказати яким юзерам дозволено підключатися AllowUsers ansible
+1. Має стояти ssh на клієнті
+2. Бути розкоментовано HOST_KEY_CHECKING = False у ansible.cfg на сервері
 
-ansible-playbook -i /etc/ansible/hosts playbooks/lin_install.yml --ask-become-pass
-
+ansible-playbook playbooks/lin_install.yml -l 10.0.0.8 -u ansible --ask-become-pass

@@ -1,186 +1,159 @@
 ---
 layout: post
-title: Zabbix.
+title: Zabbix. Новомодна система моніторингу
 category: [SOFTWARE]
 ---
 ![ansible logo](/assets/media/ansible.svg?style=head)  
-Zabbix. <!--more-->
+***Zabbix*** . Що за звір, чому останнім часом куди не плюнь використовують його, а не класику у вигляді ***nagios*** , надумав на практиці спробувати і визначити **+** і **-**.<!--more-->
 
-Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Ansible "Ansible"){:target="_blank"}:
->Ansible — програмне забезпечення, що надає засоби для управління конфігурацією, оркестровки, централізованої установки застосунків і паралельного виконання типових завдань на групі систем.
+Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Zabbix "Zabbix"){:target="_blank"}:
+>Zabbix — вільна система моніторингу служб і станів комп'ютерної мережі. Zabbix складається з трьох базових компонентів: сервера для координації виконання перевірок, формування перевірочних запитів та накопичення статистики, агентів для здійснення перевірок на стороні зовнішніх хостів та фронтенда для організації управління системою.
 
-CentOS
-mysql-сервер
+Для роботи системи треба:
+1. База банних;
+2. PHP;
+3. Web-сервер;
+4. Zabbix-сервер;
+5. Zabbix-агент на всьому що буде моніторитися.
+
+Уже викликає деякі підозри, тому що для **nagios** не потрібно нічого крім самого сервера та web-сервера, а БД і РНР я не люблю.
+
+#### Встановлення на CentOS
+**ПОПЕРЕДНІ НАЛАШТУВАННЯ ТА ЗАУВАЖЕННЯ**  
+Відключаємо фаєрвол чи дозволяємо що треба:
+{% highlight shell %}systemctl stop firewalld && systemctl disable firewalld{% endhighlight %}
+або
+{% highlight shell %}firewall-cmd --permanent --add-port=80/tcp --add-port=443/tcp --add-port=10051/tcp
+firewall-cmd --reload{% endhighlight %}
+
+При підключених репозиторіях забікса і персони обновляємось так `dnf update --nobest` бо буде конфлікт версій.  
+
+При використанні **SELinux** буде помилка при спробі запустити **Zabbix**, відключаємо, або шукаємо як налаштувати запуск з включеним:
+У файлі _/etc/sysconfig/selinux_ параметр має виглядати так ***SELINUX=disabled***  
+Перезапускаємо:
+{% highlight shell %}setenforce 0{% endhighlight %}
+
+**ZABBIX**  
+Встановлюємо:
+{% highlight shell %}rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-release-5.0-1.el8.noarch.rpm
+dnf install zabbix-server-mysql zabbix-web-mysql zabbix-nginx-conf zabbix-agent{% endhighlight %}
+
+Файл конфігурації _/etc/zabbix/zabbix_server.conf_ :
+{% highlight ini %}DBHost=localhost
+DBName=zabbix
+DBUser=zabbix
+DBPassword=password
+Timeout=20{% endhighlight %}
+
+**MYSQL**  
+Установка mysql-сервера, автор базового мануалу любить **percona**, ну і чорт з ним, не бачу різниці:
 {% highlight shell %}dnf install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 dnf module disable mysql
 percona-release setup ps80
 dnf install percona-server-server percona-toolkit percona-xtrabackup-80
 systemctl enable --now mysqld{% endhighlight %}
 
-тимчасовий пароль дивимось тут grep "temporary password" /var/log/mysqld.log
+В процесі автоматично генерується тимчасовий пароль адміністратора, дивимось його тут
+{% highlight shell %}grep "temporary password" /var/log/mysqld.log{% endhighlight %}
 
-запускаємо інсталяцію mysql_secure_installation
+Запускаємо інсталяцію:
+{% highlight shell %}mysql_secure_installation{% endhighlight %}
 
-zabbix
-{% highlight shell %}rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-release-5.0-1.el8.noarch.rpm
-dnf install zabbix-server-mysql zabbix-web-mysql zabbix-nginx-conf zabbix-agent{% endhighlight %}
-
-mysql-база для zabbix
+Створюємо mysql-базу для Zabbix:
 {% highlight shell %}mysql -uroot -p
 mysql> create database zabbix character set utf8 collate utf8_bin;
-mysql> create user 'zabbix'@'localhost' identified with mysql_native_password by '1qaz@WSX';
+mysql> create user 'zabbix'@'localhost' identified with mysql_native_password by 'password';
 mysql> grant all privileges on zabbix.* to zabbix@localhost;
 mysql> exit
 zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix{% endhighlight %}
 
-при підключених репах забікса і персони обновляємось так dnf update --nobest бо буде конфлікт
+**NGINX**  
+Файли конфігурації:  
+_/etc/nginx/conf.d/zabbix.conf_
+{% highlight ini %}listen 80 default_server;
+server_name example.com;{% endhighlight %}
 
-/etc/zabbix/zabbix_server.conf
-DBHost=localhost
+_/etc/nginx/nginx.conf_
+{% highlight ini %}listen 80;
+listen [::]:80;{% endhighlight %}
+
+Якщо **default_server** буде в конфі нжинкса, а не забікса то не буде доступу по **ір**.
+
+**PHP**  
+_/etc/php-fpm.d/zabbix.conf_
+{% highlight php %}php_value[date.timezone] = Europe/Kiev{% endhighlight %}
+
+
+Запускаємо:
+{% highlight shell %}systemctl enable --now zabbix-server
+systemctl enable --now nginx php-fpm{% endhighlight %}
+
+
+#### Встановлення на Ubuntu/Debian
+**ПОПЕРЕДНІ НАЛАШТУВАННЯ ТА ЗАУВАЖЕННЯ**  
+Відключаємо фаєрвол:
+{% highlight shell %}systemctl stop iptables
+systemctl disable iptables
+systemctl stop ufw
+systemctl disable ufw
+ufw disable{% endhighlight %}
+
+*SELinux*:
+У файлі _/etc/sysconfig/selinux_ параметр має виглядати так ***SELINUX=disabled***  
+Перезапускаємо:
+{% highlight shell %}setenforce 0{% endhighlight %}
+
+**ZABBIX**  
+Встановлюємо:
+{% highlight shell %}wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu20.04_all.deb
+dpkg -i zabbix-release_5.2-1+ubuntu20.04_all.deb
+apt update
+apt install nginx php-fpm php-mysql mariadb-server zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-agent{% endhighlight %}
+
+Файл конфігурації _/etc/zabbix/zabbix_server.conf_ :
+{% highlight ini %}DBHost=localhost
 DBName=zabbix
 DBUser=zabbix
-DBPassword=1qaz@WSX
-Timeout=20
+DBPassword=password
+Timeout=20{% endhighlight %}
 
-запускаємо
-systemctl enable --now zabbix-server
+**MYSQL**  
+Установка:
+{% highlight shell %}apt install mariadb-server{% endhighlight %}
 
-при ввімкненому SELinux буде помилка, відключаємо
-mcedit /etc/sysconfig/selinux
-тут SELINUX=disabled
-перезамускаємо
-setenforce 0
+{% highlight shell %}mysql_secure_installation{% endhighlight %}
 
-
-/etc/nginx/conf.d/zabbix.conf
-listen 80 default_server;
-server_name example.com;
-
-/etc/nginx/nginx.conf
-listen 80;
-listen [::]:80;
-
-якщо default_server буде в конфі нжинкса, а не забікса не буде доступу по ір
-
-/etc/php-fpm.d/zabbix.conf
-php_value[date.timezone] = Europe/Kiev
-
-systemctl enable --now nginx php-fpm
-
-помилка?
-# systemctl stop firewalld
-# systemctl disable firewalld
-або
-# firewall-cmd --permanent --add-port=80/tcp --add-port=443/tcp --add-port=10051/tcp
-# firewall-cmd --reload
-
-Ubuntu, Debian
-# wget https://repo.zabbix.com/zabbix/5.0/debian/pool/main/z/zabbix-release/zabbix-release_5.0-1+buster_all.deb
-# dpkg -i zabbix-release_5.0-1+buster_all.deb
-# apt update
-
-# apt install mariadb-server zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-agent
-
-mysql_secure_installation
-
-mysql -uroot -p
+{% highlight shell %}mysql -uroot -p
 Enter password:
-> create database zabbix character set utf8 collate utf8_bin;
-> grant all privileges on zabbix.* to zabbix@localhost identified by '1qaz@WSX';
-> exit
+mysql> create database zabbix character set utf8 collate utf8_bin;
+mysql> grant all privileges on zabbix.* to zabbix@localhost identified by 'password';
+mysql> exit
 
- zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix
+zcat /usr/share/doc/zabbix-sql-scripts/mysql/create.sql.gz | mysql -uzabbix -p zabbix
+{% endhighlight %}
 
- і далі те саме
- потім
- # systemctl restart nginx php7.3-fpm
-# systemctl enable nginx php7.3-fpm
+**NGINX**  
+Файли конфігурації:  
+_/etc/nginx/conf.d/zabbix.conf_
+{% highlight ini %}listen 80 default_server;
+server_name example.com;{% endhighlight %}
 
-фаєрвол
-# systemctl stop iptables
-# systemctl disable iptables
-# ufw disable
+_/etc/nginx/nginx.conf_
+{% highlight ini %}listen 80;
+listen [::]:80;{% endhighlight %}
 
-Фронтенд
+Запускаємо:
+{% highlight shell %}systemctl enable zabbix-server
+systemctl restart nginx php7.4-fmp
+systemctl enable nginx php7.4-fmp{% endhighlight %}
 
-    login Admin
-    password zabbix
+Базова інструкція для **deb**-систем була малодостовірна, прийшлося поскакати з бубном, так що може в результаті що упустив і в своїй. Для **CentOS** все точно.
 
-    https://serveradmin.ru/ustanovka-i-nastrojka-zabbix-5-0/
+#### Фронтенд  
+login: Admin  
+password: zabbix
 
+#### Висновки
+Потребує установки БД, потребує установки клієнту на кожен ПК що хочемо моніторити. Але установка елементарна, один раз трохи проходимося по граблям, щоб зрозуміти що й до чого, потім робимо плейбук для ансібла й валяємо дурака. А можна навіть скачати вже готові плейбуки.  
 
-
-
-
-
-
-
-
-
-
-
-І доставляємо модуль для **chocolatey**:
-    {% highlight shell %}ansible-galaxy collection install chocolatey.chocolatey{% endhighlight %}
-В результаті отримуємо в директорії _/etc/ansible_ 2 файли:
-    {% highlight shell %}-rw-r--r-- 1 root root 19985 Mar  5  2020 ansible.cfg
--rw-r--r-- 1 root root  1209 Feb 22 11:06 hosts{% endhighlight %}
-
-Файл конфігурації самого _**ansible**_ та файл з групами хостів, для початку все закоментовано. У файл з групами хостів н.п. додаємо 2 категорії, для windows-pc та для linux-pc:
-    {% highlight yaml %}[winpc]
-10.0.0.3
-
-[winpc:vars]
-ansible_user=admin
-ansible_password=adminpassword
-ansible_connection=winrm
-ansible_winrm_server_cert_validation=ignore
-
-[linpc]
-10.0.0.2
-
-[linpc:vars]
-ansible_connection=ssh
-ansible_ssh_user=ansible
-ansible_ssh_pass=password{% endhighlight %}
-
-Тут у нас логін/пароль лежить у відкритому вигляді, можна трохи підшифруватися.
-1. Створюємо файл
-    {% highlight bash %}sudo ansible-vault create winpassword_vars.yml{% endhighlight %}
-з наступним вмістом
-    {% highlight yaml %}ansible_user: admin
-ansible_password: adminpassword{% endhighlight %}
-{:start="2"}
-2. Плейбук виконуємо так
-    {% highlight bash %}sudo ansible-playbook --ask-vault-pass -e @winpassword_vars.yml myplaybook.yml{% endhighlight %}
-
-Для тесту пропінгуємо хости з групи winpc:
-    {% highlight bash %}sudo ansible winpc -i hosts -e @winpassword_vars.yml -m win_ping --ask-vault-pass
-[sudo] password for deimos: **********
-Vault password: **********
-10.0.0.3 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}{% endhighlight %}
-
-З шифруванням паролів якраз трохи можна заплутатися, в офіційній документації трохи коротко, а в інтернетах графомани копіпастять мануали 10-річної давності, на форумах буває 1 адекватний на 100 відповідей проскочить - "так правильно що не працює, це застаріло ще в 1.х :D". Так що може можна якось простіше, поки обдумую.  
-Коли є групи хостів незмінні і такі що часто міняються, логічніше тримати їх у різних файлах інвентаризації і ці файли також можуть бути у форматі **yaml**. Наприклад 2 типи хостів з приведеного вище файлу *hosts* можуть бути розділені на 2 yml-файли:
-{% highlight yaml %}winpc:
-  hosts:
-    10.0.0.3
-  vars:
-    ansible_connection: winrm
-    ansible_winrm_server_cert_validation: ignore{% endhighlight %}  
-та
-{% highlight yaml %}linpc:
-  hosts:
-    10.0.0.2
-  vars:
-    ansible_connection: ssh{% endhighlight %}  
-Я так розумію тепер при виконанні плейбука треба явно вказувати файл інвентаризації де описані хости, інакше шукатиме в *hosts* .
-В результаті мабуть ще розумно зробити для довгих команд з купою параметрів аліаси і можна використовувати.  
-
-Цікавий модуль для візуалізації інформації про хости з інвенторі - [ansible-cmdb](https://github.com/fboender/ansible-cmdb "ansible-cmdb на github"){:target="_blank"}.  
-
-[![ansible-cmdb](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png?style=blog "ansible-cmdb")](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png "ansible-cmdb"){:target="_blank"}
-
-Далі про налаштування клієнтів....
+Щось моніторити не пробував, відклав у довгий ящик.
