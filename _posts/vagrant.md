@@ -1,0 +1,201 @@
+---
+layout: post
+comments: true
+title: Vagrant. Трошки віртуальної автоматизації.
+category: [SOFTWARE]
+---
+![vagrant logo](/assets/media/vagrant.png?style=head)  
+Трохи про автоматизацію розгортання **VM** за допомогою ***Vagrant***. Штука досить цікава, хоча в теорії цілком можна обходитися снапшотами. Але теорія використання на прикладі _**Linux Mint 20.1 XFCE**_ показує що розмір шаблону **~12GB**, тоді як розмір боксу для ***vagrant*** всього **~2GB**, що дає непогану економію якщо тримати десяток тестових шаблонів. <!--more-->
+
+Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Vagrant "Vagrant"){:target="_blank"}:
+>Vagrant — відкритий інструментарій для спрощення формування, встановлення та керування образами віртуальних машин при вирішенні завдань розробки і тестування проектів з використанням різних систем віртуалізації. У базовій поставці проект надає засоби інтеграції з VirtualBox, але через підключення плаґінів дозволяє використовувати й інші системи віртуалізації. Код програми написаний на Ruby.
+
+Використання простіше простого:
+1. Ставимо сам ***Vagrant***;
+2. Знаходимо в базі необхідний образ;
+3. Ініціюємо і запускаємо за інструкцією(в найпростішому випадку 2 команди).
+
+Створення власного боксу також проблем викликати не повинно. Розглянемо на прикладі _**Linux Mint 20.1 XFCE**_ та _**Windows 10**_.  
+
+#### Універсальні правила:
+
+Створюємо звичайну віртуалку в **virtualbox**
+   - відключаємо дискету(офіційна рекомендація);
+   - відключаємо usb(офіційна рекомендація);
+   - відключаємо звук(офіційна рекомендація);
+   - перший мережевий адаптер має бути NAT(обов'язково).
+
+#### Linux:
+
+1. Налаштовуємо Port forwarding в розділі Network(назва - ssh, протокол - TCP, хост - 127.0.0.1, порт хоста - 2222, порт гостя - 22)
+2. Інсталюємо систему(login - vagrant, password - vagrant. Це не принципово, самою програмою не використовується, але прийнято для уніфікації), оновлюємо, доставляємо все що треба, налаштовуємо, ...
+3. Не забуваємо поставити **ssh**. Налаштовуємо:
+   _etc/sshd_config_
+   {% highlight bash %}   AuthorizedKeysFile  %h/.ssh/authorized_keys %h/.ssh/authorized_keys2
+   UseDNS no{% endhighlight %}
+{:start="4"}
+4. Ставимо ключі
+   {% highlight bash %}   mkdir .ssh && chmod 0700 .ssh/ && cd .ssh
+   wget --no-check-certificate https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub -O authorized_keys
+   chmod 0600 authorized_keys{% endhighlight %}
+   Даємо юзеру **vagrant** права виконувати **sudo** без вводу пароля. Це **принциповий момент**. Це дозволяє **vagrant**  виконувати конфігурацію віртуалки. Для похідних від **Debian** створюємо файл _/etc/sudoers.d/vagrant_ такого змісту
+   {% highlight bash %}   vagrant ALL=(ALL) NOPASSWD:ALL{% endhighlight %}
+   У нашому випадку 1й створений юзер має права виконувати **sudo**, якщо треба це зробити для іншого юзера чи інший дистрибутив то додаємо його в групу **sudo**
+   {% highlight bash %}   sudo usermod -aG sudo vagrant{% endhighlight %}
+{:start="5"}
+5. Якщо дистрибутив не містить гостьових доповнень ставимо їх. Давно не ставив, але **vagrant** за замовчуванням створює на віртуалці яку розвертає директорію _/vagrant_ і копіює туди вміст директорії _.vagrant_, _Vagrantfile_ і взагалі все що лежить у нашій директорії-шаблоні, для цього йому треба **VBoxGuestAdditions**. Перезавантажуємося і перевіряємо чи підгружаються модулі:
+{% highlight bash %}   sudo apt-get install linux-headers-$(uname -r) build-essential dkms
+   wget http://download.virtualbox.org/virtualbox/6.1.18/VBoxGuestAdditions_6.1.18.iso
+   sudo mkdir /media/VBoxGuestAdditions
+   sudo mount -o loop,ro VBoxGuestAdditions_4.3.8.iso /media/VBoxGuestAdditions
+   sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+   rm VBoxGuestAdditions_4.3.8.iso
+   sudo umount /media/VBoxGuestAdditions
+   sudo rmdir /media/VBoxGuestAdditions
+   sudo reboot
+   sudo lsmod | grep vbox{% endhighlight %}
+{:start="6"}
+6. Зжимаємо образ і вимикаємось:
+{% highlight bash %}   sudo dd if=/dev/zero of=/EMPTY bs=1M
+   sudo rm -f /EMPTY
+   sudo systemctl poweroff{% endhighlight %}
+
+#### Windows:  
+
+Конфігурація віртуалки:
+1. APIC on, пам'ять по мінімуму;
+2. PAE on, Nested Paging on;
+3. VRAM 128 MB, 2D/3D Acceleration off;
+4. Audio - Intel HDA;
+
+Після встановлення алгоритм той же:
+1. User - vagrant, password - vagrant;
+2. Поставити VBoxGuestAdditions;
+3. Обновити, налаштувати.
+
+Специфічні моменти для **MS**:
+- дозволити доступ по **rdp**, дозволити з'єднання в правилах фаєрволу;
+- вимкнути UAC та Enhanced Security
+{% highlight bash %}C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d "0x00000000" /f
+
+C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v FilterAdministratorToken /t REG_DWORD /d "0x00000001" /f
+C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI /ve /t REG_SZ /d "0x00000001" /f{% endhighlight %}
+- дозволити та налаштувати WinRM
+{% highlight bash %} winrm quickconfig -q
+ winrm set winrm/config/winrs @{MaxMemoryPerShellMB="300"}
+ winrm set winrm/config @{MaxTimeoutms="1800000"}
+ winrm set winrm/config/service @{AllowUnencrypted="true"}
+ winrm set winrm/config/service/auth @{Basic="true"}
+ sc config WinRM start=auto{% endhighlight %}
+ - опціонально, але необхідно завжди - відключити гібернацію, сістем рестор та дозволити виконання **PS**-скриптів
+ {% highlight bash %} Disable-ComputerRestore c:
+  powercfg -h off
+  Set-ExecutionPolicy -Force -ExecutionPolicy Unrestricted{% endhighlight %}
+
+Невеликий костиль(**MS**, без цього ніяк(?)) та проводимо очистку перед вимкненням:
+- скачуємо [SDelete](https://download.sysinternals.com/files/SDelete.zip "Скачати SDelete"){:target="_blank"}
+- очищуємося
+{% highlight bash %} del /F /S /Q %APPDATA%\Microsoft\Windows\Recent\*
+ C:\Windows\System32\cleanmgr.exe /d c:
+ C:\SDelete\sdelete64.exe -z c:{% endhighlight %}
+
+#### Захват боксу і додавання до списку доступних:
+1. В директорії з шаблоном виконуємо команду, отримуємо файл _package.box_
+{% highlight bash %}   vagrant package --base "Назва Шаблону" --output BoxName.box{% endhighlight %}
+{:start="2"}
+2. Переходимо у _.vagrant.d/boxes_ і затягуємо туди новостворений _package.box_, вказуючи під яким іменем він там буде
+{% highlight bash %}   vagrant box add "/шлях/до/BoxName.box" --name nyurch/LinuxMint201{% endhighlight %}
+{:start="3"}
+3. Перевіряємо, маємо бачити його у списку
+{% highlight bash %}   vagrant box list
+   nyurch/LinuxMint201   (virtualbox, 0)
+   ubuntu/focal64 (virtualbox, 20210308.0.0){% endhighlight %}
+
+Тепер можна розвертати віртуалки з цього шаблону.  
+Я створюю структуру типу такої:
+{% highlight bash %}Volume serial number is CC2C-C08C
+F:\VAGRANTFILES
+├───Mint_20.1
+│   │   up.cmd
+│   │   Vagrantfile
+│   │   
+│   └───.vagrant
+│       ├───machines
+│       │   └───default
+│       │       └───virtualbox
+│       │               action_set_name
+│       │               box_meta
+│       │               creator_uid
+│       │               id
+│       │               index_uuid
+│       │               private_key
+│       │               vagrant_cwd
+│       │               
+│       └───rgloader
+│               loader.rb
+│               
+└───Ubuntu_20.04
+    │   up.cmd
+    │   Vagrantfile
+    │   Vagrantfile.txt
+    │   
+    └───.vagrant
+        ├───machines
+        │   └───Vagrant Ubuntu 20.04
+        │       └───virtualbox
+        │               action_provision
+        │               action_set_name
+        │               box_meta
+        │               creator_uid
+        │               id
+        │               index_uuid
+        │               private_key
+        │               synced_folders
+        │               vagrant_cwd
+        │               
+        └───rgloader
+                loader.rb{% endhighlight %}
+Тут директорії _.vagrant_ створюються автоматично, _up.cmd_ просто команда запуску `vagrant up`, щоб руками не набирати. _Vagrantfile_ це основний файл де описано що, як, куди, під якою назвою розгортати і що робити після розгортання. Наприклад:
+{% highlight rb %}
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+vagrant_name = "vargant_Mint_20_1"
+Vagrant.configure("2") do |config|
+  config.vm.box = "nyurch/LinuxMint201"
+  config.vm.box_check_update = false
+  config.vm.hostname = "mint"
+  config.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.name = vagrant_name
+      vb.memory = "4096"
+  end
+ config.vm.provision "shell", inline: <<-SHELL
+    apt update
+    apt dist-upgrade
+    apt install -y htop
+  SHELL
+end
+{% endhighlight %}
+{% highlight rb %}
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+vagrant_name = "vargant_Windows_10LTSC"
+Vagrant.configure("2") do |config|
+  config.vm.box = "nyurch/windows_10ltsc"
+  config.vm.box_check_update = false
+  config.vm.hostname = "wltsc"
+  config.vm.guest = :windows
+  config.vm.communicator = "winrm"
+  config.winrm.username = "vagrant"
+  config.winrm.password = "vagrant"
+  config.vm.network :forwarded_port, guest: 3389, host: 33899
+  config.vm.network :forwarded_port, guest: 5985, host: 59855, id: "winrm", auto_correct: true
+  config.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.name = vagrant_name
+      vb.memory = "4096"
+      vb.cpus = 2
+  end
+end
+{% endhighlight %}
+[Документація.](https://www.vagrantup.com/docs/boxes/base "Vagrant Base Box"){:target="_blank"}

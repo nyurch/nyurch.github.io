@@ -31,4 +31,5 @@ title: Список на корисні ресурси
 
 #### etc
 [GreenFlash. Мультизагрузочная флешка.](http://greenflash.su/ "GreenFlash. Мультизагрузочная флешка"){:target="_blank"}  
-[OSBoxes.](https://www.osboxes.org/ "OSBoxes"){:target="_blank"}  
+[OSBoxes.](https://www.osboxes.org/ "OSBoxes"){:target="_blank"}    
+[Vagrant.](https://www.vagrantup.com/ "Vagrant"){:target="_blank"}  
