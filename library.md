@@ -29,7 +29,8 @@ title: Список на корисні ресурси
 [Zenity for Windows.](https://github.com/kvaps/zenity-windows/ "Zenity for Windows"){:target="_blank"}  
 [Winstall.app](https://winstall.app/ "Winstall.app"){:target="_blank"}
 
-#### etc
+#### etc    
+[gImageReader.](https://github.com/manisandro/gImageReader "gImageReader"){:target="_blank"}  
 [GreenFlash. Мультизагрузочная флешка.](http://greenflash.su/ "GreenFlash. Мультизагрузочная флешка"){:target="_blank"}  
 [OSBoxes.](https://www.osboxes.org/ "OSBoxes"){:target="_blank"}    
 [Vagrant.](https://www.vagrantup.com/ "Vagrant"){:target="_blank"}  

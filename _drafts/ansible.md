@@ -6,12 +6,12 @@ category: [SOFTWARE]
 ![ansible logo](/assets/media/ansible.svg?style=head)  
 На минулій, гори вона в пеклі, роботі все збирався систематизувати гору скриптів зліплених з batch, powershell, sysinternals suite, zenity, гівна і палок у вигляді чогось єдиноподібного. А точніше обєднати все ansibl-ом. Да все якось руки не доходили і от невелика систематизація уже зробленого і зауваження по тому як робити не треба. <!--more-->
 
-#### Серверна частина
 Отже, як каже [wikipedia](https://uk.wikipedia.org/wiki/Ansible "Ansible"){:target="_blank"}:
 >Ansible — програмне забезпечення, що надає засоби для управління конфігурацією, оркестровки, централізованої установки застосунків і паралельного виконання типових завдань на групі систем.
 
-Ну і по суті на цьому можна було б завершити. Для некосмічного масштабу задач все максимально чітко, логічно, з прекрасною документацією й, за великим рахунком, час розгортання готової до використання системи залежить від кількості задач що автоматизуються і від наявності уже готових заготовок для **playbook**-ів.
+Ну і по суті на цьому можна було б завершити. Для некосмічного масштабу задач все максимально чітко, логічно, з прекрасною документацією й, за великим рахунком, час розгортання готової до використання системи залежить від кількості задач що автоматизуються і від наявності уже готових заготовок для **playbook**-ів.  
 
+#### Серверна частина
 Етап перший - установка. Можливі 3 варіанти:
 1. ***Windows/Cygwin*** ;
 2. ***Windows/WSL*** ;
@@ -45,7 +45,7 @@ ansible_connection=ssh
 ansible_ssh_user=ansible
 ansible_ssh_pass=password{% endhighlight %}
 
-Тут у нас логін/пароль лежить у відкритому вигляді, можна трохи підшифруватися.
+Тут у нас логін/пароль лежить у відкритому вигляді, можна, при бажанні, трохи підшифруватися.
 1. Створюємо файл
     {% highlight bash %}sudo ansible-vault create winpassword_vars.yml{% endhighlight %}
 з наступним вмістом
@@ -78,7 +78,7 @@ Vault password: **********
     10.0.0.2
   vars:
     ansible_connection: ssh{% endhighlight %}  
-Я так розумію тепер при виконанні плейбука треба явно вказувати файл інвентаризації де описані хости, інакше шукатиме в *hosts* .
+Тепер при виконанні плейбука треба явно вказувати файл інвентаризації де описані хости, інакше шукатиме в *hosts* .
 В результаті мабуть ще розумно зробити для довгих команд з купою параметрів аліаси і можна використовувати.  
 
 Цікавий модуль для візуалізації інформації про хости з інвенторі - [ansible-cmdb](https://github.com/fboender/ansible-cmdb "ansible-cmdb на github"){:target="_blank"}.  
@@ -86,7 +86,52 @@ Vault password: **********
 [![ansible-cmdb](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png?style=blog "ansible-cmdb")](https://raw.githubusercontent.com/fboender/ansible-cmdb/master/contrib/screenshot-overview.png "ansible-cmdb"){:target="_blank"}  
 
 Можна використовувати теги, для виконання певник операцій, а не всього плейбука, на прикладі шаблону *win_chocolatey_full_with_tags.yml*.  
-Тоді плейбук виконується з ключем `--tags`
+{% highlight yaml %}---
+- name: Install packages
+  hosts: winpc
+
+  tasks:
+    - name: Ensure Chocolatey itself is installed
+      win_chocolatey:
+        name: chocolatey
+        #source: http://someserver/chocolatey
+      tags: choco_check
+
+    - name: Install Programs
+      win_chocolatey:
+        name: "{{ item }}"
+        state: present
+        #proxy_url: http://proxy-server:8080/
+        #proxy_username: joe
+        #proxy_password: p@ssw0rd
+        #source: https://someserver/api/v2/
+      loop:
+      - 7zip.install
+      - adobereader
+      - anydesk.install
+      - doublecmd
+      - firefox
+      - googlechrome
+      - greenshot
+      - libreoffice-fresh
+      - microsoft-teams.install
+      - notepadplusplus
+      - office365business
+      - paint.net
+      - phonerlite
+      - powerbi
+      - sysinternals
+      - vlc
+      - vivaldi
+      - xmind
+      tags: choco_install
+
+    - name: Choco Updater
+      win_chocolatey:
+        name: all
+        state: latest
+      tags: choco_upgrade{% endhighlight %}  
+Тоді плейбук виконується з ключем `--tags`.
 
 #### Налаштування Windows-клієнтів
 Повинно бути виконано кілька умов:
@@ -99,22 +144,25 @@ Vault password: **********
 {% highlight cmd %}WinRM enumerate winrm/config/listener{% endhighlight %}
 
 Увімкнути службу можна 2 способами:
-1. Використовуючи купку костилів з доступом до ПК де це вмикається. Послідовність із старих запасів скриптів така:
-дозволити виконання *powershell*-скриптів
+1. З прямим доступом до ПК де це вмикається:
+{% highlight bash %} winrm quickconfig -q
+ winrm set winrm/config/winrs @{MaxMemoryPerShellMB="300"}
+ winrm set winrm/config @{MaxTimeoutms="1800000"}
+ winrm set winrm/config/service @{AllowUnencrypted="true"}
+ winrm set winrm/config/service/auth @{Basic="true"}
+ sc config WinRM start=auto{% endhighlight %}
+або дозволити виконання **PS**-скриптів, що і так треба б зробити
 {% highlight batch %}@echo off
 cls
 color FC
 net session >nul 2>&1
-if %errorLevel% == 0 (powershell Set-ExecutionPolicy RemoteSigned) else (echo "Run as Administrator please...")
+if %errorLevel% == 0 (powershell Set-ExecutionPolicy -Force -ExecutionPolicy Unrestricted) else (echo "Run as Administrator please...")
 pause{% endhighlight %}
-активувати службу
+і виконити скрипт з **github**
 {% highlight powershell %}$url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
 $file = "$env:temp\ConfigureRemotingForAnsible.ps1"
 (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
-powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
-
-Упс... Кажуть можна просто
-{% highlight shell %}winrm quickconfig{% endhighlight %}
+powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}  
 {:start="2"}
 2. Через групові політики, якщо робити по нормальному:
 [Інструкція](https://winitpro.ru/index.php/2012/01/31/kak-aktivirovat-windows-remote-management-s-pomoshhyu-gruppovoj-politiki/ "Інструкція"){:target="_blank"}.  
@@ -129,7 +177,7 @@ powershell.exe -ExecutionPolicy ByPass -File $file{% endhighlight %}
 
 #### Налаштування Linux-клієнтів
 Для доступу по паролю:
-1. Має стояти ssh на клієнті
-2. Бути розкоментовано HOST_KEY_CHECKING = False у ansible.cfg на сервері
+1. Має стояти **ssh** на клієнті;
+2. Бути розкоментовано **HOST_KEY_CHECKING = False** у _ansible.cfg_ на сервері.
 
-ansible-playbook playbooks/lin_install.yml -l 10.0.0.8 -u ansible --ask-become-pass
+{% highlight shell %}ansible-playbook playbooks/lin_install.yml -l 10.0.0.8 -u ansible --ask-become-pass{% endhighlight %}

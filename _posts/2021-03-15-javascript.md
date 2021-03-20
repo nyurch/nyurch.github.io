@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript для дебілів.
+title: Мавпа і Javascript.
 category: [WEB]
 ---
 

@@ -4,7 +4,7 @@ title: Налаштування WiFi через термінал Ubuntu.
 category: [LINUX]
 ---
 
-![atom logo](/assets/media/rrr.png?style=head)  
+![atom logo](/assets/media/wifi.svg?style=head)  
 ls /sys/class/net
 
 sudo nano /etc/netplan/50-cloud-init.yaml
