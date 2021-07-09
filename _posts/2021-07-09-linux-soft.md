@@ -29,3 +29,7 @@ category: [LINUX]
 [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
 [![GTKStressTest](/assets/media/StressTest.png?style=blog "GTKStressTest")](/assets/media/StressTest.png "GTKStressTest"){:target="_blank"}
+
+[Tealdeer](https://github.com/dbrgn/tealdeer "Tealdeer"){:target="_blank"} - аналог **man** базується на прикладах
+
+[![Tealdeer](/assets/media/tealdeer.png?style=blog "Tealdeer")](/assets/media/tealdeer.png "Tealdeer"){:target="_blank"}
