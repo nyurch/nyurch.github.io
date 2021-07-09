@@ -82,3 +82,9 @@ New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\CurrentVersion
     {% highlight posh %}
 dism /Get-WimInfo /WimFile:install.esd
 dism /export-image /SourceImageFile:install.esd /SourceIndex:4 /DestinationImageFile:install.wim /Compress:max /CheckIntegrity{% endhighlight %}
+
+#### Вікна поверх інших, та деякі інші костилі
+[Window TopMost Control](https://www.sordum.org "Window TopMost Control"){:target="_blank"} - аналог лінуксового **Завжди поверх інших вікон**
+[![Window TopMost Control](/assets/media/topmost.png?style=blog "Window TopMost Control")](/assets/media/topmost.png "Window TopMost Control"){:target="_blank"}
+
+
