@@ -24,11 +24,11 @@ category: [LINUX]
 
 [WoeUSB](https://github.com/slacka/WoeUSB "WoeUSB"){:target="_blank"} - створення завантажувальної флешки з Windows
 
-[![WoeUSB](/assets/media/WoeUSB.png?style=blog "WoeUSB")](/assets/media/WoeUSB.png "WoeUSB"){:target="_blank"}
+[![WoeUSB](/assets/media/woeusb.png?style=blog "WoeUSB")](/assets/media/WoeUSB.png "WoeUSB"){:target="_blank"}
 
 [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
-[![GTKStressTest](/assets/media/StressTest.png?style=blog "GTKStressTest")](/assets/media/StressTest.png "GTKStressTest"){:target="_blank"}
+[![GTKStressTest](/assets/media/stresstest.png?style=blog "GTKStressTest")](/assets/media/StressTest.png "GTKStressTest"){:target="_blank"}
 
 [Tealdeer](https://github.com/dbrgn/tealdeer "Tealdeer"){:target="_blank"} - аналог **man** базується на прикладах
 
