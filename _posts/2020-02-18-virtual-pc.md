@@ -9,12 +9,20 @@ category: [SOFTWARE]
 Якщо використовую віртуальну ***Ubuntu*** запущену у ***VMWare Workstation*** під ***Ubuntu*** то отримую з часом дикі тормоза. Лікується, як виявляється, додаванням рядка **clocksource=acpi_pm** у файл *назва_віртуалки.vmx*
 
 #### VirtualBox Guest Additions в Ubuntu
-Для початку оновлюємо ядро, доставляємо необхідні пакети і переконфігуровуємся:
-    {% highlight shell %}sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install build-essential module-assistant
-sudo m-a prepare{% endhighlight %}
-Тепер можна встановлювати ***Guest Additions***
+Установка та перевірка:
+{% highlight bash %}   sudo apt-get install linux-headers-$(uname -r) build-essential dkms
+   wget http://download.virtualbox.org/virtualbox/6.1.18/VBoxGuestAdditions_6.1.18.iso
+   sudo mkdir /media/VBoxGuestAdditions
+   sudo mount -o loop,ro VBoxGuestAdditions_4.3.8.iso /media/VBoxGuestAdditions
+   sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+   rm VBoxGuestAdditions_4.3.8.iso
+   sudo umount /media/VBoxGuestAdditions
+   sudo rmdir /media/VBoxGuestAdditions
+   sudo reboot
+   sudo lsmod | grep vbox{% endhighlight %}
+При підключенні спільної папки додаємо юзера в групу:
+{% highlight bash %}   sudo adduser $USER vboxsf{% endhighlight %}
+бо інакше буде **/media/sf_sharedFolder/: Permission denied**.
 
 #### Встановлення VirtualBox Extension Pack в терміналі
     {% highlight shell %}VBoxManage extpack install <ім'я пакету> {% endhighlight %}

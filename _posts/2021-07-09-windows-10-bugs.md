@@ -87,4 +87,7 @@ dism /export-image /SourceImageFile:install.esd /SourceIndex:4 /DestinationImage
 [Window TopMost Control](https://www.sordum.org "Window TopMost Control"){:target="_blank"} - аналог лінуксового **Завжди поверх інших вікон**
 [![Window TopMost Control](/assets/media/topmost.png?style=blog "Window TopMost Control")](/assets/media/topmost.png "Window TopMost Control"){:target="_blank"}
 
+#### Зміна редакції Windows 10 з Pro на Enterprise
+{% highlight posh %}Changepk.exe /ProductKey NPPR9-FWDCX-D2C8J-H872K-2YT43{% endhighlight %}
+NPPR9-FWDCX-D2C8J-H872K-2YT43 - публічний КМС-ключ.
 
