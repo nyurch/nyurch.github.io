@@ -3,7 +3,7 @@ layout: post
 title: Нестандартний софт у Linux.
 category: [LINUX]
 ---
-![software logo](/assets/media/software.png?style=head)  
+![software logo](/assets/media/software.png?style=head)
 Список цікавого софту що не включається в базові збірки, використовується не так часто, а тому часом забуваються. Незаслужено.<!--more-->
 ***neofetch*** - інформація про систему в терміналі
 
@@ -24,19 +24,17 @@ category: [LINUX]
 
 [WoeUSB](https://github.com/slacka/WoeUSB "WoeUSB"){:target="_blank"} - створення завантажувальної флешки з Windows
 
-<<<<<<< HEAD
 [![WoeUSB](/assets/media/woeusb.png?style=blog "WoeUSB")](/assets/media/woeusb.png "WoeUSB"){:target="_blank"}
 
 [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
 [![GTKStressTest](/assets/media/stresstest.png?style=blog "GTKStressTest")](/assets/media/stresstest.png "GTKStressTest"){:target="_blank"}
-=======
+
 [![WoeUSB](/assets/media/woeusb.png?style=blog "WoeUSB")](/assets/media/WoeUSB.png "WoeUSB"){:target="_blank"}
 
 [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
 [![GTKStressTest](/assets/media/stresstest.png?style=blog "GTKStressTest")](/assets/media/StressTest.png "GTKStressTest"){:target="_blank"}
->>>>>>> 84384e55b5b3e1252a93a5730445610b30a1c0e3
 
 [Tealdeer](https://github.com/dbrgn/tealdeer "Tealdeer"){:target="_blank"} - аналог **man** базується на прикладах
 
