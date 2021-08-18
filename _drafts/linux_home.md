@@ -1,0 +1,33 @@
+
+
+Світла тема дає контури при використанні Compiz і не тільки. Ставимо Mint-Y-*
+
+ACE Stream
+sudo rm /etc/apt/preferences.d/nosnap.pref
+sudo apt update
+sudo apt install snapd
+sudo snap install acestreamplayer
+
+ACE Stream + Firefox
+В профілі у файлі handlers.json в розділ schemes додати
+"ace":{"action":4,"ask":true}
+Перезавантажити.
+
+Firefox
+Щоб заховати title bar переходимо в Налаштування панелі інструментів і зняти галочку зліва внизу.
+
+Рукожопний значок Viber в треї лікується запуском так dbus-launch /opt/viber/Viber або заміною відповідного рядку у ярлику на наступний
+Exec=dbus-launch /opt/viber/Viber
+
+Якщо маємо nvme-диски то для моніторингу треба nvme-cli
+н.п. sudo nvme smart-log /dev/nvme0n1
+chmod u+s nvme якщо треба десь запускати без sudo н.п. в conky
+Або можна аналогічно використовувати smartctl
+
+Мій нас з древньою прошивкою пускає по cifs а по gvfs ні.
+sudo apt-get install cifs-utils
+fstab
+//server/share /media/Share cifs username=nnn,password=ppp,uid=1000,vers=1.0,noauto,user 0 0
+mount -a перечитати fstab
+
+
