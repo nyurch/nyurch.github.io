@@ -1,5 +1,25 @@
 
 
+sudo apt install clipit faenza-icon-theme git mc samba steam wine
+
+sudo apt install gem ruby-dev
+sudo gem install jekyll bundler
+bundle update
+
+sudo apt install tldr
+
+git config --global user.email "nicolas.yurchuk@gmail.com"
+git config --global user.name "nyurch"
+
+sudo apt install gxneur
+sudo apt install tilda
+
+https://github.com/madmaxms/iconpack-obsidian
+git clone https://github.com/madmaxms/iconpack-obsidian
+gtk-update-icon-cache /usr/share/icons/Obsidian-Amber/
+
+sudo apt install conky-all
+
 Світла тема дає контури при використанні Compiz і не тільки. Ставимо Mint-Y-*
 
 ACE Stream
