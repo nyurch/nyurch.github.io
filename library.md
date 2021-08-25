@@ -27,7 +27,8 @@ title: Список на корисні ресурси
 #### Windows  
 [Chocolatey software.](https://chocolatey.org/ "Chocolatey software"){:target="_blank"}  
 [Zenity for Windows.](https://github.com/kvaps/zenity-windows/ "Zenity for Windows"){:target="_blank"}  
-[Winstall.app](https://winstall.app/ "Winstall.app"){:target="_blank"}
+[Winstall.app](https://winstall.app/ "Winstall.app"){:target="_blank"}  
+[WSUS Offline](https://download.wsusoffline.net/ "WSUS Offline"){:target="_blank"}
 
 #### etc    
 [gImageReader.](https://github.com/manisandro/gImageReader "gImageReader"){:target="_blank"}  

@@ -91,3 +91,6 @@ dism /export-image /SourceImageFile:install.esd /SourceIndex:4 /DestinationImage
 {% highlight posh %}Changepk.exe /ProductKey NPPR9-FWDCX-D2C8J-H872K-2YT43{% endhighlight %}
 NPPR9-FWDCX-D2C8J-H872K-2YT43 - публічний КМС-ключ.
 
+#### WSUS Offline
+[WSUS](https://download.wsusoffline.net/ "WSUS Offline"){:target="_blank"}
+
