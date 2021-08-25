@@ -51,3 +51,9 @@ fstab
 mount -a перечитати fstab
 
 
+Steam
+Settings -> Steam Play, галочка Enable Steam Play for all titles
+
+https://averagelinuxuser.com/top-5-xfce-themes/
+
+
