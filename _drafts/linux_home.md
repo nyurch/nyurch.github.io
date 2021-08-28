@@ -9,19 +9,19 @@ category: [LINUX]
 {% highlight shell_session %}sudo apt install clipit conky-all faenza-icon-theme git gxneur mc samba spotify-client steam tilda tldr wine{% endhighlight %}
 
 #### Блог
-- Ставлю Jekyll:
+- Ставлю ***Jekyll***:
 {% highlight shell_session %}sudo apt-get install ruby-full build-essential zlib1g-dev
 echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
 echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
 echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 gem install jekyll bundler{% endhighlight %}
-- Клон репозиторія з github:
+- Клон репозиторія з **github**:
 {% highlight shell_session %}cd ~/Documents
 git clone https://github.com/nyurch/nyurch.github.io
 cd nyurch.github.io
 bundle update{% endhighlight %}
-- Глобальні налаштування git
+- Глобальні налаштування **git**:
 {% highlight shell_session %}git config --global user.email "nicolas.yurchuk@gmail.com"
 git config --global user.name "nyurch"{% endhighlight %}
 
@@ -37,27 +37,27 @@ sudo snap install acestreamplayer{% endhighlight %}
 Перезавантажити.
 
 #### NAS
-Треба cifs
+Треба **cifs**
 {% highlight shell_session %}sudo apt install cifs-utils{% endhighlight %}
-fstab
+_fstab_
 {% highlight shell_session %}//server/share /media/Share cifs username=nnn,password=ppp,uid=1000,vers=1.0,noauto,user 0 0{% endhighlight %}
-Перечитати fstab
+Перечитати _fstab_
 {% highlight shell_session %}sudo mount -a{% endhighlight %}
 
 #### NVME-диск
 {% highlight shell_session %}sudo apt nvme-cli
 chmod u+s nvme
 nvme smart-log /dev/nvme0n1{% endhighlight %}
-Або можна аналогічно використовувати smartctl
+Або можна аналогічно використовувати **smartctl**
 
 #### Steam
-Settings -> Steam Play, галочка Enable Steam Play for all titles
+_Settings / Steam Play_ галочка **Enable Steam Play for all titles**.
 
 #### Свистєлки і пердєлки
 
 
 #### Костилі
-Світла тема дає контури при використанні Compiz і не тільки. Ставимо Mint-Y-*
-У Firefox щоб заховати title bar переходимо в Налаштування панелі інструментів і зняти галочку зліва внизу
-Рукожопний значок Viber в треї лікується запуском так dbus-launch /opt/viber/Viber або заміною відповідного рядку у ярлику на наступний
-Exec=dbus-launch /opt/viber/Viber
+- Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки тавимо **Mint-Y-***
+- У ***Firefox*** щоб заховати **title bar** переходимо в налаштування панелі інструментів і знімаємо галочку зліва внизу.
+- Рукожопний значок ***Viber*** в треї лікується запуском так **dbus-launch /opt/viber/Viber** або заміною відповідного рядку у ярлику на наступний
+**Exec=dbus-launch /opt/viber/Viber**
