@@ -4,9 +4,9 @@ title: Linux Mint XFCE. Домашній варіант.
 category: [LINUX]
 ---
 ![linux logo](/assets/media/xfce.svg?style=head)  
-Зібрав до купи бо є пара моментів.<!--more-->  
+Linux Mint XFCE з нуля до домашнього використання на реальному прикладі. Зібрав до купи бо є пара моментів.<!--more-->  
 #### Доставляємо очевидний і не дуже софт
-{% highlight shell_session %}sudo apt install clipit conky-all faenza-icon-theme git gxneur mc samba spotify-client steam tilda tldr wine{% endhighlight %}
+{% highlight shell_session %}sudo apt install clipit conky-all faenza-icon-theme git gnome-games gxneur mc pidgin samba spotify-client steam telegram-desktop tilda tldr thunar-gtkhash virtualbox wine{% endhighlight %}
 
 #### Блог
 - Ставлю ***Jekyll***:
@@ -54,7 +54,7 @@ nvme smart-log /dev/nvme0n1{% endhighlight %}
 _Settings / Steam Play_ галочка **Enable Steam Play for all titles**.
 
 #### Свистєлки і пердєлки
-
+аліаси, конкі, шаблони, скрипти
 
 #### Костилі
 - Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки тавимо **Mint-Y-***
