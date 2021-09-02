@@ -75,7 +75,7 @@ git push -u origin master{% endhighlight %}
 conky -c ~/.config/conky/informant/inf-orange.conkyrc &{% endhighlight %}
 
 Conky:
-[![Conky](/assets/media/conky_my.jpg?style=blog "new-bash")](/assets/media/conky_my.jpg "install tcm"){:target="\_blank"}
+[![Conky](/assets/media/conky_my.jpg?style=blog "new-bash")](/assets/media/conky_my.jpg "install tcm"){:target="\_blank"}  
 Модифікований inf-orange.conkyrc, оригінал [тут](https://download.wsusoffline.net/ "Conky Informant"){:target="_blank"}
 {% highlight ini %}
 conky.config = {
