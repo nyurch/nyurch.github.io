@@ -45,7 +45,7 @@ _fstab_
 {% highlight shell %}sudo mount -a{% endhighlight %}
 
 #### NVME-диск
-{% highlight shell_session %}sudo apt nvme-cli
+{% highlight shell %}sudo apt nvme-cli
 chmod u+s nvme
 nvme smart-log /dev/nvme0n1{% endhighlight %}
 Або можна аналогічно використовувати **smartctl**
