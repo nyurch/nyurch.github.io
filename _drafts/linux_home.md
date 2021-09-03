@@ -51,19 +51,26 @@ nvme smart-log /dev/nvme0n1{% endhighlight %}
 Або можна аналогічно використовувати **smartctl**
 
 #### Steam
-_Settings / Steam Play_ галочка **Enable Steam Play for all titles**.
+_Settings/Steam Play_ галочка **Enable Steam Play for all titles**.
 
 #### Свистєлки і пердєлки
-Аліаси і скрипти:
-{% highlight ini %}# MY mod
-export PS1="\[$(tput setaf 3)\][\D{ %m/%d/%Y } \A] \[$(tput setaf 1)\]\u@\h:\[$(tput setaf 4)\]\w $ \[$(tput sgr0)\]"
+Аліаси, скрипти і т.п.:
+{% highlight ini %}# NY mod
+export PS1="\[$(tput setaf 3)\][\D{ %m/%d/%Y} \A] \[$(tput setaf 1)\]\u@\h:\[$(tput setaf 4)\]\w $ \[$(tput sgr0)\]"
 
-alias jkl='jekyll serve -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/jekyll serve -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/'
+alias jkl='jekyll serve --drafts -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/jekyll serve -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/'
 alias startconky1='conky -c ~/.config/conky/informant/inf-orange.conkyrc'
 alias startconky2='conky -c ~/.conkycolors/conkyrc'
 alias runconky='/home/deimos/run_conky.sh'
 alias gitsite='/home/deimos/gitsite.sh'
-alias upgrd='sudo apt update && sudo apt dist-upgrade -y'{% endhighlight %}
+alias gitdir='cd ~/Documents/GitHub'
+alias update='sudo apt update'
+alias upgrade='sudo apt update && sudo apt dist-upgrade -y'
+alias search='aptitude search'
+alias install='sudo apt install'
+alias temp='cd ~/Temp'
+
+LS_COLORS="$LS_COLORS:ow=01;34"{% endhighlight %}
 
 {% highlight bash %}#!/bin/bash
 cd ~/Documents/GitHub/nyurch.github.io
@@ -74,9 +81,22 @@ git push -u origin master{% endhighlight %}
 {% highlight bash %}#!/bin/bash
 conky -c ~/.config/conky/informant/inf-orange.conkyrc &{% endhighlight %}
 
+Також для сортування за типом та розширенням додаю **--group-directories-first --sort=extension** в аліас для **ls**
+{% highlight bash %}# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --group-directories-first --sort=extension --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi{% endhighlight %}
+
 Conky:
 [![Conky](/assets/media/conky_my.jpg?style=blog "new-bash")](/assets/media/conky_my.jpg "install tcm"){:target="\_blank"}  
-Модифікований inf-orange.conkyrc, оригінал [тут](https://download.wsusoffline.net/ "Conky Informant"){:target="_blank"}
+Модифікований inf-orange.conkyrc, оригінал [тут](https://github.com/addy-dclxvi/conky-theme-collections "Conky Informant"){:target="_blank"}
 {% highlight ini %}
 conky.config = {
 own_window_class = 'Conky',
