@@ -58,7 +58,7 @@ _Settings/Steam Play_ галочка **Enable Steam Play for all titles**.
 {% highlight ini %}# NY mod
 export PS1="\[$(tput setaf 3)\][\D{ %m/%d/%Y} \A] \[$(tput setaf 1)\]\u@\h:\[$(tput setaf 4)\]\w $ \[$(tput sgr0)\]"
 
-alias jkl='jekyll serve --drafts -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/jekyll serve -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/'
+alias jkl='jekyll serve --drafts -s /home/deimos/Documents/GitHub/nyurch.github.io/ -d /home/deimos/Documents/GitHub/nyurch.github.io/_site/'
 alias startconky1='conky -c ~/.config/conky/informant/inf-orange.conkyrc'
 alias startconky2='conky -c ~/.conkycolors/conkyrc'
 alias runconky='/home/deimos/run_conky.sh'
@@ -178,7 +178,7 @@ ${font Roboto:pixelsize=23}${alignr} WD 500GB: ${color0}${execi 120 smartctl -A 
 Шаблони для md-файлів для блогу і для sh-файлів.
 
 #### Костилі
-- Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки тавимо **Mint-Y-***
+- Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки ставимо **Mint-Y-***
 - У ***Firefox*** щоб заховати **title bar** переходимо в налаштування панелі інструментів і знімаємо галочку зліва внизу.
 - Рукожопний значок ***Viber*** в треї лікується запуском так **dbus-launch /opt/viber/Viber** або заміною відповідного рядку у ярлику на наступний
 **Exec=dbus-launch /opt/viber/Viber**
