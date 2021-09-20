@@ -94,3 +94,7 @@ NPPR9-FWDCX-D2C8J-H872K-2YT43 - публічний КМС-ключ.
 #### WSUS Offline
 [WSUS](https://download.wsusoffline.net/ "WSUS Offline"){:target="_blank"}
 
+#### Завантаження Windows 10 Enterprise
+{% highlight posh %}MediaCreationTool21H1.exe /Eula Accept /Retail /MediaArch x64 /MediaLangCode en-US /MediaEdition Enterprise{% endhighlight %}
+Ключ можна публічний КМС.
+
