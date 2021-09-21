@@ -177,6 +177,10 @@ ${font Roboto:pixelsize=23}${alignr} WD 500GB: ${color0}${execi 120 smartctl -A 
 
 Шаблони для md-файлів для блогу і для sh-файлів.
 
+Тема Grub2  
+[Tela grub theme](https://github.com/vinceliuice/grub2-themes "Tela grub theme"){:target="_blank"}  
+[![Tela grub theme](/assets/media/grub-theme-tela.jpg?style=blog "Tela grub theme")](/assets/media/grub-theme-tela.jpg "Tela grub theme"){:target="\_blank"}  
+
 #### Костилі
 - Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки ставимо **Mint-Y-***
 - У ***Firefox*** щоб заховати **title bar** переходимо в налаштування панелі інструментів і знімаємо галочку зліва внизу.
