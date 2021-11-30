@@ -98,3 +98,6 @@ NPPR9-FWDCX-D2C8J-H872K-2YT43 - публічний КМС-ключ.
 {% highlight posh %}MediaCreationTool21H1.exe /Eula Accept /Retail /MediaArch x64 /MediaLangCode en-US /MediaEdition Enterprise{% endhighlight %}
 Ключ можна публічний КМС.
 
+#### Windows 10/11 засерає диск
+У директорії _C:\Windows\System32\config\systemprofile\AppData\Local_ створюються порожні директорії з іменами типу _tw-*.tmp_.  
+У мене було більше 8600.
