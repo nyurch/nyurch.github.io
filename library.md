@@ -23,6 +23,7 @@ title: Список на корисні ресурси
 [The Markdown Guide. Free and open-source reference guide that explains how to use Markdown.](https://www.markdownguide.org/ "The Markdown Guide. Free and open-source reference guide that explains how to use Markdown"){:target="_blank"}  
 [W3Schools. Code snippets for HTML, CSS and JavaScript.](https://www.w3schools.com/howto/default.asp "W3Schools. Code snippets for HTML, CSS and JavaScript"){:target="_blank"}  
 [Webjeda. Blog.](https://blog.webjeda.com/ "Webjeda. Blog"){:target="_blank"}  
+[Jekyll Doc Theme.](https://idratherbewriting.com/documentation-theme-jekyll/ "Jekyll Doc Theme"){:target="_blank"}  
 
 #### Windows  
 [Chocolatey software.](https://chocolatey.org/ "Chocolatey software"){:target="_blank"}  
