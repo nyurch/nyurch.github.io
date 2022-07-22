@@ -49,3 +49,11 @@ category: [LINUX]
 Також можна вивести графічне представлення:
 {% highlight shell %}[11/06/2021 16:32] deimos@sol:~ $ smem --pie name -c pss{% endhighlight %}
 [![smem](/assets/media/smem.png?style=blog "smem")](/assets/media/smem.png "smem"){:target="_blank"}
+
+#### [duf](https://github.com/muesli/duf "duf"){:target="_blank"} - альтернатива класичним **du/df**
+[![duf](https://github.com/muesli/duf/raw/master/duf.png?style=blog "smem")](https://github.com/muesli/duf/raw/master/duf.png "duf"){:target="_blank"}
+
+#### [deb-get](https://github.com/wimpysworld/deb-get "deb-get"){:target="_blank"} - аналог **apt-get** для deb-файлів
+{% highlight shell %}[11/07/2022 16:32] deimos@sol:~ $ sudo apt install curl
+[11/07/2022 16:32] deimos@sol:~ $ curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get{% endhighlight %}
+використання схоже на **aptitude/apt-get**

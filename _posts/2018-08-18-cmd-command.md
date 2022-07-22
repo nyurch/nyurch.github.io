@@ -69,3 +69,9 @@ for /R %temp% /d %%i in (*) do echo %%i{% endhighlight %}
 #### Визначення mac-адреси
 1. windows - getmac
 2. linux - arp-scan
+
+#### ключі USOClient
+- ScanInstallWait
+- StartInteractiveScan
+- RestartDevice
+
