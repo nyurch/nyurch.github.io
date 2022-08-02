@@ -70,8 +70,14 @@ for /R %temp% /d %%i in (*) do echo %%i{% endhighlight %}
 1. windows - getmac
 2. linux - arp-scan
 
-#### ключі USOClient
+#### Ключі USOClient
 - ScanInstallWait
 - StartInteractiveScan
 - RestartDevice
 
+#### Інформація про диск
+    {% highlight terminal %}wmic diskdrive get Name, Manufacturer, Model, InterfaceType, MediaType, SerialNumber{% endhighlight %}
+
+#### Інформація про збірку **Windows**
+    {% highlight posh %}Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
+Get-ItemProperty 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion' | Select-Object ProductName, ReleaseID, CurrentBuild{% endhighlight %}
