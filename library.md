@@ -24,6 +24,7 @@ title: Список на корисні ресурси
 [W3Schools. Code snippets for HTML, CSS and JavaScript.](https://www.w3schools.com/howto/default.asp "W3Schools. Code snippets for HTML, CSS and JavaScript"){:target="_blank"}  
 [Webjeda. Blog.](https://blog.webjeda.com/ "Webjeda. Blog"){:target="_blank"}  
 [Jekyll Doc Theme.](https://idratherbewriting.com/documentation-theme-jekyll/ "Jekyll Doc Theme"){:target="_blank"}  
+[Jekyll Modern Resume Theme.](https://github.com/sproogen/modern-resume-theme/ "Modern Resume Theme"){:target="_blank"}  
 
 #### Windows  
 [Chocolatey software.](https://chocolatey.org/ "Chocolatey software"){:target="_blank"}  
