@@ -18,3 +18,12 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+jekyll_admin:
+  hidden_links:
+#    - posts
+#    - pages
+#    - staticfiles
+    - datafiles
+#    - configuration
+#  homepage: "pages"
