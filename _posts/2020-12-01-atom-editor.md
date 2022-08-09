@@ -11,14 +11,14 @@ category: [SOFTWARE]
 #### Базова конфігурація
 
 1. _File/Settings/Core/Progect home_ - можна вказати домашню директорію для проектів
-     [![screenshot](/assets/media/screen-atom-0.png?style=blog "screenshot")](/assets/media/screen-atom-0.png "screenshot"){:target="_blank"}
+     [![screenshot](/assets/media/screen-atom-0.webp?style=blog "screenshot")](/assets/media/screen-atom-0.webp "screenshot"){:target="_blank"}
 2. _File/Settings/Core/Editor_ - кілька корисних доналаштувань:
    - м'які переноси і довжина рядка для них;
    - показувати приховані символи;
    - показувати номери рядків;
    - вказати скільком пробілам відповідає одна табуляція;
 3. _File/Settings/Core/System_ - можна додати до контекстного меню файлових менеджерів пункт _"Open with Atom"_ для файлів та директорій.
-4. _File/Settings/Packages_ - шукаємо пакет _spell-check_, вказуємо мови для перевірки орфографії. Тут же налаштовуються усі інші встановлені за замовчуванням да самим користувачем додатки. [![screenshot](/assets/media/screen-atom-1.png?style=blog "screenshot")](/assets/media/screen-atom-1.png "screenshot"){:target="_blank"}
+4. _File/Settings/Packages_ - шукаємо пакет _spell-check_, вказуємо мови для перевірки орфографії. Тут же налаштовуються усі інші встановлені за замовчуванням да самим користувачем додатки. [![screenshot](/assets/media/screen-atom-1.webp?style=blog "screenshot")](/assets/media/screen-atom-1.webp "screenshot"){:target="_blank"}
 5. _File/Settings/Install_ - встановлення додаткових пакетів, а тут є де розігнатися навіть з точки зору мінімальнонеобхідного.
 
 #### Додаткові пакети
@@ -43,7 +43,7 @@ category: [SOFTWARE]
 #### Всяка магія
 1. ctrl-shift-F - знайти/замінити текст у всьому проекті, чи у файлах/директоріях згідно шаблону;
 2. ctrl-shift-T - вікно powershell;
-3. можна ділити відкриті файли у 2 ряди чи стовпці [![screenshot](/assets/media/screen-atom-3.png?style=blog "screenshot")](/assets/media/screen-atom-3.png "screenshot"){:target="_blank"}
+3. можна ділити відкриті файли у 2 ряди чи стовпці [![screenshot](/assets/media/screen-atom-3.webp?style=blog "screenshot")](/assets/media/screen-atom-3.webp "screenshot"){:target="_blank"}
 
 #### Костилі :)
 Налаштувань і розширень дочорта, а централізованої рідної синхронізації нема. Поки робимо так(на практиці ще не перевірялося):

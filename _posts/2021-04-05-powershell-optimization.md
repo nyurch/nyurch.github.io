@@ -4,7 +4,7 @@ title: Дещо про оптимізацію терміналу powershell.
 category: [WINDOWS]
 ---
 
-![powershell logo](/assets/media/ps.png?style=head)  
+![powershell logo](/assets/media/ps.webp?style=head)  
 Останнім часом більше доводиться працювати з **_Windows_** і тому дозрів нарешті до оптимізації терміналу, щоб з убогості повної зробити щось що хоч більш-менш пристойно виглядає і дає хоч якусь мінімально прийнятну візуалізацію при хоч якійсь автоматизації. Вцілому жити без додаткових костилів від **_Sysinternals_** та без **_Cygwin_** все ще важко, але вже можна зліпити щось мінімально прийнятне.<!--more-->  
 Отже основні моменти:
 1. [Кольори](#кольори);
@@ -108,7 +108,7 @@ Set-alias grep c:\Cygwin64\bin\grep.exe
 Трохи функціоналу prompt-у. Пишемо скрипт, зберігаємо як _psm1_, кладемо в папку _Modeles_ і підключаємо в профілі.
 
 Результатом може бути **powershell-термінал** такого виду:
-[![PowerShell](/assets/media/custom-ps.png?style=blog "PowerShell")](/assets/media/custom-ps.png "PowerShell"){:target="_blank"}
+[![PowerShell](/assets/media/custom-ps.webp?style=blog "PowerShell")](/assets/media/custom-ps.webp "PowerShell"){:target="_blank"}
 
 Ще не **_tilda_** і навіть не **_gnome-terminal_**, але вже веселіше.
 
@@ -118,7 +118,7 @@ Set-alias grep c:\Cygwin64\bin\grep.exe
 Тепер трохи із категорії "вік живи - вік учись".  
 Знаходимо ярлик на програму, чи створюємо якщо його нема, відкриваємо його властивості і прописуємо гарячі клавіші.
 
-[![PowerShell](/assets/media/pscat.png?style=blog "PowerShell")](/assets/media/pscat.png "PowerShell"){:target="_blank"}
+[![PowerShell](/assets/media/pscat.webp?style=blog "PowerShell")](/assets/media/pscat.webp "PowerShell"){:target="_blank"}
 
 Тепер наш термінал запускається стандартним поєднанням **Ctrl+Alt+T**.
 

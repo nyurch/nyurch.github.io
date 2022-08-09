@@ -3,7 +3,7 @@ layout: post
 title: Football Manager.
 category: [SOFTWARE]
 ---
-![footballmanager logo](/assets/media/footballmanager.png?style=head)  
+![footballmanager logo](/assets/media/footballmanager.webp?style=head)  
 Мда... :).<!--more-->
 
 #### Список параметрів які не їдять РА:

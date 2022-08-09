@@ -3,7 +3,7 @@ layout: post
 title: Обробка тексту та графіки.
 category: [WEB]
 ---
-![build](/assets/media/site-building.png?style=head)  
+![build](/assets/media/site-building.webp?style=head)  
 Конспект за результатами переходу від старого до нового сайту. Пакетна і одинична обробка текстових та графічних документів. Слідами виконаних робіт згрібаю все в купу.<!--more-->  
 
 Взяти вказаний html-файл, прибити там всі html-теги і зберегти результат у текстовому файлі:
@@ -18,18 +18,18 @@ cat data_file_2.txt | cut --complement -b 35- &gt; data_file_3.txt{% endhighligh
 В деяких випадках коли треба потерти щось з кінця рядків неоднакової довжини варіант  *cut --complement -b* не підходить і використовується варіант з оберненням напрямку рядка, видаленням і оберненням назад. На прикладі видалення 9 останніх символів кожного рядка:
     {% highlight shell %}rev data_file_5.txt  | cut -c 9- | rev{% endhighlight %}
 Так був вибраний і перебраний корисний контент із сайту бородатих років та підготовлений до використання деякий абсолютно новий. Побічним завданням сумнівної необхідності було перегнати купу графіки під варіант однакової ширини зі збереженням пропорцій. У даному випадку ширина 256px:
-    {% highlight shell %}for i in *.png; do convert -verbose -quality 80 -resize 256x $i $i; done
-for i in *.jpg; do convert -verbose -quality 80 -resize 256x $i $i; done
+    {% highlight shell %}for i in *.webp; do convert -verbose -quality 80 -resize 256x $i $i; done
+for i in *.webp; do convert -verbose -quality 80 -resize 256x $i $i; done
 for i in *.jpeg; do convert -verbose -quality 80 -resize 256x $i $i; done
 for i in *.gif; do convert -verbose -quality 80 -resize 256x $i $i; done{% endhighlight %}
-І ще більш сумнівної необхідності операція конвертації svg у png. Для цього ще треба доставити одну бібліотеку:
+І ще більш сумнівної необхідності операція конвертації svg у.webp. Для цього ще треба доставити одну бібліотеку:
     {% highlight shell %}sudo apt-get install librsvg2-bin{% endhighlight %}
 в результаті можемо піддивитися *rsvg-convert --help*. Використовуємо так:
-    {% highlight shell %}for i in *.svg; do rsvg-convert $i -a -w 256 -o `echo $i | sed -e 's/svg$/png/'`; done{% endhighlight %}
-Є не зовсім зрозумілий нюанс, якщо в директорії уже є png-файли вони чомусь також оброблювалися і ламалися. Якщо встановлений ***Inkscape*** то можна так:
-    {% highlight shell %}for i in *; do inkscape $i --export-png=`echo $i | sed -e 's/svg$/png/'`; done{% endhighlight %}
+    {% highlight shell %}for i in *.svg; do rsvg-convert $i -a -w 256 -o `echo $i | sed -e 's/svg$.webp/'`; done{% endhighlight %}
+Є не зовсім зрозумілий нюанс, якщо в директорії уже є.webp-файли вони чомусь також оброблювалися і ламалися. Якщо встановлений ***Inkscape*** то можна так:
+    {% highlight shell %}for i in *; do inkscape $i --export.webp=`echo $i | sed -e 's/svg$.webp/'`; done{% endhighlight %}
 або якщо треба переконвертити також у піддиректоріях то виориствуємо так:
-    {% highlight shell %}find . -iname \*.jpg -exec convert -verbose -quality 80 -resize 256x "{}" "{}" \;{% endhighlight %}
+    {% highlight shell %}find . -iname \*.webp -exec convert -verbose -quality 80 -resize 256x "{}" "{}" \;{% endhighlight %}
 Ну і в кінці допилюємо до пристойного вигляду сам html-код:
     {% highlight shell %}tidy -i -m -w 260 -ashtml -utf8 index.html{% endhighlight %}
 Тут ще один момент - система може містити ***tidy*** без підтримки ***html5***, як моя ***ubuntu 12.04***. Треба прибити встановлену і зібрати новий варіант з ***github***:

@@ -3,7 +3,7 @@ layout: post
 title: Jekyll у Docker. Історія одного експерименту.
 category: [SOFTWARE]
 ---
-![docker logo](/assets/media/docker.png?style=head)  
+![docker logo](/assets/media/docker.webp?style=head)  
 Постановка задачі - треба **Jekyll**, але це значить **Linux**, на на ПК - **Windows**. Використати **Docker** рішення що напрошується, можна звичайно підняти цілу віртуалку, але заради 1 серверу не дуже логічно, а розвертати на існуючій, яка може бути замучена експериментами в будь-який момент, ще нелогічніше.<!--more-->
 Отже ставимо [Docker](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe "Docker for Windows"){:target="_blank"}.  
 Розгортаємо **jekyll**

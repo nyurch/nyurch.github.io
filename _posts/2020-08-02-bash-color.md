@@ -3,7 +3,7 @@ layout: post
 title: Кольори в bash.
 category: [LINUX]
 ---
-![bash logo](/assets/media/bash_logo.png?style=head)  
+![bash logo](/assets/media/bash_logo.webp?style=head)  
 Зібрався трохи оптимізувати і розфарбувати запрошення командного рядку в терміналі нововстановленого ***Linux Mint 20*** і зрозумів що рядок
   {% highlight shell %}export PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\D{ %m/%d/%Y }\A \[\033[01;31m\]\u\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '{% endhighlight %}
 

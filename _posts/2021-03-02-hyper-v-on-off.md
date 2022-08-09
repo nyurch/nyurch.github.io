@@ -4,7 +4,7 @@ title: Як жити з Hyper-V та VirtualBox.
 category: [WINDOWS]
 ---
 
-![atom logo](/assets/media/hyper-v.png?style=head)  
+![atom logo](/assets/media/hyper-v.webp?style=head)  
 Виявляється якщо ми встановили _**Hyper-V**_ то про будь-які інші гіпервізори можна забути, навіть якщо софт що використовує _**Hyper-V**_ не активний. Як завжди є костиль, дієвий, хоч і малозручний.  
 - Дублюємо варіант запуску
 {% highlight shell %}bcdedit /copy {current} /d "No Hyper-V"{% endhighlight %}

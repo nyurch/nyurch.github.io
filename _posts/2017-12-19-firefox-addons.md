@@ -3,7 +3,7 @@ layout: post
 title: Розширення Mozilla Firefox 57+.
 category: [SOFTWARE]
 ---
-![addods logo](/assets/media/mozilla-addons.jpg?style=head)  
+![addods logo](/assets/media/mozilla-addons.webp?style=head)  
 Базовий набір розширень для Mozilla Firefox з лінком на збірку на mozilla.org.<!--more-->
 - ***Copy PlainText***
 - ***Enhancer for YouTube***

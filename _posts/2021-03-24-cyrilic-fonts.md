@@ -4,7 +4,7 @@ title: Перекодування тексту.
 category: [LINUX]
 ---
 
-![trash logo](/assets/media/cracozyabli.jpg?style=head)  
+![trash logo](/assets/media/cracozyabli.webp?style=head)  
 
 Утиліти для перекодування текстових наборів символів. Вже десь писав, але як завжди коли треба то не знайти. Повтор.<!--more-->  
 **recode**, **iconv**

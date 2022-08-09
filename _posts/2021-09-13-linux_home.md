@@ -95,7 +95,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi{% endhighlight %}
 
 Conky:
-[![Conky](/assets/media/conky_my.jpg?style=blog "new-bash")](/assets/media/conky_my.jpg "install tcm"){:target="\_blank"}  
+[![Conky](/assets/media/conky_my.webp?style=blog "new-bash")](/assets/media/conky_my.webp "install tcm"){:target="\_blank"}  
 Модифікований inf-orange.conkyrc, оригінал [тут](https://github.com/addy-dclxvi/conky-theme-collections "Conky Informant"){:target="_blank"}
 {% highlight ini %}
 conky.config = {
@@ -179,7 +179,7 @@ ${font Roboto:pixelsize=23}${alignr} WD 500GB: ${color0}${execi 120 smartctl -A 
 
 Тема Grub2  
 [Tela grub theme](https://github.com/vinceliuice/grub2-themes "Tela grub theme"){:target="_blank"}  
-[![Tela grub theme](/assets/media/grub-theme-tela.jpg?style=blog "Tela grub theme")](/assets/media/grub-theme-tela.jpg "Tela grub theme"){:target="\_blank"}  
+[![Tela grub theme](/assets/media/grub-theme-tela.webp?style=blog "Tela grub theme")](/assets/media/grub-theme-tela.webp "Tela grub theme"){:target="\_blank"}  
 
 #### Костилі
 - Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки ставимо **Mint-Y-***

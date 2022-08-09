@@ -4,7 +4,7 @@ comments: true
 title: Підсвітка синтаксису в Jekyll.
 category: [WEB]
 ---
-![rouge logo](/assets/media/rouge.png?style=head)  
+![rouge logo](/assets/media/rouge.webp?style=head)  
 Перейшов на використання [Rouge](http://rouge.jneen.net/ "Rouge"){:target="_blank"}, що вже вбудовано в ***Jekyll 3***. <!--more-->Плюси очевидні, незручності(мабуть екранування спецсимволів) почнуть вилазити в процесі.  **&#123;% rаw %&#125;...&#123;% endrаw %&#125;** - екранує код(щось хотів тут написати, але вже забув).
 
 - Перевіряємо наявність встановлених ***Rouge*** та ***Kramdown***

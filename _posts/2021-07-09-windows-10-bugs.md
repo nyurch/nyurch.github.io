@@ -3,7 +3,7 @@ layout: post
 title: Костилі для Windows 10. Оновлюється.
 category: [WINDOWS]
 ---
-![windows logo](/assets/media/windows_10.png?style=head)  
+![windows logo](/assets/media/windows_10.webp?style=head)  
 Розгрібаємо результати розрідження мозку у індусів з Microsoft - виключаєм оновлення драйверів, кожне друге з яких призволить до смерті системи, повертаємо працездатність
 кнопки F8 у процесі завантаження, змінюємо положення директорії Users та повертаємо функціонал адміністративних мережевих ресурсів.<!--more-->
 
@@ -45,9 +45,9 @@ category: [WINDOWS]
 #### Відновлення завантажувача Windows 10.
 - Завантажуємося з установочного диску Windows 10;
 - Доходимо до етапу з кнопкою ***Install Now*** та натискаємо ***Repair your computer***;
-[![windows repair](/assets/media/repair-10.jpg?style=blog "Repair")](/assets/media/repair-10.jpg "Repair"){:target="_blank"}
+[![windows repair](/assets/media/repair-10.webp?style=blog "Repair")](/assets/media/repair-10.webp "Repair"){:target="_blank"}
 - Далі йдемо за пунктами ***Troubleshoot/Advanced options/Command Prompt***;
-[![windows repair](/assets/media/repair-10-1.jpg?style=blog "Repair")](/assets/media/repair-10-1.jpg "Repair"){:target="_blank"}
+[![windows repair](/assets/media/repair-10-1.webp?style=blog "Repair")](/assets/media/repair-10-1.webp "Repair"){:target="_blank"}
 - Виконуємо:
 
     {% highlight terminal %}
@@ -85,7 +85,7 @@ dism /export-image /SourceImageFile:install.esd /SourceIndex:4 /DestinationImage
 
 #### Вікна поверх інших, та деякі інші костилі
 [Window TopMost Control](https://www.sordum.org "Window TopMost Control"){:target="_blank"} - аналог лінуксового **Завжди поверх інших вікон**
-[![Window TopMost Control](/assets/media/topmost.png?style=blog "Window TopMost Control")](/assets/media/topmost.png "Window TopMost Control"){:target="_blank"}
+[![Window TopMost Control](/assets/media/topmost.webp?style=blog "Window TopMost Control")](/assets/media/topmost.webp "Window TopMost Control"){:target="_blank"}
 
 #### Зміна редакції Windows 10 з Pro на Enterprise
 {% highlight posh %}Changepk.exe /ProductKey NPPR9-FWDCX-D2C8J-H872K-2YT43{% endhighlight %}

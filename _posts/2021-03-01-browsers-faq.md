@@ -3,7 +3,7 @@ layout: post
 title: Неочевидні можливості браузерів.
 category: [SOFTWARE]
 ---
-![browsers logo](/assets/media/browsers.png?style=head)  
+![browsers logo](/assets/media/browsers.webp?style=head)  
 Останнім часом в браузерах з'являються деякі неочевидні можливості про які постійно забуваю, а хтось може й не знає.<!--more-->  
 #### Firefox
 Не так давно з'явився менеджер ресурсів, доступний за адресою **about:performance**, функціонал поки так собі, думаю буде розвиватися.

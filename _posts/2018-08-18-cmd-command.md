@@ -3,7 +3,7 @@ layout: post
 title: Командний рядок Windows. Деякі команди.
 category: [WINDOWS]
 ---
-![cmd logo](/assets/media/bash.png?style=head)  
+![cmd logo](/assets/media/bash.webp?style=head)  
 Набір корисних і дуже корисних команд, котрі забуваються в силу того що це Windows і вони рідко використовуються. Час від часу оновлюється.<!--more-->
 
 #### Підрахунок контрольної суми у powershell

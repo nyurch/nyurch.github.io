@@ -3,7 +3,7 @@ layout: post
 title: Jekyll. Приховані та неопубліковані пости.
 category: [WEB]
 ---
-![jekyll logo](/assets/media/jekyll.png?style=head)  
+![jekyll logo](/assets/media/jekyll.webp?style=head)  
 При необхідності приховати якусь давню і неактуальну публікацію без видалення із сервера чи при необхідності тимчасово<!--more--> приховати недороблену публікацію можна використовувати 2 методи:
 
 -  Тег **published** у шапці посту

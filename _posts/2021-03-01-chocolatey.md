@@ -3,7 +3,7 @@ layout: post
 title: Chocolatey. Створення власного пакету та локальний репозиторій.
 category: [SOFTWARE]
 ---
-![chocolatey logo](/assets/media/choco.png?style=head)  
+![chocolatey logo](/assets/media/choco.webp?style=head)  
 [Оновлення 01/03/2021](#ще-пара-костилів-до-шоколаду)  
 Ком'юніті репозиторій **Chocolatey** містить фактично все що треба, але в той же час для деякого чисто корпоративного чи рідкісного софту треба писати самому. В нульовому наближенні це робиться якось так...<!--more-->
 

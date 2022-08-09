@@ -3,7 +3,7 @@ layout: post
 title: Total Commander LP 9.1a
 category: [SOFTWARE]
 ---
-![tcm logo](/assets/media/tc-logo.png?style=head)  
+![tcm logo](/assets/media/tc-logo.webp?style=head)  
 На ***Windows*** без ***Total Commander*** як на машині без коліс. Біда в тому що він у базовій комплектації як машина з колесами, але без мотору. Тому своя персональна збірка - ідеальний варіант, тим більше що в найпростішому вигляді, без інсталятора й вибору варіантів установки, її може навіть шимпанзе із зоопарку зібрати.<!--more-->
 Отже інсталятор для x64 та x86 систем суміщено, розрядність системи автоматично визначається в процесі встановлення. На 32-розрядну систему ставиться 32-бітна версія, а на 64-розрядну - 32-бітна й 64-бітна(так як не всі плагіни ще мають 64-бітні версії). Є деякі костилі бо зараз трохи лінь заглиблюватися в програмуванні та ***Inno Setup***. Так зараз на x64-системі якщо запускати ***Notepad++*** з іконки у x86-версії ТС то отримаємо дулю, а сама іконка чомусь не промальовується. Головне що при запуску програми що відповідає розрядності системи багів не виявлено. Отже...
 **Тип інсталятора:** ***innosetup***.  
@@ -13,7 +13,7 @@ category: [SOFTWARE]
 - **додаткові набори колонок**: Відео, Аудіо, Програмні файли, Доступ і модифікація, Графіка, Статистика тек.  
 
 Скріншоти процесу встановлення та базовий:
-[![install tcm](/assets/media/install_tc-01.png?style=blog "install tcm")](/assets/media/install_tc-01.png "install tcm"){:target="_blank"}  
-[![install tcm](/assets/media/install_tc-02.png?style=blog "install tcm")](/assets/media/install_tc-02.png "install tcm"){:target="_blank"}  
-[![install tcm](/assets/media/install_tc-03.png?style=blog "install tcm")](/assets/media/install_tc-03.png "install tcm"){:target="_blank"}  
+[![install tcm](/assets/media/install_tc-01.webp?style=blog "install tcm")](/assets/media/install_tc-01.webp "install tcm"){:target="_blank"}  
+[![install tcm](/assets/media/install_tc-02.webp?style=blog "install tcm")](/assets/media/install_tc-02.webp "install tcm"){:target="_blank"}  
+[![install tcm](/assets/media/install_tc-03.webp?style=blog "install tcm")](/assets/media/install_tc-03.webp "install tcm"){:target="_blank"}  
 Забрати [тут](https://goo.gl/7xVLEC "збарегти TCM"){:target="_blank"}.

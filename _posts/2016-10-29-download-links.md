@@ -5,7 +5,7 @@ category: [SOFTWARE]
 ---
 Прямі лінки на завантаження софту котрий проблематично по-людськи скачати з офіційного сайту, а також лінки на деякий цікавий софт якого немає в офіційних джерелах типу репозиторіїв чи google play. <!--more-->
 
-![windows logo](/assets/media/windows-logo.png?style=head)  
+![windows logo](/assets/media/windows-logo.webp?style=head)  
 
 [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO "Windows 10"){:target="_blank"}.  
 [Adobe AIR](https://helpx.adobe.com/air/kb/archived-air-sdk-version.html "Adobe AIR"){:target="_blank"}.  
@@ -18,7 +18,7 @@ category: [SOFTWARE]
 [Windows 10 LTSB Updates](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=ltsb "Windows 10 LTSB Updates"){:target="_blank"}.
 
 
-![linux logo](/assets/media/linux-logo.png?style=head)
+![linux logo](/assets/media/linux-logo.webp?style=head)
 
 [HP Linux Imaging and Printing](https://developers.hp.com/hp-linux-imaging-and-printing/gethplip "HP Linux Imaging and Printing"){:target="_blank"}.  
 [Gis Weather](http://sourceforge.net/projects/gis-weather/ "Gis Weather"){:target="_blank"}.  
@@ -26,18 +26,18 @@ category: [SOFTWARE]
 [Cozy Audiobook Player](https://github.com/geigi/cozy "Cozy Audiobook Player"){:target="_blank"}.
 
 
-![android logo](/assets/media/android-logo.png?style=head)
+![android logo](/assets/media/android-logo.webp?style=head)
 
 [App&Game 4PDA](http://4pda.ru/forum/index.php?showtopic=275433 "App&Game 4PDA"){:target="_blank"}.  
 [LazyMediaPlus](http://4pda.ru/forum/index.php?showtopic=498766 "LazyMediaPlus"){:target="_blank"}.  
 [Open GApps](http://opengapps.org/#downloadsection ">Open GApps"){:target="_blank"}.
 
 
-![crossplatform logo](/assets/media/crossplatform.png?style=head)
+![crossplatform logo](/assets/media/crossplatform.webp?style=head)
 
 [Pingendo](http://pingendo.com/ "Pingendo"){:target="_blank"}.
 
 
-![virtualbox logo](/assets/media/virtualbox.png?style=head)
+![virtualbox logo](/assets/media/virtualbox.webp?style=head)
 
 [OSboxes](http://www.osboxes.org/virtualbox-images/ "OSboxes"){:target="_blank"}.

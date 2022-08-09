@@ -4,7 +4,7 @@ title: Командний рядок Linux. Деякі команди.
 category: [LINUX]
 ---
 
-![linux logo](/assets/media/bash.png?style=head)  
+![linux logo](/assets/media/bash.webp?style=head)  
 Набір корисних і дуже корисних команд, котрі в силу своєї довжини не завжди вміщаються в голові.<!--more-->
 
 #### Вивід топ-5 директорій

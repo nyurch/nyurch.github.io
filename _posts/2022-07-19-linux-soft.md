@@ -3,41 +3,41 @@ layout: post
 title: Нестандартний софт у Linux.
 category: [LINUX]
 ---
-![software logo](/assets/media/software.png?style=head)
+![software logo](/assets/media/software.webp?style=head)
 Список цікавого софту що не включається в базові збірки, використовується не так часто, а тому часом забуваються. Незаслужено.<!--more-->
 #### ***neofetch*** - інформація про систему в терміналі
 
-[![neofetch](/assets/media/neofetch.png?style=blog "neofetch")](/assets/media/neofetch.png "neofetch"){:target="_blank"}
+[![neofetch](/assets/media/neofetch.webp?style=blog "neofetch")](/assets/media/neofetch.webp "neofetch"){:target="_blank"}
 
 #### ***ncdu*** - термінальний аналізатор використання диску
 
-[![ncdu](/assets/media/ncdu.png?style=blog "ncdu")](/assets/media/ncdu.png "ncdu"){:target="_blank"}
+[![ncdu](/assets/media/ncdu.webp?style=blog "ncdu")](/assets/media/ncdu.webp "ncdu"){:target="_blank"}
 
 #### ***htop*** - термінальний монітор процесів
 
-[![htop](/assets/media/htop.png?style=blog "htop")](/assets/media/htop.png "htop"){:target="_blank"}
+[![htop](/assets/media/htop.webp?style=blog "htop")](/assets/media/htop.webp "htop"){:target="_blank"}
 
 #### [scrpy](https://github.com/Genymobile/scrcpy "scrpy"){:target="_blank"} - перегляд та контроль підключених по USB android-пристроїв
 
-[![scrpy](/assets/media/scrpy.jpg?style=blog "scrpy")](/assets/media/scrpy.jpg "scrpy"){:target="_blank"}
+[![scrpy](/assets/media/scrpy.webp?style=blog "scrpy")](/assets/media/scrpy.webp "scrpy"){:target="_blank"}
 
 #### [WoeUSB](https://github.com/slacka/WoeUSB "WoeUSB"){:target="_blank"} - створення завантажувальної флешки з Windows
 
-[![WoeUSB](/assets/media/woeusb.png?style=blog "WoeUSB")](/assets/media/woeusb.png "WoeUSB"){:target="_blank"}
+[![WoeUSB](/assets/media/woeusb.webp?style=blog "WoeUSB")](/assets/media/woeusb.webp "WoeUSB"){:target="_blank"}
 
 #### [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
-[![GTKStressTest](/assets/media/stresstest.png?style=blog "GTKStressTest")](/assets/media/stresstest.png "GTKStressTest"){:target="_blank"}
+[![GTKStressTest](/assets/media/stresstest.webp?style=blog "GTKStressTest")](/assets/media/stresstest.webp "GTKStressTest"){:target="_blank"}
 
-#### [![WoeUSB](/assets/media/woeusb.png?style=blog "WoeUSB")](/assets/media/WoeUSB.png "WoeUSB"){:target="_blank"}
+#### [![WoeUSB](/assets/media/woeusb.webp?style=blog "WoeUSB")](/assets/media/WoeUSB.webp "WoeUSB"){:target="_blank"}
 
 #### [GTKStressTest](https://flathub.org/apps/details/com.leinardi.gst "GTKStressTest"){:target="_blank"} - інформація про залізо, та стрес-тест
 
-[![GTKStressTest](/assets/media/stresstest.png?style=blog "GTKStressTest")](/assets/media/StressTest.png "GTKStressTest"){:target="_blank"}
+[![GTKStressTest](/assets/media/stresstest.webp?style=blog "GTKStressTest")](/assets/media/StressTest.webp "GTKStressTest"){:target="_blank"}
 
 #### [Tealdeer](https://github.com/dbrgn/tealdeer "Tealdeer"){:target="_blank"} - аналог **man** базується на прикладах
 
-[![Tealdeer](/assets/media/tealdeer.png?style=blog "Tealdeer")](/assets/media/tealdeer.png "Tealdeer"){:target="_blank"}
+[![Tealdeer](/assets/media/tealdeer.webp?style=blog "Tealdeer")](/assets/media/tealdeer.webp "Tealdeer"){:target="_blank"}
 
 #### ***smem*** - аналіз використання оперативної пам'яті
 {% highlight shell %}[11/06/2021 16:32] deimos@sol:~ $ smem -t -k -c pss -P firefox | tail -n 1
@@ -48,10 +48,10 @@ category: [LINUX]
   806.0M{% endhighlight %}
 Також можна вивести графічне представлення:
 {% highlight shell %}[11/06/2021 16:32] deimos@sol:~ $ smem --pie name -c pss{% endhighlight %}
-[![smem](/assets/media/smem.png?style=blog "smem")](/assets/media/smem.png "smem"){:target="_blank"}
+[![smem](/assets/media/smem.webp?style=blog "smem")](/assets/media/smem.webp "smem"){:target="_blank"}
 
 #### [duf](https://github.com/muesli/duf "duf"){:target="_blank"} - альтернатива класичним **du/df**
-[![duf](https://github.com/muesli/duf/raw/master/duf.png?style=blog "smem")](https://github.com/muesli/duf/raw/master/duf.png "duf"){:target="_blank"}
+[![duf](https://github.com/muesli/duf/raw/master/duf.webp?style=blog "smem")](https://github.com/muesli/duf/raw/master/duf.webp "duf"){:target="_blank"}
 
 #### [deb-get](https://github.com/wimpysworld/deb-get "deb-get"){:target="_blank"} - аналог **apt-get** для deb-файлів
 {% highlight shell %}[11/07/2022 16:32] deimos@sol:~ $ sudo apt install curl

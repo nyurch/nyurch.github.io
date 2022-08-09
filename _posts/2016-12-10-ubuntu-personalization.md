@@ -3,7 +3,7 @@ layout: post
 title: Створення власної збірки Ubuntu з блек-джеком та дівками.
 category: [LINUX]
 ---
-![ubuntu logo](/assets/media/ubuntu-logo.png?style=head)  
+![ubuntu logo](/assets/media/ubuntu-logo.webp?style=head)  
 Процес збирання власного дистрибутиву досить простий, очевидний і прекрасно розжований на [офіційній сторінці](https://help.ubuntu.com/community/LiveCDCustomization "LiveCDCustomization"){:target="_blank"}. Дана інструкція це фактично максимально спрощений переклад.<!--more-->
 При збиранні образ котрий збирається повинен за розрядністю співпадати з системою на якій проводиться збирання. Отже за порядком:
 
