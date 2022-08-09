@@ -4,7 +4,7 @@ title: Дещо про оптимізацію терміналу Ubuntu.
 category: [LINUX]
 ---
 
-![tilda logo](/assets/media/tilda.jpg?style=head)  
+![tilda logo](/assets/media/tilda.webp?style=head)  
 Однією з найбільших переваг **_unix-систем_** над **_Windows_** є наявність
 надзвичайно широкого спектру найрізноманітніших консольних команд, що
 дозволяють максимально просто й швидко виконувати повсякденні роботи не
