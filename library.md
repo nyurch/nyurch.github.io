@@ -15,7 +15,7 @@ title: Список на корисні ресурси
 [Netdata. A Real-Time Performance Monitoring Tool for Linux Systems.](https://github.com/netdata/netdata "Netdata. A Real-Time Performance Monitoring Tool for Linux Systems"){:target="_blank"}  
 [OMG! Ubuntu! An online Ubuntu magazine.](http://www.omgubuntu.co.uk/ "OMG! Ubuntu! An online Ubuntu magazine"){:target="_blank"}  
 [Techmint. Linux Howto's Guide.](https://www.tecmint.com/ "Techmint. Linux Howto's Guide"){:target="_blank"}  
-[Web Upd8. Ubuntu/Linux news and application reviews.](http://www.webupd8.org/ "Web Upd8. Ubuntu/Linux news and application reviews"){:target="_blank"}  
+[Web Upd8. Ubuntu/Linux news and application reviews.](http://www.webupd8.org/ "Web Upd8. Ubuntu/Linux news and application reviews"){:target="_blank"} _Мертвий з 2-17го._  
 [Koodo Reader. All-in-one ebook reader.](https://koodo.960960.xyz/en "Koodo Reader. All-in-one ebook reader"){:target="_blank"}  
 
 #### Web
