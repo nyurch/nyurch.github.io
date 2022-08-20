@@ -3,7 +3,7 @@ layout: post
 title: Шпаргалка по iptables.
 category: [LINUX]
 ---
-![linux logo](/assets/media/firewall.png?style=head)  
+![linux logo](/assets/media/firewall.webp?style=head)  
 Найпростіший конфіг та шпаргалка по ***iptables***.<!--more--> Інструкція частково дублюється в коментарях скрипта.
 1. Перевіряємо наявність, при необхідності встановлюємо _**iptables-persistent**_, після встановлення згенеруються 2 файла з правилами що будуть примінятися при старті системи - _/etc/iptables/rules.v4_ та _/etc/iptables/rules.v6_, для дистрибутивів що не ростуть з ***debian*** ще можливо _**iptables-services**_, щоб можна було вмикати/вимикати/перезавантажувати _**iptables.service**_
 2. Зупиняємо та видаляємо з автозавантаження надбудови над ***iptables***, наприклад ***ufw*** чи ***firewalld***
