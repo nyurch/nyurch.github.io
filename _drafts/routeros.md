@@ -5,7 +5,7 @@ title: MikroTik. RouterOS.
 category: [NETWORK]
 ---
 
-![Markdown logo](/assets/media/mikrotik.png?style=head)  
+![Markdown logo](/assets/media/mikrotik.webp?style=head)  
 Шпаргалка по RouterOS.<!--more-->  
 
 #### Прокидаємо порт з інтерфейсу WAN на вказаний ip внутрішньої мережі.
