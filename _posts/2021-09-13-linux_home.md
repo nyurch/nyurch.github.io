@@ -181,6 +181,10 @@ ${font Roboto:pixelsize=23}${alignr} WD 500GB: ${color0}${execi 120 smartctl -A 
 [Tela grub theme](https://github.com/vinceliuice/grub2-themes "Tela grub theme"){:target="_blank"}  
 [![Tela grub theme](/assets/media/grub-theme-tela.webp?style=blog "Tela grub theme")](/assets/media/grub-theme-tela.webp "Tela grub theme"){:target="\_blank"}  
 
+#### Звуки
+В **xfce** звукова тема досить обмежена, та й та зразу вимкнена. Для маніпуляцій треба **xfconf** та **Settings Manager**. В другому вмикаємо звуки _Appearance/Settings/Event Sounds_. В першому у гілці _xsettings/Net_ створюємо параметр **SoundThemeName** типу **String** і присвоюємо йому значення яке відповідає імені директорії звукової теми що знаходиться в _/usr/share/sounds_.  
+Щоб додати звук при вході в систему треба додати в автозавантаження ``canberra-gtk-play -i desktop-login``. Зі звуком виходу/вимкнення таке не проходить бо служба вимикається раніше ніж програється звук.
+
 #### Костилі
 - Світла тема дає контури при використанні ***Compiz*** і не тільки. Поки ставимо **Mint-Y-***
 - У ***Firefox*** щоб заховати **title bar** переходимо в налаштування панелі інструментів і знімаємо галочку зліва внизу.
