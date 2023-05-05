@@ -10,9 +10,9 @@ category: [LINUX]
 #### Вивід топ-5 директорій
 
 На прикладі деректорії _~/_:
-  {% highlight shell %}du -hs ~/_ | sort -rh | head -5{% endhighlight %}
+  {% highlight shell %}du -h ~/ | sort -rh | head -5{% endhighlight %}
 Вивід топ-5 директорій включаючи піддиректорії:
-  {% highlight shell %}du -hS ~/_ | sort -rh | head -5{% endhighlight %}
+  {% highlight shell %}du -hS ~/ | sort -rh | head -5{% endhighlight %}
 Вивід топ-5 файлів:
   {% highlight shell %}find ~/\* -type f -exec du -Sh {} + | sort -rh | head -n 5{% endhighlight %}
 
