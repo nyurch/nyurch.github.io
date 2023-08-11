@@ -6,7 +6,7 @@ category: [LINUX]
 ![linux logo](/assets/media/xfce.svg?style=head)  
 Linux Mint XFCE з нуля до домашнього використання на реальному прикладі. Зібрав до купи бо є пара моментів.<!--more-->  
 #### Доставляємо очевидний і не дуже софт
-{% highlight shell %}sudo apt install clipit conky-all faenza-icon-theme git gnome-games gxneur mc pidgin samba speedtest-cli spotify-client steam telegram-desktop tilda tldr thunar-gtkhash virtualbox wine{% endhighlight %}
+{% highlight shell %}sudo apt install diodon conky-all faenza-icon-theme git gnome-games searchmonkey mc samba speedtest-cli spotify-client steam telegram-desktop tilda tldr thunar-gtkhash virtualbox wine{% endhighlight %}
 
 #### Блог
 - Ставлю ***Jekyll***:
